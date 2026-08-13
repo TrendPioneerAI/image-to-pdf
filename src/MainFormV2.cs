@@ -348,6 +348,1374 @@ namespace LocalImageToPdf
             Close();
         }
 
-        private void AddFieldLabel(string text, int left, int top)×­|êÚ$z{-®éÜj×Ğ ¢&—fFRÆ—7CÄ–ÖvT—FVÓâvWE&Wf–Wt÷&FW"‚¢°¢Æ—7CÄ–ÖvT—FVÓâf—6–&ÆRÒæWrÆ—7CÄ–ÖvT—FVÓâ‚“°¢Æ—7CÄ–ÖvT—FVÓâ&VÖ–æ–ærÒæWrÆ—7CÄ–ÖvT—FVÓâ‚“°¢&V7FævÆRf–Ww÷'BÒö6&G2ä6Æ–VçE&V7FævÆS°¢f÷&V6‚„–ÖvT—FVÒ—FVÒ–âö—FV×2¢°¢ÖöFW&ä–ÖvT6&B6&C°¢–b…ö6&DÖåG'”vWEfÇVR†—FVÒÂ÷WB6&B’bb6&Bä&÷VæG2ä–çFW'6V7G5v—F‚‡f–Ww÷'B’’f—6–&ÆRäFB†—FVÒ“°¢VÇ6R&VÖ–æ–æräFB†—FVÒ“°¢Ğ¢f—6–&ÆRäFE&ævR‡&VÖ–æ–ær“°¢&WGW&âf—6–&ÆS°¢Ğ ¢&—fFRfö–B6æ6VÅ&Wf–WuVWVR‚¢°¢÷&Wf–WtvVæW&F–öâ²³°¢–b…÷&Wf–Wt6æ6VÆÆF–öâÓÒçVÆÂ’&WGW&ã°¢G'’²÷&Wf–Wt6æ6VÆÆF–öâä6æ6VÂ‚“²Ò6F6‚²Ğ¢÷&Wf–Wt6æ6VÆÆF–öâäF—7÷6R‚“°¢÷&Wf–Wt6æ6VÆÆF–öâÒçVÆÃ°¢Ğ ¢&—fFRfö–B6÷'D—FV×2…6÷'DÖöFRÖöFR¢°¢æGW&Ä6ö×&W"æGW&ÂÒæWræGW&Ä6ö×&W"‚“°¢ö—FV×2å6÷'B†FVÆVvFR„–ÖvT—FVÒÆVgBÂ–ÖvT—FVÒ&–v‡B¢°¢–çB&W7VÇBÒ6ö×&T'•6÷'DÖöFR†ÆVgBÂ&–v‡BÂÖöFRÂæGW&Â“°¢–b‡&W7VÇBÒ’&WGW&â&W7VÇC°¢&WGW&âÆVgBäFFVD÷&FW"ä6ö×&UFò‡&–v‡BäFFVD÷&FW"“°¢Ò“°¢&V'V–ÆD6&D6öçG&öÇ2‚“°¢Ğ ¢&—fFR7FF–2–çB6ö×&T'•6÷'DÖöFR„–ÖvT—FVÒÆVgBÂ–ÖvT—FVÒ&–v‡BÂ6÷'DÖöFRÖöFRÂæGW&Ä6ö×&W"æGW&Â¢°¢–b†ÖöFRÓÒ6÷'DÖöFRäæÖT66VæF–ær’&WGW&âæGW&Âä6ö×&R†ÆVgBÂ&–v‡B“°¢–b†ÖöFRÓÒ6÷'DÖöFRäæÖTFW66VæF–ær’&WGW&âæGW&Âä6ö×&R‡&–v‡BÂÆVgB“°¢–b†ÖöFRÓÒ6÷'DÖöFRäFFVD66VæF–ær’&WGW&âÆVgBäFFVD÷&FW"ä6ö×&UFò‡&–v‡BäFFVD÷&FW"“°¢–b†ÖöFRÓÒ6÷'DÖöFRäFFVDFW66VæF–ær’&WGW&â&–v‡BäFFVD÷&FW"ä6ö×&UFò†ÆVgBäFFVD÷&FW"“°¢f–ÆT–æfòÒG'”vWDf–ÆT–æfò†ÆVgBåF‚“°¢f–ÆT–æfò"ÒG'”vWDf–ÆT–æfò‡&–v‡BåF‚“°¢–b†ÓÒçVÆÂbb"ÒçVÆÂ’&WGW&â°¢–b†ÒçVÆÂbb"ÓÒçVÆÂ’&WGW&âÓ°¢–b†ÓÒçVÆÂ’&WGW&â°¢–b†ÖöFRÓÒ6÷'DÖöFRå6—¦T66VæF–ær’&WGW&âäÆVæwF‚ä6ö×&UFò†"äÆVæwF‚“°¢–b†ÖöFRÓÒ6÷'DÖöFRå6—¦TFW66VæF–ær’&WGW&â"äÆVæwF‚ä6ö×&UFò†äÆVæwF‚“°¢–b†ÖöFRÓÒ6÷'DÖöFRäÖöF–f–VD66VæF–ær’&WGW&âäÆ7Ew&—FUF–ÖRä6ö×&UFò†"äÆ7Ew&—FUF–ÖR“°¢–b†ÖöFRÓÒ6÷'DÖöFRäÖöF–f–VDFW66VæF–ær’&WGW&â"äÆ7Ew&—FUF–ÖRä6ö×&UFò†äÆ7Ew&—FUF–ÖR“°¢&WGW&â°¢Ğ ¢&—fFR7FF–2f–ÆT–æfòG'”vWDf–ÆT–æfò‡7G&–ærF‚¢°¢G'’²&WGW&âf–ÆRäW†—7G2‡F‚’òæWrf–ÆT–æfò‡F‚’¢çVÆÃ²Ğ¢6F6‚²&WGW&âçVÆÃ²Ğ¢Ğ ¢&—fFRfö–BW‡÷'D6Æ–6¶VB†ö&¦V7B6VæFW"ÂWfVçD&w2R¢°¢–b…öW‡÷'D6æ6VÆÆF–öâÒçVÆÂ’&WGW&ã°¢–b…ö—FV×2ä6÷VçBÓÒ¢°¢ÖW76vT&÷‚å6†÷r‡F†—2Â.Šû~XXk{¾XªY»îx˜~8""Â.izk9^ZûÎX{¢"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâä–æf÷&ÖF–öâ“°¢&WGW&ã°¢Ğ¢vFW&Ö&´÷F–öç2vFW&Ö&²ÒvWEvFW&Ö&´÷F–öç2‚“°¢–b‡vFW&Ö&²äÖöFRÓÒvFW&Ö&´ÖöFRä7W7FöÒbb7G&–ærä—4çVÆÄ÷%v†—FU76R‡vFW&Ö&²åFW‡B’¢°¢ÖW76vT&÷‚å6†÷r‡F†—2Â.ˆz®Zé®K˜kNXÛih~ZÙ~KˆŞˆ;ŞK‹®z›®8""Â.izk9^ZûÎX{¢"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâä–æf÷&ÖF–öâ“°¢&WGW&ã°¢Ğ¢Æ—7CÇ7G&–æsâVæf–Æ&ÆRÒö—FV×2åv†W&R†FVÆVvFR„–ÖvT—FVÒ—FVÒ’²&WGW&âf–ÆRäW†—7G2†—FVÒåF‚’ÇÂ7G&–ærä—4çVÆÄ÷%v†—FU76R†—FVÒå&Wf–WtW'&÷"“²Ò’å6VÆV7B†FVÆVvFR„–ÖvT—FVÒ—FVÒ’²&WGW&â—FVÒäf–ÆTæÖS²Ò’åFôÆ—7B‚“°¢–b‡Væf–Æ&ÆRä6÷VçBâ¢°¢ÖW76vT&÷‚å6†÷r‡F†—2Â.Kº^Kˆ¾Y»îx˜~KˆŞXúşyJûÈÎŠû~˜xŞikk{¾XªûÉ¥Ç%ÆåÇ%Æâ"²7G&–ærä¦ö–â‚%Ç%Æâ"ÂVæf–Æ&ÆRåFô'&’‚’’Â.izk9^ZûÎX{¢"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâåv&æ–ær“°¢&WGW&ã°¢Ğ ¢7G&–ærF&vWC°¢7G&–ærföÆFW#°¢&ööÂW‡Æ–6—D÷fW'w&—FS°¢G'¢°¢–b‚&W6öÇfT÷WGWB†÷WBF&vWBÂ÷WBföÆFW"Â÷WBW‡Æ–6—D÷fW'w&—FR’’&WGW&ã°¢Ğ¢6F6‚„W†6WF–öâW'&÷"¢°¢ÖW76vT&÷‚å6†÷r‡F†—2ÂW'&÷"äÖW76vRÂ.‹é>X{®‹zş[èNiziX‚"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâåv&æ–ær“°¢&WGW&ã°¢Ğ ¢W‡÷'D÷F–öç2÷F–öç2ÒæWrW‡÷'D÷F–öç0¢°¢W%6—¦RÒvWEW%6—¦R‚’À¢÷&–VçFF–öâÒö÷&–VçFF–öâÀ¢WFõ&÷FFRÒöWFõ&÷FFT6†V6²ä6†V6¶VBÀ¢Ö&v–äÖÒÒvWDÖ&v–äÖÒ‚’À¢VÆ—G’Ò…VÆ—G•&W6WB”ÖF‚äÖ‚ƒÂ÷VÆ—G”6öÖ&òå6VÆV7FVD–æFW‚’À¢ÖöFRÒöW‡÷'DÖöFRÀ¢&6TæÖRÒvWDÖW&vT&6TæÖR‚’À¢vFW&Ö&²ÒvFW&Ö&²À¢F&vWDÖöFRÒ÷F&vWDÖöFP¢Ó°¢Æ—7CÄ–ÖvU6æ6†÷Câ6æ6†÷G2Òö—FV×2å6VÆV7B†FVÆVvFR„–ÖvT—FVÒ—FVÒ¢°¢&WGW&âæWr–ÖvU6æ6†÷B²F‚Ò—FVÒåF‚ÂÖçVÅ&÷FF–öâÒ—FVÒäÖçVÅ&÷FF–öâÂ÷WGWDæÖRÒ—FVÒä÷WGWDæÖRÓ°¢Ò’åFôÆ—7B‚“° ¢öW‡÷'D6æ6VÆÆF–öâÒæWr6æ6VÆÆF–öåFö¶Vå6÷W&6R‚“°¢6æ6VÆÆF–öåFö¶VâFö¶VâÒöW‡÷'D6æ6VÆÆF–öâåFö¶Vã°¢6WDW‡÷'E7FFR‡G'VRÂ.jÚ>YÊXxnZH~ZûÎX{®(
-b"“°¢F6²å'Vâ†FVÆVvFP¢°¢G'¢°¢7F–öãÆ–çCâ&öw&W72ÒFVÆVvFR†–çBfÇVR¢°¢G'’²&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFR²÷7FGW4Æ&VÂåFW‡BÒ.jÚ>YÊZûÎX{¢"²fÇVRåFõ7G&–ær‚’²"R#²Ò“²Ğ¢6F6‚²Ğ¢Ó°¢–b†÷F–öç2äÖöFRÓÒW‡÷'DÖöFRäÖW&vR¢FdW‡÷'FW"äW‡÷'DÖW&vVB‡F&vWBÂ6æ6†÷G2Â÷F–öç2Â&öw&W72ÂFö¶Vâ“°¢VÇ6P¢FdW‡÷'FW"äW‡÷'E6W&FR†föÆFW"Â6æ6†÷G2Â÷F–öç2Â&öw&W72ÂFö¶Vâ“°¢–b„—4F—7÷6VB’&WGW&ã°¢&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFP¢°¢6fU7V66W76gVÄ÷WGWE6WGF–æw2†÷F–öç2äÖöFRÓÒW‡÷'DÖöFRäÖW&vRòF‚ävWDF—&V7F÷'”æÖR‡F&vWB’¢föÆFW"“°¢÷7FGW4Æ&VÂåFW‡BÒ.ZûÎX{®ZèÎh‰#°¢ÖW76vT&÷‚å6†÷r‡F†—2Â%Db[{.h‰X©şZûÎX{®X‹ûÉ¥Ç%Æâ"²†÷F–öç2äÖöFRÓÒW‡÷'DÖöFRäÖW&vRòF&vWB¢föÆFW"’Â.ZûÎX{®ZèÎh‰"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâä–æf÷&ÖF–öâ“°¢Ò“°¢Ğ¢6F6‚„÷W&F–öä6æ6VÆVDW†6WF–öâ¢°¢–b‚—4F—7÷6VB’G'’²&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFR²÷7FGW4Æ&VÂåFW‡BÒ.[{.XùnkhZûÎX{¢#²Ò“²Ò6F6‚²Ğ¢Ğ¢6F6‚„W†6WF–öâW'&÷"¢°¢–b‚—4F—7÷6VB’G'’²&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFR²÷7FGW4Æ&VÂåFW‡BÒ.ZûÎX{®ZK‹JR#²ÖW76vT&÷‚å6†÷r‡F†—2ÂW'&÷"äÖW76vRÂ.ZûÎX{®ZK‹JR"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâäW'&÷"“²Ò“²Ò6F6‚²Ğ¢Ğ¢f–æÆÇ¢°¢–b‚—4F—7÷6VB’G'’²&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFR²6WDW‡÷'E7FFR†fÇ6RÂ÷7FGW4Æ&VÂåFW‡B“²Ò“²Ò6F6‚²Ğ¢Ğ¢Ò“°¢Ğ ¢&—fFR&ööÂ&W6öÇfT÷WGWB†÷WB7G&–ærF&vWBÂ÷WB7G&–ærföÆFW"Â÷WB&ööÂW‡Æ–6—D÷fW'w&—FR¢°¢F&vWBÒçVÆÃ°¢föÆFW"ÒçVÆÃ°¢W‡Æ–6—D÷fW'w&—FRÒfÇ6S°¢7G&–ær&rÒö÷WGWEF„&÷‚åFW‡BåG&–Ò‚“°¢–b…7G&–ærä—4çVÆÄ÷%v†—FU76R‡&r’¢°¢'&÷w6T÷WGWB‚“°¢&rÒö÷WGWEF„&÷‚åFW‡BåG&–Ò‚“°¢–b…7G&–ærä—4çVÆÄ÷%v†—FU76R‡&r’’&WGW&âfÇ6S°¢Ğ¢–b…öW‡÷'DÖöFRÓÒW‡÷'DÖöFRå6W&FRÇÂ÷F&vWDÖöFRÓÒ÷WGWEF&vWDÖöFRäföÆFW"¢°¢föÆFW"ÒF‚ävWDgVÆÅF‚‡&r“°¢F—&V7F÷'’ä7&VFTF—&V7F÷'’†föÆFW"“°¢–b…öW‡÷'DÖöFRÓÒW‡÷'DÖöFRäÖW&vR¢F&vWBÒFdW‡÷'FW"ävWEVæ—VUF‚†föÆFW"ÂVç7W&UFdW‡FVç6–öâ…FdW‡÷'FW"å6æ—F—¦Tf–ÆTæÖR„vWDÖW&vT&6TæÖR‚’’’“°¢Ğ¢VÇ6P¢°¢F&vWBÒF‚ävWDgVÆÅF‚„Vç7W&UFdW‡FVç6–öâ‡&r’“°¢7G&–ærF—&V7F÷'’ÒF‚ävWDF—&V7F÷'”æÖR‡F&vWB“°¢–b…7G&–ærä—4çVÆÄ÷%v†—FU76R†F—&V7F÷'’’’F‡&÷ræWr–çfÆ–D÷W&F–öäW†6WF–öâ‚.Šû~˜hºiÈiXy¨BDbKùŞZÙKØŞ{Úî8""“°¢F—&V7F÷'’ä7&VFTF—&V7F÷'’†F—&V7F÷'’“°¢–b„f–ÆRäW†—7G2‡F&vWB’¢°¢–b„ÖW76vT&÷‚å6†÷r‡F†—2Â.ih~K»n[{.{¸şZÙYÊûÈÎiŠşY
-ni»şhÚ.ûÉõÇ%ÆåÇ%Æâ"²F&vWBÂ.zîŠêNi»şhÚ""ÂÖW76vT&÷„'WGFöç2å–W4æòÂÖW76vT&÷„–6öâåVW7F–öâ’ÒF–Æöu&W7VÇBå–W2¢&WGW&âfÇ6S°¢W‡Æ–6—D÷fW'w&—FRÒG'VS°¢Ğ¢Ğ¢&WGW&âG'VS°¢Ğ ¢&—fFRfö–B6fU7V66W76gVÄ÷WGWE6WGF–æw2‡7G&–ærF—&V7F÷'’¢°¢G'¢°¢÷6WGF–æw2äÆ7D÷WGWDF—&V7F÷'’Ò7G&–ærä—4çVÆÄ÷%v†—FU76R†F—&V7F÷'’’òVçf—&öæÖVçBävWDföÆFW%F‚„Vçf—&öæÖVçBå7V6–ÄföÆFW"ä×”Fö7VÖVçG2’¢F—&V7F÷'“°¢÷6WGF–æw2äÆ7EF&vWDÖöFRÒ÷F&vWDÖöFS°¢6WGF–æw57F÷&Rå6fR…÷6WGF–æw2“°¢Ğ¢6F6‚²Ğ¢Ğ ¢&—fFRfö–B6WDW‡÷'E7FFR†&ööÂW‡÷'F–ærÂ7G&–ær7FGW2¢°¢öW‡÷'D'WGFöâäVæ&ÆVBÒW‡÷'F–æs°¢ö6æ6VÄ'WGFöâåf—6–&ÆRÒW‡÷'F–æs°¢÷7FGW4Æ&VÂåFW‡BÒ7FGW3°¢W6Uv—D7W'6÷"ÒW‡÷'F–æs°¢–b‚W‡÷'F–ær¢°¢W6Uv—D7W'6÷"ÒfÇ6S°¢–b…öW‡÷'D6æ6VÆÆF–öâÒçVÆÂ¢°¢öW‡÷'D6æ6VÆÆF–öâäF—7÷6R‚“°¢öW‡÷'D6æ6VÆÆF–öâÒçVÆÃ°¢Ğ¢Ğ¢Ğ ¢&—fFRW%6—¦T¶–æBvWEW%6—¦R‚¢°¢&WGW&â…W%6—¦T¶–æB”ÖF‚äÖ‚ƒÂÖF‚äÖ–â…W%6—¦W2äF—7Æ”æÖW2äÆVæwF‚ÒÂ÷W$6öÖ&òå6VÆV7FVD–æFW‚’“°¢Ğ ¢&—fFR–çBvWDÖ&v–äÖÒ‚¢°¢&WGW&âöÖ&v–ä6öÖ&òå6VÆV7FVD–æFW‚ÓÒò¢…öÖ&v–ä6öÖ&òå6VÆV7FVD–æFW‚ÓÒòR¢“°¢Ğ ¢&—fFR7G&–ærvWDÖW&vT&6TæÖR‚¢°¢7G&–ærfÇVRÒöÖW&vTæÖT&÷‚ÓÒçVÆÂò7G&–æräV×G’¢öÖW&vTæÖT&÷‚åFW‡BåG&–Ò‚“°¢–b‡fÇVRäVæG5v—F‚‚"çFb"Â7G&–æt6ö×&—6öâä÷&F–æÄ–væ÷&T66R’’fÇVRÒfÇVRå7V'7G&–ærƒÂfÇVRäÆVæwF‚ÒB“°¢&WGW&â7G&–ærä—4çVÆÄ÷%v†—FU76R‡fÇVR’òFVfVÇDÖW&vTæÖR‚’¢fÇVS°¢Ğ ¢&—fFR7FF–27G&–ærFVfVÇDÖW&vTæÖR‚¢°¢&WGW&â.Y»îx˜~Y[›eò"²FFUF–ÖRäæ÷råFõ7G&–ær‚'———”ÔÖFEô„†ÖÒ"“°¢Ğ ¢&—fFR7FF–27G&–ærVç7W&UFdW‡FVç6–öâ‡7G&–ærfÇVR¢°¢&WGW&âfÇVRäVæG5v—F‚‚"çFb"Â7G&–æt6ö×&—6öâä÷&F–æÄ–væ÷&T66R’òfÇVR¢fÇVR²"çFb#°¢Ğ ¢&—fFR7FF–27G&–ær6fTF—&V7F÷'”æÖR‡7G&–ærfÇVR¢°¢G'’²&WGW&âF‚ävWDF—&V7F÷'”æÖR‡fÇVR“²Ğ¢6F6‚²&WGW&âçVÆÃ²Ğ¢Ğ ¢&—fFR7FF–2fö–BvWEvU—†VÇ2…W%6—¦T¶–æBW"ÂvT÷&–VçFF–öâ÷&–VçFF–öâÂ–çBÆöæu6–FRÂ÷WB–çBv–GF‚Â÷WB–çB†V–v‡B¢°¢fÆöBW%v–GF‚ÒW%6—¦W2ävWEv–GF„ÖÒ‡W"“°¢fÆöBW$†V–v‡BÒW%6—¦W2ävWD†V–v‡DÖÒ‡W"“°¢–b†÷&–VçFF–öâÓÒvT÷&–VçFF–öâäÆæG66R¢°¢fÆöB7vÒW%v–GFƒ°¢W%v–GF‚ÒW$†V–v‡C°¢W$†V–v‡BÒ7v°¢Ğ¢–b‡W%v–GF‚ãÒW$†V–v‡B¢°¢v–GF‚ÒÆöæu6–FS°¢†V–v‡BÒÖF‚äÖ‚ƒÂ†–çB”ÖF‚å&÷VæB†Æöæu6–FR¢W$†V–v‡BòW%v–GF‚’“°¢Ğ¢VÇ6P¢°¢†V–v‡BÒÆöæu6–FS°¢v–GF‚ÒÖF‚äÖ‚ƒÂ†–çB”ÖF‚å&÷VæB†Æöæu6–FR¢W%v–GF‚òW$†V–v‡B’“°¢Ğ¢Ğ ¢&—fFRfö–BWFFT6÷VçB‚¢°¢–b…ö6÷VçDÆ&VÂÒçVÆÂ’ö6÷VçDÆ&VÂåFW‡BÒ.X["²ö—FV×2ä6÷VçBåFõ7G&–ær‚’²"šR#°¢–b…÷7FGW4Æ&VÂÒçVÆÂbböW‡÷'D6æ6VÆÆF–öâÓÒçVÆÂ¢÷7FGW4Æ&VÂåFW‡BÒö—FV×2ä6÷VçBÓÒò.h¹nXZ^Y»îx˜~[ÈZx¾‹ÚÎhÚ""¢.[{.XxnZHr"²ö—FV×2ä6÷VçBåFõ7G&–ær‚’²"[ÊY»îx˜r#°¢Ğ ¢&—fFRfö–BVæ&ÆTG&÷&V7W'6—fR„6öçG&öÂ6öçG&öÂ¢°¢–b†6öçG&öÂÓÒçVÆÂ’&WGW&ã°¢6öçG&öÂäÆÆ÷tG&÷ÒG'VS°¢–b†6öçG&öÂÒF†—2bb6öçG&öÂÒö6&G2¢°¢6öçG&öÂäG&tVçFW"³Ò†æFÆTG&tVçFW#°¢6öçG&öÂäG&t÷fW"³Ò†æFÆTG&t÷fW#°¢6öçG&öÂäG&tG&÷³Ò†æFÆTG&tG&÷°¢Ğ¢f÷&V6‚„6öçG&öÂ6†–ÆB–â6öçG&öÂä6öçG&öÇ2’Væ&ÆTG&÷&V7W'6—fR†6†–ÆB“°¢Ğ ¢&—fFRfö–B†æFÆTG&tVçFW"†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢–b†RäFFävWDFF&W6VçB„FFf÷&ÖG2äf–ÆTG&÷’’RäVffV7BÒG&tG&÷VffV7G2ä6÷“°¢VÇ6R–b†RäFFävWDFF&W6VçB‡G—Vöb„–ÖvT—FVÒ’’’RäVffV7BÒG&tG&÷VffV7G2äÖ÷fS°¢VÇ6RRäVffV7BÒG&tG&÷VffV7G2äæöæS°¢Ğ ¢&—fFRfö–B†æFÆTG&t÷fW"†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢†æFÆTG&tVçFW"‡6VæFW"ÂR“°¢Ğ ¢&—fFRfö–B†æFÆTG&tG&÷†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢7G&–æuµÒF‡2ÒRäFFävWDFF„FFf÷&ÖG2äf–ÆTG&÷’27G&–æuµÓ°¢–b‡F‡2ÒçVÆÂ’FD–çWG2‡F‡2“°¢VÇ6R–b†RäFFävWDFF&W6VçB‡G—Vöb„–ÖvT—FVÒ’’’6&G4G&tG&÷…ö6&G2ÂR“°¢Ğ ¢&—fFRfö–B6&G4G&tG&÷†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢7G&–æuµÒF‡2ÒRäFFävWDFF„FFf÷&ÖG2äf–ÆTG&÷’27G&–æuµÓ°¢–b‡F‡2ÒçVÆÂ¢°¢FD–çWG2‡F‡2“°¢&WGW&ã°¢Ğ¢–ÖvT—FVÒ—FVÒÒRäFFävWDFF‡G—Vöb„–ÖvT—FVÒ’’2–ÖvT—FVÓ°¢–b†—FVÒÓÒçVÆÂ’&WGW&ã°¢ö–çBÆö6F–öâÒö6&G2åö–çEFô6Æ–VçB†æWrö–çB†Rå‚ÂRå’’“°¢–çBF&vWD–æFW‚Òö—FV×2ä6÷VçC°¢f÷"†–çB–æFW‚Ò²–æFW‚Âö6&G2ä6öçG&öÇ2ä6÷VçC²–æFW‚²²¢°¢–b…ö6&G2ä6öçG&öÇ5¶–æFW…Òä&÷VæG2ä6öçF–ç2†Æö6F–öâ’’²F&vWD–æFW‚Ò–æFWƒ²'&V³²Ğ¢Ğ¢–çB6÷W&6T–æFW‚Òö—FV×2ä–æFW„öb†—FVÒ“°¢–b‡6÷W&6T–æFW‚Â’&WGW&ã°¢ö—FV×2å&VÖ÷fTB‡6÷W&6T–æFW‚“°¢–b‡6÷W&6T–æFW‚ÂF&vWD–æFW‚’F&vWD–æFW‚ÒÓ°¢F&vWD–æFW‚ÒÖF‚äÖ‚ƒÂÖF‚äÖ–â‡F&vWD–æFW‚Âö—FV×2ä6÷VçB’“°¢ö—FV×2ä–ç6W'B‡F&vWD–æFW‚Â—FVÒ“°¢&V'V–ÆD6&D6öçG&öÇ2‚“°¢Ğ ¢&÷FV7FVB÷fW'&–FRfö–Böäf÷&Ô6Æ÷6–ær„f÷&Ô6Æ÷6–ætWfVçD&w2R¢°¢–b…öW‡÷'D6æ6VÆÆF–öâÒçVÆÂ’öW‡÷'D6æ6VÆÆF–öâä6æ6VÂ‚“°¢6æ6VÅ&Wf–WuVWVR‚“°¢f÷&V6‚„ÖöFW&ä–ÖvT6&B6&B–âö6&DÖåfÇVW2’6&Bå&VÆV6U&Wf–Wu&VfW&Væ6R‚“°¢f÷&V6‚„–ÖvT—FVÒ—FVÒ–âö—FV×2’—FVÒäF—7÷6U&Wf–Wr‚“°¢&6Räöäf÷&Ô6Æ÷6–ær†R“°¢Ğ¢Ğ§Ğ 
+        private void AddFieldLabel(string text, int left, int top)
+        {
+            Controls.Add(new Label { Left = left, Top = top, Width = 145, Height = 25, Text = text, ForeColor = UiTheme.Text });
+        }
+
+        private static ComboBox MakeCombo(int left, int top, int width, object[] items)
+        {
+            ComboBox combo = new ComboBox { Left = left, Top = top, Width = width, DropDownStyle = ComboBoxStyle.DropDownList, FlatStyle = FlatStyle.Flat };
+            combo.Items.AddRange(items);
+            return combo;
+        }
+    }
+
+    internal sealed class SettingsForm : Form
+    {
+        private const string ProjectUrl = "https://github.com/TrendPioneerAI/image-to-pdf";
+        private readonly Label _sendToState;
+
+        public SettingsForm(Icon icon)
+        {
+            Text = "è®¾ç½®ä¸å…³äº";
+            Icon = icon;
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            ClientSize = new Size(560, 490);
+            BackColor = UiTheme.Surface;
+            Font = UiTheme.Font(9.5f, FontStyle.Regular);
+
+            Label title = new Label { Left = 30, Top = 24, Width = 470, Height = 32, Text = "è®¾ç½®", Font = UiTheme.Font(15f, FontStyle.Bold), ForeColor = UiTheme.Text };
+            Label sendTitle = new Label { Left = 30, Top = 79, Width = 470, Height = 28, Text = "å½“å‰ç”¨æˆ·â€œå‘é€åˆ°â€å³é”®å…¥å£", Font = UiTheme.Font(11f, FontStyle.Bold), ForeColor = UiTheme.Text };
+            Label sendHelper = new Label { Left = 30, Top = 110, Width = 470, Height = 42, Text = "è½¯ä»¶ä¸ä¼šè‡ªåŠ¨ä¿®æ”¹ç³»ç»Ÿèœå•ã€‚åªæœ‰ç‚¹å‡»ä¸‹æ–¹æŒ‰é’®æ—¶æ‰ä¼šæ·»åŠ æˆ–ç§»é™¤å…¥å£ã€‚", ForeColor = UiTheme.Muted };
+            _sendToState = new Label { Left = 30, Top = 156, Width = 470, Height = 25, ForeColor = UiTheme.Muted };
+            Button add = UiTheme.Button("æ·»åŠ åˆ°â€œå‘é€åˆ°â€", 160, 40);
+            add.Left = 30;
+            add.Top = 189;
+            Button remove = UiTheme.Button("ç§»é™¤å³é”®å…¥å£", 150, 40);
+            remove.Left = 200;
+            remove.Top = 189;
+            add.Click += delegate { ChangeSendTo(true); };
+            remove.Click += delegate { ChangeSendTo(false); };
+
+            Panel divider = new Panel { Left = 30, Top = 255, Width = 480, Height = 1, BackColor = UiTheme.Border };
+            Label aboutTitle = new Label { Left = 30, Top = 277, Width = 470, Height = 28, Text = "å…³äº", Font = UiTheme.Font(11f, FontStyle.Bold), ForeColor = UiTheme.Text };
+            Label about = new Label
+            {
+                Left = 30,
+                Top = 311,
+                Width = 500,
+                Height = 72,
+                Text = "å›¾ç‰‡è½¬PDF  v1.0\r\nç”± ZenthZhang å¼€å‘\r\nMIT License Â· å…è´¹å¼€æº",
+                ForeColor = UiTheme.Muted
+            };
+            LinkLabel projectLink = new LinkLabel
+            {
+                Left = 30,
+                Top = 386,
+                Width = 500,
+                Height = 26,
+                Text = "GitHubï¼šTrendPioneerAI/image-to-pdf",
+                LinkColor = UiTheme.Primary,
+                ActiveLinkColor = UiTheme.Primary,
+                VisitedLinkColor = UiTheme.Primary,
+                TabStop = true
+            };
+            projectLink.LinkClicked += delegate
+            {
+                try
+                {
+                    Process.Start(new ProcessStartInfo(ProjectUrl) { UseShellExecute = true });
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(this, ProjectUrl + "\r\n\r\n" + error.Message, "æ— æ³•æ‰“å¼€ GitHub", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            };
+            Button close = UiTheme.Button("å…³é—­", 96, 38);
+            close.Left = 434;
+            close.Top = 438;
+            close.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+            close.DialogResult = DialogResult.OK;
+
+            Controls.Add(title);
+            Controls.Add(sendTitle);
+            Controls.Add(sendHelper);
+            Controls.Add(_sendToState);
+            Controls.Add(add);
+            Controls.Add(remove);
+            Controls.Add(divider);
+            Controls.Add(aboutTitle);
+            Controls.Add(about);
+            Controls.Add(projectLink);
+            Controls.Add(close);
+            AcceptButton = close;
+            UpdateSendToState();
+        }
+
+        private void ChangeSendTo(bool add)
+        {
+            try
+            {
+                if (add) SendToManager.Add(); else SendToManager.Remove();
+                UpdateSendToState();
+                MessageBox.Show(this, add ? "å·²æ·»åŠ åˆ°å½“å‰ç”¨æˆ·çš„â€œå‘é€åˆ°â€èœå•ã€‚" : "å·²ç§»é™¤å³é”®å…¥å£ã€‚", "å³é”®å…¥å£", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(this, error.Message, add ? "æ·»åŠ å¤±è´¥" : "ç§»é™¤å¤±è´¥", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateSendToState()
+        {
+            _sendToState.Text = SendToManager.Exists() ? "å½“å‰çŠ¶æ€ï¼šå·²æ·»åŠ " : "å½“å‰çŠ¶æ€ï¼šæœªæ·»åŠ ";
+        }
+    }
+
+    internal sealed class PathNaturalComparer : IComparer<string>
+    {
+        private static readonly Regex NumberPattern = new Regex("(\\d+)", RegexOptions.Compiled);
+
+        public int Compare(string left, string right)
+        {
+            return CompareText(Path.GetFileName(left ?? String.Empty), Path.GetFileName(right ?? String.Empty));
+        }
+
+        private static int CompareText(string left, string right)
+        {
+            MatchCollection a = NumberPattern.Matches(left);
+            MatchCollection b = NumberPattern.Matches(right);
+            int positionA = 0;
+            int positionB = 0;
+            int count = Math.Min(a.Count, b.Count);
+            for (int index = 0; index < count; index++)
+            {
+                int text = StringComparer.CurrentCultureIgnoreCase.Compare(left.Substring(positionA, a[index].Index - positionA), right.Substring(positionB, b[index].Index - positionB));
+                if (text != 0) return text;
+                long numberA;
+                long numberB;
+                if (Int64.TryParse(a[index].Value, out numberA) && Int64.TryParse(b[index].Value, out numberB) && numberA != numberB)
+                    return numberA < numberB ? -1 : 1;
+                positionA = a[index].Index + a[index].Length;
+                positionB = b[index].Index + b[index].Length;
+            }
+            return StringComparer.CurrentCultureIgnoreCase.Compare(left.Substring(positionA), right.Substring(positionB));
+        }
+    }
+
+    internal sealed class MainForm : Form, IImageCardOwner
+    {
+        private readonly string[] _startupArgs;
+        private readonly List<ImageItem> _items = new List<ImageItem>();
+        private readonly HashSet<string> _paths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<ImageItem, ModernImageCard> _cardMap = new Dictionary<ImageItem, ModernImageCard>();
+        private readonly AppSettings _settings;
+        private FlowLayoutPanel _cards;
+        private Label _countLabel;
+        private Label _statusLabel;
+        private ComboBox _paperCombo;
+        private Button _portraitButton;
+        private Button _landscapeButton;
+        private CheckBox _autoRotateCheck;
+        private ComboBox _marginCombo;
+        private ComboBox _watermarkCombo;
+        private Label _watermarkSummary;
+        private Button _editWatermarkButton;
+        private ComboBox _qualityCombo;
+        private Label _qualityHelper;
+        private Button _targetFileButton;
+        private Button _targetFolderButton;
+        private TextBox _outputPathBox;
+        private Button _mergeButton;
+        private Button _separateButton;
+        private Label _mergeNameLabel;
+        private TextBox _mergeNameBox;
+        private Label _batchNameLabel;
+        private TextBox _batchNameBox;
+        private Button _applyBatchButton;
+        private Button _exportButton;
+        private Button _cancelButton;
+        private PageOrientation _orientation = PageOrientation.Portrait;
+        private ExportMode _exportMode = ExportMode.Merge;
+        private OutputTargetMode _targetMode;
+        private WatermarkMode _watermarkMode = WatermarkMode.None;
+        private WatermarkOptions _customWatermark = new WatermarkOptions
+        {
+            Mode = WatermarkMode.Custom,
+            Text = String.Empty,
+            OpacityPercent = 18,
+            AngleDegrees = 45,
+            Layout = WatermarkLayout.Tile
+        };
+        private CancellationTokenSource _previewCancellation;
+        private CancellationTokenSource _exportCancellation;
+        private int _previewGeneration;
+        private bool _buildingUi;
+
+        public MainForm(string[] startupArgs)
+        {
+            _startupArgs = startupArgs ?? new string[0];
+            _settings = AppSettingsStore.Load();
+            _targetMode = _settings.LastTargetMode;
+            Text = "å›¾ç‰‡è½¬PDF";
+            StartPosition = FormStartPosition.CenterScreen;
+            ClientSize = new Size(1440, 900);
+            MinimumSize = new Size(1080, 700);
+            BackColor = UiTheme.Background;
+            Font = UiTheme.Font(9.5f, FontStyle.Regular);
+            DoubleBuffered = true;
+            try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
+            AllowDrop = true;
+            BuildUi();
+            DragEnter += HandleDragEnter;
+            DragDrop += HandleDragDrop;
+            Shown += delegate { if (_startupArgs.Length > 0) AddInputs(_startupArgs); };
+        }
+
+        public void RotateItem(ImageItem item, int delta)
+        {
+            if (item == null || _exportCancellation != null) return;
+            item.ManualRotation = ImageTools.NormalizeRotation(item.ManualRotation + delta);
+            RebuildCardsAndQueuePreviews(false);
+        }
+
+        public void ShowPreview(ImageItem item)
+        {
+            if (item == null) return;
+            Bitmap display = null;
+            try
+            {
+                int width;
+                int height;
+                GetPagePixels(GetPaperSize(), _orientation, 1500, out width, out height);
+                display = ImageTools.RenderPagePreview(item, GetPaperSize(), _orientation, _autoRotateCheck.Checked, GetMarginMm(), width, height);
+                WatermarkRenderer.DrawPreview(display, GetWatermarkOptions());
+                using (LargePreviewForm dialog = new LargePreviewForm(item.FileName, display, Icon))
+                {
+                    display = null;
+                    dialog.ShowDialog(this);
+                }
+            }
+            catch (Exception error)
+            {
+                if (display != null) display.Dispose();
+                MessageBox.Show(this, "æ— æ³•æ‰“å¼€å¤§å›¾é¢„è§ˆï¼š" + error.Message, "é¢„è§ˆå¤±è´¥", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void RemoveItem(ImageItem item)
+        {
+            if (item == null || _exportCancellation != null) return;
+            _items.Remove(item);
+            _paths.Remove(item.Path);
+            item.DisposePreview();
+            RebuildCardsAndQueuePreviews(false);
+        }
+
+        private void BuildUi()
+        {
+            _buildingUi = true;
+            TableLayoutPanel root = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                RowCount = 3,
+                ColumnCount = 1,
+                BackColor = UiTheme.Background,
+                Padding = new Padding(16, 10, 16, 12)
+            };
+            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 78f));
+            root.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
+            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
+            root.Controls.Add(BuildHeader(), 0, 0);
+            root.Controls.Add(BuildContent(), 0, 1);
+            root.Controls.Add(BuildFooter(), 0, 2);
+            Controls.Add(root);
+            EnableDropRecursive(root);
+            _buildingUi = false;
+            UpdatePageButtons();
+            UpdateWatermarkUi();
+            UpdateQualityHelper();
+            UpdateOutputUi();
+            UpdateCount();
+        }
+
+        private Control BuildHeader()
+        {
+            Panel header = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Background };
+            _countLabel = new Label
+            {
+                Left = 10,
+                Top = 22,
+                Width = 115,
+                Height = 36,
+                Text = "å…± 0 é¡µ",
+                Font = UiTheme.Font(16f, FontStyle.Bold),
+                ForeColor = UiTheme.Text
+            };
+
+            DropHintPanel dropHint = new DropHintPanel { Left = 125, Top = 7, Width = 350, Height = 60, Anchor = AnchorStyles.Left | AnchorStyles.Top };
+            Label dropTitle = new Label { Left = 22, Top = 9, Width = 305, Height = 23, Text = "æ‹–å…¥æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Text, Font = UiTheme.Font(10f, FontStyle.Regular) };
+            Label dropSub = new Label { Left = 18, Top = 32, Width = 315, Height = 20, Text = "æ”¯æŒå›¾ç‰‡æ–‡ä»¶ã€æ–‡ä»¶å¤¹ï¼Œæˆ–ç›´æ¥æ‹–å…¥", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.7f, FontStyle.Regular) };
+            dropHint.Controls.Add(dropTitle);
+            dropHint.Controls.Add(dropSub);
+            dropHint.Click += delegate { ChooseFiles(); };
+            dropTitle.Click += delegate { ChooseFiles(); };
+            dropSub.Click += delegate { ChooseFiles(); };
+
+            FlowLayoutPanel actions = new FlowLayoutPanel
+            {
+                Width = 560,
+                Height = 56,
+                Top = 10,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right
+            };
+            Button sort = UiTheme.Button("â‡…  æ’åº  â–¾", 118, 44);
+            Button clear = UiTheme.Button("æ¸…ç©º", 92, 44);
+            Button add = UiTheme.Button("ï¼‹  æ·»åŠ å›¾ç‰‡  â–¾", 142, 44);
+            Button settings = UiTheme.Button("âš™", 52, 44);
+            settings.Font = UiTheme.Font(15f, FontStyle.Regular);
+            add.BackColor = UiTheme.PrimarySoft;
+            add.ForeColor = UiTheme.Primary;
+            add.FlatAppearance.BorderColor = UiTheme.Primary;
+
+            ContextMenuStrip sortMenu = new ContextMenuStrip();
+            AddSortItem(sortMenu, "æŒ‰åç§°å‡åº", SortMode.NameAscending);
+            AddSortItem(sortMenu, "æŒ‰åç§°é™åº", SortMode.NameDescending);
+            sortMenu.Items.Add(new ToolStripSeparator());
+            AddSortItem(sortMenu, "æŒ‰æ–‡ä»¶å¤§å°ï¼šå¤§åˆ°å°", SortMode.SizeDescending);
+            AddSortItem(sortMenu, "æŒ‰æ–‡ä»¶å¤§å°ï¼šå°åˆ°å¤§", SortMode.SizeAscending);
+            AddSortItem(sortMenu, "æŒ‰ä¿®æ”¹æ—¶é—´ï¼šæœ€è¿‘ä¼˜å…ˆ", SortMode.ModifiedDescending);
+            AddSortItem(sortMenu, "æŒ‰ä¿®æ”¹æ—¶é—´ï¼šæœ€æ—©ä¼˜å…ˆ", SortMode.ModifiedAscending);
+            AddSortItem(sortMenu, "æŒ‰æ·»åŠ é¡ºåºï¼šæœ€è¿‘ä¼˜å…ˆ", SortMode.AddedDescending);
+            AddSortItem(sortMenu, "æŒ‰æ·»åŠ é¡ºåºï¼šæœ€æ—©ä¼˜å…ˆ", SortMode.AddedAscending);
+            sort.ContextMenuStrip = sortMenu;
+            sort.Click += delegate { sortMenu.Show(sort, new Point(0, sort.Height)); };
+
+            ContextMenuStrip addMenu = new ContextMenuStrip();
+            ToolStripMenuItem addFiles = new ToolStripMenuItem("æ·»åŠ æ–‡ä»¶");
+            ToolStripMenuItem addFolder = new ToolStripMenuItem("æ·»åŠ æ–‡ä»¶å¤¹");
+            addFiles.Click += delegate { ChooseFiles(); };
+            addFolder.Click += delegate { ChooseFolder(); };
+            addMenu.Items.Add(addFiles);
+            addMenu.Items.Add(addFolder);
+            add.ContextMenuStrip = addMenu;
+            add.Click += delegate { addMenu.Show(add, new Point(0, add.Height)); };
+
+            clear.Click += delegate
+            {
+                if (_items.Count == 0) return;
+                if (MessageBox.Show(this, "ç¡®å®šæ¸…ç©ºå·²æ·»åŠ çš„å…¨éƒ¨å›¾ç‰‡å—ï¼Ÿ", "æ¸…ç©ºå›¾ç‰‡", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    ClearItems();
+            };
+            settings.Click += delegate { using (SettingsForm dialog = new SettingsForm(Icon)) dialog.ShowDialog(this); };
+            actions.Controls.Add(sort);
+            actions.Controls.Add(clear);
+            actions.Controls.Add(add);
+            actions.Controls.Add(settings);
+            header.Controls.Add(_countLabel);
+            header.Controls.Add(dropHint);
+            header.Controls.Add(actions);
+            header.Resize += delegate
+            {
+                actions.Left = Math.Max(490, header.ClientSize.Width - actions.Width);
+                dropHint.Visible = actions.Left - dropHint.Right > 15;
+            };
+            return header;
+        }
+
+        private Control BuildContent()
+        {
+            TableLayoutPanel content = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1, Margin = new Padding(0) };
+            content.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+            content.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 460f));
+            _cards = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                BackColor = UiTheme.Background,
+                Padding = new Padding(0, 0, 8, 12),
+                AllowDrop = true
+            };
+            _cards.DragEnter += HandleDragEnter;
+            _cards.DragOver += HandleDragOver;
+            _cards.DragDrop += CardsDragDrop;
+            content.Controls.Add(_cards, 0, 0);
+            content.Controls.Add(BuildSettingsSidebar(), 1, 0);
+            return content;
+        }
+
+        private Control BuildSettingsSidebar()
+        {
+            Panel shell = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Surface, Padding = new Padding(10), Margin = new Padding(6, 0, 0, 0), BorderStyle = BorderStyle.FixedSingle };
+            FlowLayoutPanel list = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                BackColor = UiTheme.Surface,
+                Padding = new Padding(4)
+            };
+            list.HorizontalScroll.Enabled = false;
+            list.Controls.Add(BuildPageSection());
+            list.Controls.Add(BuildWatermarkSection());
+            list.Controls.Add(BuildOutputSection());
+            shell.Controls.Add(list);
+            return shell;
+        }
+
+        private Control BuildPageSection()
+        {
+            Panel panel = SectionPanel(400, 260);
+            panel.Controls.Add(SectionTitle("é¡µé¢", 12));
+            panel.Controls.Add(FieldLabel("çº¸å¼ å¤§å°", 58));
+            _paperCombo = MakeCombo(PaperSizes.DisplayNames, 136, 52, 250);
+            _paperCombo.SelectedIndex = 0;
+            _paperCombo.SelectedIndexChanged += PreviewSettingsChanged;
+            panel.Controls.Add(_paperCombo);
+            panel.Controls.Add(FieldLabel("çº¸å¼ æ–¹å‘", 108));
+            _portraitButton = UiTheme.Button("â–¯  ç«–å‘", 120, 38);
+            _portraitButton.Left = 136;
+            _portraitButton.Top = 96;
+            _landscapeButton = UiTheme.Button("â–­  æ¨ªå‘", 120, 38);
+            _landscapeButton.Left = 266;
+            _landscapeButton.Top = 96;
+            _portraitButton.Click += delegate { SetOrientation(PageOrientation.Portrait); };
+            _landscapeButton.Click += delegate { SetOrientation(PageOrientation.Landscape); };
+            panel.Controls.Add(_portraitButton);
+            panel.Controls.Add(_landscapeButton);
+            _autoRotateCheck = new CheckBox { Left = 20, Top = 151, Width = 366, Height = 28, Text = "æ¨ªå›¾è‡ªåŠ¨è½¬æ­£ï¼ˆé¡ºæ—¶é’ˆ 90Â°ï¼‰", Checked = true, ForeColor = UiTheme.Text };
+            _autoRotateCheck.CheckedChanged += PreviewSettingsChanged;
+            panel.Controls.Add(_autoRotateCheck);
+            panel.Controls.Add(FieldLabel("é¡µé¢è¾¹è·", 205));
+            _marginCombo = MakeCombo(new[] { "æ— è¾¹è·ï¼ˆ0 mmï¼‰", "çª„è¾¹è·ï¼ˆ5 mmï¼‰", "æ ‡å‡†è¾¹è·ï¼ˆ10 mmï¼‰" }, 136, 199, 250);
+            _marginCombo.SelectedIndex = 2;
+            _marginCombo.SelectedIndexChanged += PreviewSettingsChanged;
+            panel.Controls.Add(_marginCombo);
+            return panel;
+        }
+
+        private Control BuildWatermarkSection()
+        {
+            Panel panel = SectionPanel(400, 182);
+            panel.Controls.Add(SectionTitle("æ°´å°", 12));
+            panel.Controls.Add(FieldLabel("æ°´å°è®¾ç½®", 59));
+            _watermarkCombo = MakeCombo(new[] { "æ— æ°´å°", "è‡ªå®šä¹‰", "é»˜è®¤æ°´å°" }, 136, 53, 250);
+            _watermarkCombo.SelectedIndex = 0;
+            _watermarkCombo.SelectedIndexChanged += WatermarkModeChanged;
+            panel.Controls.Add(_watermarkCombo);
+            _watermarkSummary = new Label { Left = 20, Top = 101, Width = 366, Height = 42, ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.7f, FontStyle.Regular) };
+            panel.Controls.Add(_watermarkSummary);
+            _editWatermarkButton = UiTheme.Button("ç¼–è¾‘è‡ªå®šä¹‰æ°´å°", 142, 34);
+            _editWatermarkButton.Left = 244;
+            _editWatermarkButton.Top = 137;
+            _editWatermarkButton.Click += delegate { EditCustomWatermark(false); };
+            panel.Controls.Add(_editWatermarkButton);
+            return panel;
+        }
+
+        private Control BuildOutputSection()
+        {
+            Panel panel = SectionPanel(400, 500);
+            panel.Controls.Add(SectionTitle("è¾“å‡º", 12));
+            panel.Controls.Add(FieldLabel("è¾“å‡ºè´¨é‡", 58));
+            _qualityCombo = MakeCombo(new[]
+            {
+                "æ¨è/å¿«é€Ÿ Â· æ™ºèƒ½å¤„ç†",
+                "æ ‡å‡†ï¼ˆ220 DPIï¼‰",
+                "ç²¾ç»†æ‰“å°ï¼ˆ300 DPIï¼‰",
+                "æ— æŸï¼ˆé«˜çº§ï¼‰"
+            }, 136, 52, 250);
+            _qualityCombo.SelectedIndex = 0;
+            _qualityCombo.SelectedIndexChanged += delegate { UpdateQualityHelper(); };
+            panel.Controls.Add(_qualityCombo);
+            _qualityHelper = new Label { Left = 136, Top = 86, Width = 250, Height = 36, ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.2f, FontStyle.Regular) };
+            panel.Controls.Add(_qualityHelper);
+
+            panel.Controls.Add(FieldLabel("è¾“å‡ºåˆ°", 132));
+            _targetFileButton = UiTheme.Button("æ–‡ä»¶", 120, 38);
+            _targetFileButton.Left = 136;
+            _targetFileButton.Top = 120;
+            _targetFolderButton = UiTheme.Button("æ–‡ä»¶å¤¹", 120, 38);
+            _targetFolderButton.Left = 266;
+            _targetFolderButton.Top = 120;
+            _targetFileButton.Click += delegate { SetTargetMode(OutputTargetMode.File); };
+            _targetFolderButton.Click += delegate { SetTargetMode(OutputTargetMode.Folder); };
+            panel.Controls.Add(_targetFileButton);
+            panel.Controls.Add(_targetFolderButton);
+            _outputPathBox = new TextBox { Left = 20, Top = 170, Width = 292, Height = 29, BorderStyle = BorderStyle.FixedSingle, Font = UiTheme.Font(9f, FontStyle.Regular) };
+            Button browse = UiTheme.Button("æµè§ˆ", 70, 32);
+            browse.Left = 316;
+            browse.Top = 167;
+            browse.Click += delegate { BrowseOutput(); };
+            panel.Controls.Add(_outputPathBox);
+            panel.Controls.Add(browse);
+
+            panel.Controls.Add(FieldLabel("å¯¼å‡ºæ–¹å¼", 226));
+            _mergeButton = UiTheme.Button("åˆå¹¶ä¸ºä¸€ä¸ª PDF", 122, 38);
+            _mergeButton.Left = 136;
+            _mergeButton.Top = 214;
+            _separateButton = UiTheme.Button("ä¸€å›¾ä¸€ä¸ª PDF", 122, 38);
+            _separateButton.Left = 264;
+            _separateButton.Top = 214;
+            _mergeButton.Click += delegate { SetExportMode(ExportMode.Merge); };
+            _separateButton.Click += delegate { SetExportMode(ExportMode.Separate); };
+            panel.Controls.Add(_mergeButton);
+            panel.Controls.Add(_separateButton);
+
+            _mergeNameLabel = FieldLabel("åˆå¹¶æ–‡ä»¶å", 281);
+            _mergeNameBox = new TextBox { Left = 136, Top = 275, Width = 250, Height = 28, Text = DefaultMergeName(), BorderStyle = BorderStyle.FixedSingle };
+            _batchNameLabel = FieldLabel("æ‰¹é‡å‘½åå‰ç¼€", 281);
+            _batchNameBox = new TextBox { Left = 136, Top = 275, Width = 160, Height = 28, Text = "å›¾ç‰‡", BorderStyle = BorderStyle.FixedSingle };
+            _applyBatchButton = UiTheme.Button("åº”ç”¨", 84, 32);
+            _applyBatchButton.Left = 302;
+            _applyBatchButton.Top = 272;
+            _applyBatchButton.Click += ApplyBatchNamesClicked;
+            panel.Controls.Add(_mergeNameLabel);
+            panel.Controls.Add(_mergeNameBox);
+            panel.Controls.Add(_batchNameLabel);
+            panel.Controls.Add(_batchNameBox);
+            panel.Controls.Add(_applyBatchButton);
+
+            Label outputNote = new Label
+            {
+                Left = 20,
+                Top = 326,
+                Width = 366,
+                Height = 84,
+                Text = "è‡ªåŠ¨ç”Ÿæˆçš„æ–‡ä»¶ä¸ä¼šè¦†ç›–å·²æœ‰æ–‡ä»¶ï¼›åŒåæ—¶ä¼šè¿½åŠ â€œ(2)â€â€œ(3)â€ã€‚\r\n\r\nä¸€å›¾ä¸€ä¸ª PDF å¯åœ¨æ¯å¼ å¡ç‰‡ä¸­åˆ†åˆ«ä¿®æ”¹æ–‡ä»¶åã€‚",
+                ForeColor = UiTheme.Muted,
+                Font = UiTheme.Font(8.5f, FontStyle.Regular)
+            };
+            panel.Controls.Add(outputNote);
+            return panel;
+        }
+
+        private Control BuildFooter()
+        {
+            Panel footer = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Surface, Margin = new Padding(0, 10, 0, 0), BorderStyle = BorderStyle.FixedSingle };
+            Label privacy = new Label
+            {
+                Left = 20,
+                Top = 21,
+                Width = 520,
+                Height = 28,
+                Text = "â–£  æœ¬åœ°å¤„ç† Â· ä¸ä¸Šä¼ å›¾ç‰‡ Â· å…è´¹å¼€æº Â· ç”± ZenthZhang å¼€å‘",
+                ForeColor = UiTheme.Muted,
+                Font = UiTheme.Font(9f, FontStyle.Regular)
+            };
+            _statusLabel = new Label { Top = 21, Width = 300, Height = 28, TextAlign = ContentAlignment.MiddleRight, ForeColor = UiTheme.Muted };
+            _cancelButton = UiTheme.Button("å–æ¶ˆ", 90, 44);
+            _cancelButton.Top = 10;
+            _cancelButton.Visible = false;
+            _cancelButton.Click += delegate { if (_exportCancellation != null) _exportCancellation.Cancel(); };
+            _exportButton = UiTheme.Button("å¯¼å‡º PDF", 330, 46);
+            _exportButton.Top = 9;
+            _exportButton.BackColor = UiTheme.Primary;
+            _exportButton.ForeColor = Color.White;
+            _exportButton.FlatAppearance.BorderColor = UiTheme.Primary;
+            _exportButton.Font = UiTheme.Font(11f, FontStyle.Bold);
+            _exportButton.Click += ExportClicked;
+            footer.Controls.Add(privacy);
+            footer.Controls.Add(_statusLabel);
+            footer.Controls.Add(_cancelButton);
+            footer.Controls.Add(_exportButton);
+            footer.Resize += delegate
+            {
+                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - 12;
+                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - 10;
+                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - 12;
+                privacy.Width = Math.Max(220, _statusLabel.Left - privacy.Left - 10);
+            };
+            return footer;
+        }
+
+        private static Panel SectionPanel(int width, int height)
+        {
+            return new Panel { Width = width, Height = height, BackColor = UiTheme.Surface, Margin = new Padding(0, 0, 0, 8) };
+        }
+
+        private static Label SectionTitle(string text, int top)
+        {
+            return new Label { Left = 20, Top = top, Width = 300, Height = 32, Text = text, ForeColor = UiTheme.Text, Font = UiTheme.Font(12f, FontStyle.Bold) };
+        }
+
+        private static Label FieldLabel(string text, int top)
+        {
+            return new Label { Left = 20, Top = top, Width = 104, Height = 30, Text = text, ForeColor = UiTheme.Text, TextAlign = ContentAlignment.MiddleLeft };
+        }
+
+        private static ComboBox MakeCombo(string[] values, int left, int top, int width)
+        {
+            ComboBox combo = new ComboBox { Left = left, Top = top, Width = width, Height = 30, DropDownStyle = ComboBoxStyle.DropDownList, FlatStyle = FlatStyle.Flat };
+            combo.Items.AddRange(values);
+            return combo;
+        }
+
+        private void AddSortItem(ContextMenuStrip menu, string text, SortMode mode)
+        {
+            ToolStripMenuItem item = new ToolStripMenuItem(text);
+            item.Click += delegate { SortItems(mode); };
+            menu.Items.Add(item);
+        }
+
+        private void SetOrientation(PageOrientation orientation)
+        {
+            if (_orientation == orientation) return;
+            _orientation = orientation;
+            UpdatePageButtons();
+            if (!_buildingUi) RebuildCardsAndQueuePreviews(false);
+        }
+
+        private void UpdatePageButtons()
+        {
+            if (_portraitButton == null) return;
+            UiTheme.StyleSegment(_portraitButton, _orientation == PageOrientation.Portrait);
+            UiTheme.StyleSegment(_landscapeButton, _orientation == PageOrientation.Landscape);
+        }
+
+        private void PreviewSettingsChanged(object sender, EventArgs e)
+        {
+            if (!_buildingUi) RebuildCardsAndQueuePreviews(false);
+        }
+
+        private void WatermarkModeChanged(object sender, EventArgs e)
+        {
+            if (_buildingUi) return;
+            WatermarkMode requested = _watermarkCombo.SelectedIndex == 1 ? WatermarkMode.Custom : (_watermarkCombo.SelectedIndex == 2 ? WatermarkMode.Default : WatermarkMode.None);
+            if (requested == WatermarkMode.Custom && String.IsNullOrWhiteSpace(_customWatermark.Text))
+            {
+                if (!EditCustomWatermark(true))
+                {
+                    _buildingUi = true;
+                    _watermarkCombo.SelectedIndex = _watermarkMode == WatermarkMode.Default ? 2 : 0;
+                    _buildingUi = false;
+                    return;
+                }
+            }
+            _watermarkMode = requested;
+            UpdateWatermarkUi();
+            RebuildCardsAndQueuePreviews(false);
+        }
+
+        private bool EditCustomWatermark(bool selecting)
+        {
+            using (WatermarkDialog dialog = new WatermarkDialog(_customWatermark, Icon))
+            {
+                if (dialog.ShowDialog(this) != DialogResult.OK) return false;
+                _customWatermark = dialog.Result;
+            }
+            _watermarkMode = WatermarkMode.Custom;
+            _buildingUi = true;
+            _watermarkCombo.SelectedIndex = 1;
+            _buildingUi = false;
+            UpdateWatermarkUi();
+            if (!selecting) RebuildCardsAndQueuePreviews(false);
+            return true;
+        }
+
+        private void UpdateWatermarkUi()
+        {
+            if (_watermarkSummary == null) return;
+            if (_watermarkMode == WatermarkMode.Default)
+                _watermarkSummary.Text = "é»˜è®¤æ°´å°ï¼šä»…ä¾›å‚è€ƒ Â· 18% Â· 45Â° Â· å…¨é¡µå¹³é“º";
+            else if (_watermarkMode == WatermarkMode.Custom)
+                _watermarkSummary.Text = String.IsNullOrWhiteSpace(_customWatermark.Text) ? "å°šæœªè®¾ç½®è‡ªå®šä¹‰æ–‡å­—" : "è‡ªå®šä¹‰ï¼š" + _customWatermark.Text + " Â· " + _customWatermark.OpacityPercent.ToString() + "% Â· " + _customWatermark.AngleDegrees.ToString() + "Â°";
+            else
+                _watermarkSummary.Text = "ä¸æ·»åŠ ä»»ä½•è¦†ç›–å†…å®¹";
+            _editWatermarkButton.Visible = _watermarkMode == WatermarkMode.Custom;
+        }
+
+        private WatermarkOptions GetWatermarkOptions()
+        {
+            if (_watermarkMode == WatermarkMode.Default) return WatermarkOptions.DefaultPreset();
+            if (_watermarkMode == WatermarkMode.Custom) return _customWatermark.Clone();
+            return WatermarkOptions.None();
+        }
+
+        private void UpdateQualityHelper()
+        {
+            if (_qualityHelper == null) return;
+            switch (_qualityCombo.SelectedIndex)
+            {
+                case 1: _qualityHelper.Text = "å…¨éƒ¨å›¾ç‰‡æŒ‰éœ€å¤„ç†ä¸º 220 DPI Â· JPEG 86"; break;
+                case 2: _qualityHelper.Text = "æ¸…æ™°æ‰“å° Â· 300 DPI Â· JPEG 92"; break;
+                case 3: _qualityHelper.Text = "JPEG åŸå›¾ç›´åµŒï¼›PNG/BMP åŸå§‹åˆ†è¾¨ç‡æ— æŸ"; break;
+                default: _qualityHelper.Text = "JPEGåŸå›¾ç›´åµŒï¼›PNG/BMP 150 DPI"; break;
+            }
+        }
+
+        private void SetTargetMode(OutputTargetMode mode)
+        {
+            if (_exportMode == ExportMode.Separate && mode == OutputTargetMode.File) return;
+            string current = _outputPathBox.Text.Trim();
+            if (mode == OutputTargetMode.Folder && _targetMode == OutputTargetMode.File)
+            {
+                string directory = SafeDirectoryName(current);
+                if (!String.IsNullOrWhiteSpace(directory)) _outputPathBox.Text = directory;
+            }
+            else if (mode == OutputTargetMode.File && _targetMode == OutputTargetMode.Folder)
+            {
+                string directory = String.IsNullOrWhiteSpace(current) ? _settings.LastOutputDirectory : current;
+                _outputPathBox.Text = Path.Combine(directory, EnsurePdfExtension(GetMergeBaseName()));
+            }
+            _targetMode = mode;
+            UpdateOutputUi();
+        }
+
+        private void SetExportMode(ExportMode mode)
+        {
+            _exportMode = mode;
+            if (mode == ExportMode.Separate && _targetMode != OutputTargetMode.Folder)
+                SetTargetMode(OutputTargetMode.Folder);
+            UpdateOutputUi();
+        }
+
+        private void UpdateOutputUi()
+        {
+            if (_targetFileButton == null) return;
+            _targetFileButton.Enabled = _exportMode == ExportMode.Merge;
+            UiTheme.StyleSegment(_targetFileButton, _targetMode == OutputTargetMode.File);
+            UiTheme.StyleSegment(_targetFolderButton, _targetMode == OutputTargetMode.Folder);
+            UiTheme.StyleSegment(_mergeButton, _exportMode == ExportMode.Merge);
+            UiTheme.StyleSegment(_separateButton, _exportMode == ExportMode.Separate);
+            bool separate = _exportMode == ExportMode.Separate;
+            _mergeNameLabel.Visible = _mergeNameBox.Visible = !separate;
+            _batchNameLabel.Visible = _batchNameBox.Visible = _applyBatchButton.Visible = separate;
+            if (String.IsNullOrWhiteSpace(_outputPathBox.Text))
+            {
+                string directory = String.IsNullOrWhiteSpace(_settings.LastOutputDirectory) ? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) : _settings.LastOutputDirectory;
+                _outputPathBox.Text = _targetMode == OutputTargetMode.File ? Path.Combine(directory, EnsurePdfExtension(GetMergeBaseName())) : directory;
+            }
+        }
+
+        private void BrowseOutput()
+        {
+            if (_exportMode == ExportMode.Merge && _targetMode == OutputTargetMode.File)
+            {
+                using (SaveFileDialog dialog = new SaveFileDialog())
+                {
+                    dialog.Title = "é€‰æ‹© PDF æ–‡ä»¶";
+                    dialog.Filter = "PDF æ–‡ä»¶|*.pdf";
+                    dialog.FileName = EnsurePdfExtension(GetMergeBaseName());
+                    string currentDirectory = SafeDirectoryName(_outputPathBox.Text.Trim());
+                    if (!String.IsNullOrWhiteSpace(currentDirectory) && Directory.Exists(currentDirectory)) dialog.InitialDirectory = currentDirectory;
+                    if (dialog.ShowDialog(this) == DialogResult.OK) _outputPathBox.Text = dialog.FileName;
+                }
+            }
+            else
+            {
+                using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+                {
+                    dialog.Description = _exportMode == ExportMode.Separate ? "é€‰æ‹©ä¸€å›¾ä¸€ä¸ª PDF çš„è¾“å‡ºæ–‡ä»¶å¤¹" : "é€‰æ‹©åˆå¹¶ PDF çš„è¾“å‡ºæ–‡ä»¶å¤¹";
+                    string current = _outputPathBox.Text.Trim();
+                    if (Directory.Exists(current)) dialog.SelectedPath = current;
+                    if (dialog.ShowDialog(this) == DialogResult.OK) _outputPathBox.Text = dialog.SelectedPath;
+                }
+            }
+        }
+
+        private void ApplyBatchNamesClicked(object sender, EventArgs e)
+        {
+            string prefix = PdfExporter.SanitizeFileName(_batchNameBox.Text.Trim());
+            int digits = Math.Max(2, _items.Count.ToString().Length);
+            for (int index = 0; index < _items.Count; index++)
+                _items[index].OutputName = prefix + "_" + (index + 1).ToString("D" + digits.ToString());
+            RebuildCardControls();
+            _statusLabel.Text = "å·²æ‰¹é‡ç”Ÿæˆ " + _items.Count.ToString() + " ä¸ªæ–‡ä»¶å";
+        }
+
+        private void ChooseFiles()
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Title = "æ·»åŠ å›¾ç‰‡æ–‡ä»¶";
+                dialog.Multiselect = true;
+                dialog.Filter = "æ”¯æŒçš„å›¾ç‰‡|*.jpg;*.jpeg;*.png;*.bmp|JPEG|*.jpg;*.jpeg|PNG|*.png|BMP|*.bmp";
+                if (dialog.ShowDialog(this) == DialogResult.OK) AddInputs(dialog.FileNames);
+            }
+        }
+
+        private void ChooseFolder()
+        {
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            {
+                dialog.Description = "é€‰æ‹©å›¾ç‰‡æ–‡ä»¶å¤¹ï¼ˆåªè¯»å–å½“å‰å±‚ï¼Œä¸è¯»å–å­æ–‡ä»¶å¤¹ï¼‰";
+                if (dialog.ShowDialog(this) == DialogResult.OK) AddInputs(new[] { dialog.SelectedPath });
+            }
+        }
+
+        private void AddInputs(IEnumerable<string> inputs)
+        {
+            if (_exportCancellation != null) return;
+            List<string> rejected = new List<string>();
+            List<string> candidates = new List<string>();
+            foreach (string raw in inputs ?? new string[0])
+            {
+                if (String.IsNullOrWhiteSpace(raw)) continue;
+                string path;
+                try { path = Path.GetFullPath(raw); }
+                catch { rejected.Add(raw + "ï¼ˆè·¯å¾„æ— æ•ˆï¼‰"); continue; }
+                if (Directory.Exists(path))
+                {
+                    try
+                    {
+                        string[] files = Directory.GetFiles(path, "*", SearchOption.TopDirectoryOnly);
+                        Array.Sort(files, new PathNaturalComparer());
+                        foreach (string file in files)
+                        {
+                            if (ImageTools.IsSupportedPath(file)) candidates.Add(file);
+                            else rejected.Add(Path.GetFileName(file) + "ï¼ˆä¸æ”¯æŒçš„æ ¼å¼ï¼‰");
+                        }
+                    }
+                    catch (Exception error) { rejected.Add(Path.GetFileName(path) + "ï¼ˆæ— æ³•è¯»å–æ–‡ä»¶å¤¹ï¼š" + error.Message + "ï¼‰"); }
+                }
+                else if (File.Exists(path))
+                {
+                    if (ImageTools.IsSupportedPath(path)) candidates.Add(path);
+                    else rejected.Add(Path.GetFileName(path) + "ï¼ˆä¸æ”¯æŒçš„æ ¼å¼ï¼‰");
+                }
+                else
+                    rejected.Add(Path.GetFileName(path) + "ï¼ˆæ–‡ä»¶ä¸å­˜åœ¨ï¼‰");
+            }
+
+            int added = 0;
+            foreach (string candidate in candidates)
+            {
+                string full;
+                try { full = Path.GetFullPath(candidate); }
+                catch { continue; }
+                if (_paths.Contains(full)) continue;
+                _items.Add(new ImageItem(full));
+                _paths.Add(full);
+                added++;
+            }
+            if (added > 0) RebuildCardsAndQueuePreviews(true);
+            ShowRejectedSummary(rejected, "ä»¥ä¸‹é¡¹ç›®æœªåŠ å…¥ï¼š");
+        }
+
+        private void ShowRejectedSummary(IList<string> rejected, string heading)
+        {
+            if (rejected == null || rejected.Count == 0) return;
+            StringBuilder message = new StringBuilder();
+            message.AppendLine(heading);
+            int limit = Math.Min(16, rejected.Count);
+            for (int index = 0; index < limit; index++) message.AppendLine("â€¢ " + rejected[index]);
+            if (rejected.Count > limit) message.AppendLine("â€¦â€¦å¦æœ‰ " + (rejected.Count - limit).ToString() + " ä¸ªé¡¹ç›®");
+            MessageBox.Show(this, message.ToString(), "å›¾ç‰‡å¯¼å…¥æç¤º", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void ClearItems()
+        {
+            CancelPreviewQueue();
+            foreach (ImageItem item in _items) item.DisposePreview();
+            _items.Clear();
+            _paths.Clear();
+            RebuildCardControls();
+            UpdateCount();
+        }
+
+        private void RebuildCardsAndQueuePreviews(bool reportCorrupt)
+        {
+            RebuildCardControls();
+            QueuePreviews(reportCorrupt);
+        }
+
+        private void RebuildCardControls()
+        {
+            if (_cards == null) return;
+            _cards.SuspendLayout();
+            try
+            {
+                foreach (ModernImageCard card in _cardMap.Values) card.ReleasePreviewReference();
+                Control[] old = _cards.Controls.Cast<Control>().ToArray();
+                _cards.Controls.Clear();
+                foreach (Control control in old) control.Dispose();
+                _cardMap.Clear();
+                foreach (ImageItem item in _items)
+                {
+                    int cardWidth;
+                    int previewHeight;
+                    GetCardMetrics(_items.Count, out cardWidth, out previewHeight);
+                    ModernImageCard card = new ModernImageCard(this, item, cardWidth, previewHeight);
+                    _cardMap[item] = card;
+                    EnableDropRecursive(card);
+                    _cards.Controls.Add(card);
+                }
+            }
+            finally
+            {
+                _cards.ResumeLayout(true);
+                UpdateCount();
+            }
+        }
+
+        private void QueuePreviews(bool reportCorrupt)
+        {
+            CancelPreviewQueue();
+            int generation = ++_previewGeneration;
+            _previewCancellation = new CancellationTokenSource();
+            CancellationToken token = _previewCancellation.Token;
+            foreach (ImageItem item in _items)
+            {
+                ModernImageCard card;
+                if (_cardMap.TryGetValue(item, out card)) card.ReleasePreviewReference();
+                item.DisposePreview();
+                item.PreviewError = null;
+                if (card != null) card.SetPreview(null, null);
+            }
+            if (_items.Count == 0) return;
+
+            List<ImageItem> order = GetPreviewOrder();
+            PaperSizeKind paperSize = GetPaperSize();
+            PageOrientation orientation = _orientation;
+            bool autoRotate = _autoRotateCheck.Checked;
+            int margin = GetMarginMm();
+            WatermarkOptions watermark = GetWatermarkOptions();
+            int longSide = _items.Count <= 12 ? 820 : (_items.Count <= 60 ? 560 : 380);
+            int pageWidth;
+            int pageHeight;
+            GetPagePixels(paperSize, orientation, longSide, out pageWidth, out pageHeight);
+            int workerCount = Environment.ProcessorCount >= 8 ? 4 : (Environment.ProcessorCount >= 4 ? 2 : 1);
+            int next = -1;
+            List<Tuple<ImageItem, string>> failures = new List<Tuple<ImageItem, string>>();
+            Task[] workers = new Task[workerCount];
+            for (int workerIndex = 0; workerIndex < workerCount; workerIndex++)
+            {
+                workers[workerIndex] = Task.Run(delegate
+                {
+                    while (!token.IsCancellationRequested)
+                    {
+                        int index = Interlocked.Increment(ref next);
+                        if (index >= order.Count) break;
+                        ImageItem item = order[index];
+                        Bitmap preview = null;
+                        string error = null;
+                        try
+                        {
+                            preview = ImageTools.RenderPagePreview(item, paperSize, orientation, autoRotate, margin, pageWidth, pageHeight);
+                            WatermarkRenderer.DrawPreview(preview, watermark);
+                        }
+                        catch (Exception failure)
+                        {
+                            error = failure.Message;
+                            lock (failures) failures.Add(Tuple.Create(item, error));
+                        }
+                        Bitmap completed = preview;
+                        string completedError = error;
+                        try
+                        {
+                            BeginInvoke((Action)delegate
+                            {
+                                if (IsDisposed || generation != _previewGeneration || !_items.Contains(item))
+                                {
+                                    if (completed != null) completed.Dispose();
+                                    return;
+                                }
+                                item.DisposePreview();
+                                item.Preview = completed;
+                                item.PreviewError = completedError;
+                                ModernImageCard card;
+                                if (_cardMap.TryGetValue(item, out card)) card.SetPreview(completed, completedError);
+                            });
+                        }
+                        catch
+                        {
+                            if (completed != null) completed.Dispose();
+                        }
+                    }
+                });
+            }
+
+            Task.WhenAll(workers).ContinueWith(delegate
+            {
+                if (token.IsCancellationRequested || IsDisposed) return;
+                try
+                {
+                    BeginInvoke((Action)delegate
+                    {
+                        if (generation != _previewGeneration) return;
+                        _statusLabel.Text = failures.Count == 0 ? "ç¼©ç•¥å›¾å·²å°±ç»ª" : "æœ‰ " + failures.Count.ToString() + " å¼ å›¾ç‰‡æ— æ³•è¯»å–";
+                        if (reportCorrupt && failures.Count > 0)
+                        {
+                            List<string> messages = new List<string>();
+                            foreach (Tuple<ImageItem, string> failure in failures)
+                            {
+                                if (_items.Remove(failure.Item1))
+                                {
+                                    _paths.Remove(failure.Item1.Path);
+                                    failure.Item1.DisposePreview();
+                                    messages.Add(failure.Item1.FileName + "ï¼ˆæŸåæˆ–æ— æ³•è¯»å–ï¼‰");
+                                }
+                            }
+                            ShowRejectedSummary(messages, "ä»¥ä¸‹æŸåå›¾ç‰‡å·²è·³è¿‡ï¼š");
+                            RebuildCardsAndQueuePreviews(false);
+                        }
+                    });
+                }
+                catch { }
+            }, TaskScheduler.Default);
+        }
+
+        private static void GetCardMetrics(int count, out int cardWidth, out int previewHeight)
+        {
+            if (count <= 3)
+            {
+                cardWidth = 420;
+                previewHeight = 540;
+            }
+            else if (count <= 12)
+            {
+                cardWidth = 360;
+                previewHeight = 460;
+            }
+            else if (count <= 60)
+            {
+                cardWidth = 310;
+                previewHeight = 380;
+            }
+            else
+            {
+                cardWidth = 270;
+                previewHeight = 310;
+            }
+        }
+
+        private List<ImageItem> GetPreviewOrder()
+        {
+            List<ImageItem> visible = new List<ImageItem>();
+            List<ImageItem> remaining = new List<ImageItem>();
+            Rectangle viewport = _cards.ClientRectangle;
+            foreach (ImageItem item in _items)
+            {
+                ModernImageCard card;
+                if (_cardMap.TryGetValue(item, out card) && card.Bounds.IntersectsWith(viewport)) visible.Add(item);
+                else remaining.Add(item);
+            }
+            visible.AddRange(remaining);
+            return visible;
+        }
+
+        private void CancelPreviewQueue()
+        {
+            _previewGeneration++;
+            if (_previewCancellation == null) return;
+            try { _previewCancellation.Cancel(); } catch { }
+            _previewCancellation.Dispose();
+            _previewCancellation = null;
+        }
+
+        private void SortItems(SortMode mode)
+        {
+            NaturalComparer natural = new NaturalComparer();
+            _items.Sort(delegate (ImageItem left, ImageItem right)
+            {
+                int result = CompareBySortMode(left, right, mode, natural);
+                if (result != 0) return result;
+                return left.AddedOrder.CompareTo(right.AddedOrder);
+            });
+            RebuildCardControls();
+        }
+
+        private static int CompareBySortMode(ImageItem left, ImageItem right, SortMode mode, NaturalComparer natural)
+        {
+            if (mode == SortMode.NameAscending) return natural.Compare(left, right);
+            if (mode == SortMode.NameDescending) return natural.Compare(right, left);
+            if (mode == SortMode.AddedAscending) return left.AddedOrder.CompareTo(right.AddedOrder);
+            if (mode == SortMode.AddedDescending) return right.AddedOrder.CompareTo(left.AddedOrder);
+            FileInfo a = TryGetFileInfo(left.Path);
+            FileInfo b = TryGetFileInfo(right.Path);
+            if (a == null && b != null) return 1;
+            if (a != null && b == null) return -1;
+            if (a == null) return 0;
+            if (mode == SortMode.SizeAscending) return a.Length.CompareTo(b.Length);
+            if (mode == SortMode.SizeDescending) return b.Length.CompareTo(a.Length);
+            if (mode == SortMode.ModifiedAscending) return a.LastWriteTime.CompareTo(b.LastWriteTime);
+            if (mode == SortMode.ModifiedDescending) return b.LastWriteTime.CompareTo(a.LastWriteTime);
+            return 0;
+        }
+
+        private static FileInfo TryGetFileInfo(string path)
+        {
+            try { return File.Exists(path) ? new FileInfo(path) : null; }
+            catch { return null; }
+        }
+
+        private void ExportClicked(object sender, EventArgs e)
+        {
+            if (_exportCancellation != null) return;
+            if (_items.Count == 0)
+            {
+                MessageBox.Show(this, "è¯·å…ˆæ·»åŠ å›¾ç‰‡ã€‚", "æ— æ³•å¯¼å‡º", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            WatermarkOptions watermark = GetWatermarkOptions();
+            if (watermark.Mode == WatermarkMode.Custom && String.IsNullOrWhiteSpace(watermark.Text))
+            {
+                MessageBox.Show(this, "è‡ªå®šä¹‰æ°´å°æ–‡å­—ä¸èƒ½ä¸ºç©ºã€‚", "æ— æ³•å¯¼å‡º", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            List<string> unavailable = _items.Where(delegate (ImageItem item) { return !File.Exists(item.Path) || !String.IsNullOrWhiteSpace(item.PreviewError); }).Select(delegate (ImageItem item) { return item.FileName; }).ToList();
+            if (unavailable.Count > 0)
+            {
+                MessageBox.Show(this, "ä»¥ä¸‹å›¾ç‰‡ä¸å¯ç”¨ï¼Œè¯·é‡æ–°æ·»åŠ ï¼š\r\n\r\n" + String.Join("\r\n", unavailable.ToArray()), "æ— æ³•å¯¼å‡º", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string target;
+            string folder;
+            bool explicitOverwrite;
+            try
+            {
+                if (!ResolveOutput(out target, out folder, out explicitOverwrite)) return;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(this, error.Message, "è¾“å‡ºè·¯å¾„æ— æ•ˆ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ExportOptions options = new ExportOptions
+            {
+                PaperSize = GetPaperSize(),
+                Orientation = _orientation,
+                AutoRotate = _autoRotateCheck.Checked,
+                MarginMm = GetMarginMm(),
+                Quality = (QualityPreset)Math.Max(0, _qualityCombo.SelectedIndex),
+                Mode = _exportMode,
+                BaseName = GetMergeBaseName(),
+                Watermark = watermark,
+                TargetMode = _targetMode
+            };
+            List<ImageSnapshot> snapshots = _items.Select(delegate (ImageItem item)
+            {
+                return new ImageSnapshot { Path = item.Path, ManualRotation = item.ManualRotation, OutputName = item.OutputName };
+            }).ToList();
+
+            _exportCancellation = new CancellationTokenSource();
+            CancellationToken token = _exportCancellation.Token;
+            SetExportState(true, "æ­£åœ¨å‡†å¤‡å¯¼å‡ºâ€¦");
+            Task.Run(delegate
+            {
+                try
+                {
+                    Action<int> progress = delegate (int value)
+                    {
+                        try { BeginInvoke((Action)delegate { _statusLabel.Text = "æ­£åœ¨å¯¼å‡º " + value.ToString() + "%"; }); }
+                        catch { }
+                    };
+                    if (options.Mode == ExportMode.Merge)
+                        PdfExporter.ExportMerged(target, snapshots, options, progress, token);
+                    else
+                        PdfExporter.ExportSeparate(folder, snapshots, options, progress, token);
+                    if (IsDisposed) return;
+                    BeginInvoke((Action)delegate
+                    {
+                        SaveSuccessfulOutputSettings(options.Mode == ExportMode.Merge ? Path.GetDirectoryName(target) : folder);
+                        _statusLabel.Text = "å¯¼å‡ºå®Œæˆ";
+                        MessageBox.Show(this, "PDF å·²æˆåŠŸå¯¼å‡ºåˆ°ï¼š\r\n" + (options.Mode == ExportMode.Merge ? target : folder), "å¯¼å‡ºå®Œæˆ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    });
+                }
+                catch (OperationCanceledException)
+                {
+                    if (!IsDisposed) try { BeginInvoke((Action)delegate { _statusLabel.Text = "å·²å–æ¶ˆå¯¼å‡º"; }); } catch { }
+                }
+                catch (Exception error)
+                {
+                    if (!IsDisposed) try { BeginInvoke((Action)delegate { _statusLabel.Text = "å¯¼å‡ºå¤±è´¥"; MessageBox.Show(this, error.Message, "å¯¼å‡ºå¤±è´¥", MessageBoxButtons.OK, MessageBoxIcon.Error); }); } catch { }
+                }
+                finally
+                {
+                    if (!IsDisposed) try { BeginInvoke((Action)delegate { SetExportState(false, _statusLabel.Text); }); } catch { }
+                }
+            });
+        }
+
+        private bool ResolveOutput(out string target, out string folder, out bool explicitOverwrite)
+        {
+            target = null;
+            folder = null;
+            explicitOverwrite = false;
+            string raw = _outputPathBox.Text.Trim();
+            if (String.IsNullOrWhiteSpace(raw))
+            {
+                BrowseOutput();
+                raw = _outputPathBox.Text.Trim();
+                if (String.IsNullOrWhiteSpace(raw)) return false;
+            }
+            if (_exportMode == ExportMode.Separate || _targetMode == OutputTargetMode.Folder)
+            {
+                folder = Path.GetFullPath(raw);
+                Directory.CreateDirectory(folder);
+                if (_exportMode == ExportMode.Merge)
+                    target = PdfExporter.GetUniquePath(folder, EnsurePdfExtension(PdfExporter.SanitizeFileName(GetMergeBaseName())));
+            }
+            else
+            {
+                target = Path.GetFullPath(EnsurePdfExtension(raw));
+                string directory = Path.GetDirectoryName(target);
+                if (String.IsNullOrWhiteSpace(directory)) throw new InvalidOperationException("è¯·é€‰æ‹©æœ‰æ•ˆçš„ PDF ä¿å­˜ä½ç½®ã€‚");
+                Directory.CreateDirectory(directory);
+                if (File.Exists(target))
+                {
+                    if (MessageBox.Show(this, "æ–‡ä»¶å·²ç»å­˜åœ¨ï¼Œæ˜¯å¦æ›¿æ¢ï¼Ÿ\r\n\r\n" + target, "ç¡®è®¤æ›¿æ¢", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                        return false;
+                    explicitOverwrite = true;
+                }
+            }
+            return true;
+        }
+
+        private void SaveSuccessfulOutputSettings(string directory)
+        {
+            try
+            {
+                _settings.LastOutputDirectory = String.IsNullOrWhiteSpace(directory) ? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) : directory;
+                _settings.LastTargetMode = _targetMode;
+                AppSettingsStore.Save(_settings);
+            }
+            catch { }
+        }
+
+        private void SetExportState(bool exporting, string status)
+        {
+            _exportButton.Enabled = !exporting;
+            _cancelButton.Visible = exporting;
+            _statusLabel.Text = status;
+            UseWaitCursor = exporting;
+            if (!exporting)
+            {
+                UseWaitCursor = false;
+                if (_exportCancellation != null)
+                {
+                    _exportCancellation.Dispose();
+                    _exportCancellation = null;
+                }
+            }
+        }
+
+        private PaperSizeKind GetPaperSize()
+        {
+            return (PaperSizeKind)Math.Max(0, Math.Min(PaperSizes.DisplayNames.Length - 1, _paperCombo.SelectedIndex));
+        }
+
+        private int GetMarginMm()
+        {
+            return _marginCombo.SelectedIndex == 0 ? 0 : (_marginCombo.SelectedIndex == 1 ? 5 : 10);
+        }
+
+        private string GetMergeBaseName()
+        {
+            string value = _mergeNameBox == null ? String.Empty : _mergeNameBox.Text.Trim();
+            if (value.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase)) value = value.Substring(0, value.Length - 4);
+            return String.IsNullOrWhiteSpace(value) ? DefaultMergeName() : value;
+        }
+
+        private static string DefaultMergeName()
+        {
+            return "å›¾ç‰‡åˆå¹¶_" + DateTime.Now.ToString("yyyyMMdd_HHmm");
+        }
+
+        private static string EnsurePdfExtension(string value)
+        {
+            return value.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase) ? value : value + ".pdf";
+        }
+
+        private static string SafeDirectoryName(string value)
+        {
+            try { return Path.GetDirectoryName(value); }
+            catch { return null; }
+        }
+
+        private static void GetPagePixels(PaperSizeKind paper, PageOrientation orientation, int longSide, out int width, out int height)
+        {
+            float paperWidth = PaperSizes.GetWidthMm(paper);
+            float paperHeight = PaperSizes.GetHeightMm(paper);
+            if (orientation == PageOrientation.Landscape)
+            {
+                float swap = paperWidth;
+                paperWidth = paperHeight;
+                paperHeight = swap;
+            }
+            if (paperWidth >= paperHeight)
+            {
+                width = longSide;
+                height = Math.Max(1, (int)Math.Round(longSide * paperHeight / paperWidth));
+            }
+            else
+            {
+                height = longSide;
+                width = Math.Max(1, (int)Math.Round(longSide * paperWidth / paperHeight));
+            }
+        }
+
+        private void UpdateCount()
+        {
+            if (_countLabel != null) _countLabel.Text = "å…± " + _items.Count.ToString() + " é¡µ";
+            if (_statusLabel != null && _exportCancellation == null)
+                _statusLabel.Text = _items.Count == 0 ? "æ‹–å…¥å›¾ç‰‡å¼€å§‹è½¬æ¢" : "å·²å‡†å¤‡ " + _items.Count.ToString() + " å¼ å›¾ç‰‡";
+        }
+
+        private void EnableDropRecursive(Control control)
+        {
+            if (control == null) return;
+            control.AllowDrop = true;
+            if (control != this && control != _cards)
+            {
+                control.DragEnter += HandleDragEnter;
+                control.DragOver += HandleDragOver;
+                control.DragDrop += HandleDragDrop;
+            }
+            foreach (Control child in control.Controls) EnableDropRecursive(child);
+        }
+
+        private void HandleDragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
+            else if (e.Data.GetDataPresent(typeof(ImageItem))) e.Effect = DragDropEffects.Move;
+            else e.Effect = DragDropEffects.None;
+        }
+
+        private void HandleDragOver(object sender, DragEventArgs e)
+        {
+            HandleDragEnter(sender, e);
+        }
+
+        private void HandleDragDrop(object sender, DragEventArgs e)
+        {
+            string[] paths = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (paths != null) AddInputs(paths);
+            else if (e.Data.GetDataPresent(typeof(ImageItem))) CardsDragDrop(_cards, e);
+        }
+
+        private void CardsDragDrop(object sender, DragEventArgs e)
+        {
+            string[] paths = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (paths != null)
+            {
+                AddInputs(paths);
+                return;
+            }
+            ImageItem item = e.Data.GetData(typeof(ImageItem)) as ImageItem;
+            if (item == null) return;
+            Point location = _cards.PointToClient(new Point(e.X, e.Y));
+            int targetIndex = _items.Count;
+            for (int index = 0; index < _cards.Controls.Count; index++)
+            {
+                if (_cards.Controls[index].Bounds.Contains(location)) { targetIndex = index; break; }
+            }
+            int sourceIndex = _items.IndexOf(item);
+            if (sourceIndex < 0) return;
+            _items.RemoveAt(sourceIndex);
+            if (sourceIndex < targetIndex) targetIndex--;
+            targetIndex = Math.Max(0, Math.Min(targetIndex, _items.Count));
+            _items.Insert(targetIndex, item);
+            RebuildCardControls();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (_exportCancellation != null) _exportCancellation.Cancel();
+            CancelPreviewQueue();
+            foreach (ModernImageCard card in _cardMap.Values) card.ReleasePreviewReference();
+            foreach (ImageItem item in _items) item.DisposePreview();
+            base.OnFormClosing(e);
+        }
+    }
+}

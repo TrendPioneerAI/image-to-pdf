@@ -363,4 +363,565 @@ namespace LocalImageToPdf
                         for (int x = 0; x < width; x++)
                             alpha[y * width + x] = row[x * 4 + 3];
                     }
-     ßÎ{¶‰Ëkºwµç@€€€€€€€€½¹Ñ•¹Ğ¹ÁÁ•¹ ˆµq¸½]´½q¹Eq¸ˆ¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”ÍÑ…Ñ¥ŒÙ½¥ÁÁ•¹‘5…ÑÉ¥à¡MÑÉ¥¹	Õ¥±‘•È‰Õ¥±‘•È°U¹¥Ñ5…ÑÉ¥àµ…ÑÉ¥à¤(€€€€€€€ì(€€€€€€€€€€€‰Õ¥±‘•È¹ÁÁ•¹¡µ…ÑÉ¥à¹¹Q½MÑÉ¥¹œ ˆÀ¸ŒŒŒŒŒˆ°Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤¤¹ÁÁ•¹ œ€œ¤(€€€€€€€€€€€€€€€€¹ÁÁ•¹¡µ…ÑÉ¥à¹¹Q½MÑÉ¥¹œ ˆÀ¸ŒŒŒŒŒˆ°Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤¤¹ÁÁ•¹ œ€œ¤(€€€€€€€€€€€€€€€€¹ÁÁ•¹¡µ…ÑÉ¥à¹¹Q½MÑÉ¥¹œ ˆÀ¸ŒŒŒŒŒˆ°Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤¤¹ÁÁ•¹ œ€œ¤(€€€€€€€€€€€€€€€€¹ÁÁ•¹¡µ…ÑÉ¥à¹¹Q½MÑÉ¥¹œ ˆÀ¸ŒŒŒŒŒˆ°Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤¤¹ÁÁ•¹ œ€œ¤(€€€€€€€€€€€€€€€€¹ÁÁ•¹¡µ…ÑÉ¥à¹¹Q½MÑÉ¥¹œ ˆÀ¸ŒŒŒŒŒˆ°Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤¤¹ÁÁ•¹ œ€œ¤(€€€€€€€€€€€€€€€€¹ÁÁ•¹¡µ…ÑÉ¥à¹¹Q½MÑÉ¥¹œ ˆÀ¸ŒŒŒŒŒˆ°Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”Ù½¥]É¥Ñ•)Á•=‰©•ÑÉ½µ¥±”¡¥¹Ğ¹Õµ‰•È°ÍÑÉ¥¹œÁ…Ñ °¥¹Ğİ¥‘Ñ °¥¹Ğ¡•¥¡Ğ°¥¹Ğ½µÁ½¹•¹ÑÌ¤(€€€€€€€ì(€€€€€€€€€€€¥±•%¹™¼™¥±”€ô¹•Ü¥±•%¹™¼¡Á…Ñ ¤ì(€€€€€€€€€€€I•½É‘=™™Í•Ğ¡¹Õµ‰•È¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤¡¹Õµ‰•È¹Q½MÑÉ¥¹œ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤€¬€ˆ€À½‰©q¸ˆ¤ì(€€€€€€€€€€€ÍÑÉ¥¹œ½±½ÉMÁ…”€ô½µÁ½¹•¹ÑÌ€ôô€Ä€ü€ˆ½•Ù¥•É…äˆ€è€ˆ½•Ù¥•Iˆì(€€€€€€€€€€€]É¥Ñ•Í¥¤¡MÑÉ¥¹œ¹½Éµ…Ğ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”°(€€€€€€€€€€€€€€€€ˆğğ€½QåÁ”€½a=‰©•Ğ€½MÕ‰ÑåÁ”€½%µ…”€½]¥‘Ñ ìÁô€½!•¥¡ĞìÅô€½½±½ÉMÁ…”ìÉô€½	¥ÑÍA•É½µÁ½¹•¹Ğ€à€½¥±Ñ•È€½Q•½‘”€½1•¹Ñ ìÍô€øùq¹ÍÑÉ•…µq¸ˆ°(€€€€€€€€€€€€€€€İ¥‘Ñ °¡•¥¡Ğ°½±½ÉMÁ…”°™¥±”¹1•¹Ñ ¤¤ì(€€€€€€€€€€€ÕÍ¥¹œ€¡¥±•MÑÉ•…´¥¹ÁÕĞ€ô¹•Ü¥±•MÑÉ•…´¡Á…Ñ °¥±•5½‘”¹=Á•¸°¥±••ÍÌ¹I•…°¥±•M¡…É”¹I•…°€ÄÀÈĞ€¨€ÄÈà°¥±•=ÁÑ¥½¹Ì¹M•ÅÕ•¹Ñ¥…±M…¸¤¤(€€€€€€€€€€€€€€€¥¹ÁÕĞ¹½ÁåQ¼¡}ÍÑÉ•…´°€ÄÀÈĞ€¨€ÄÈà¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤ ‰q¹•¹‘ÍÑÉ•…µq¹•¹‘½‰©q¸ˆ¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”Ù½¥]É¥Ñ•%µ…•=‰©•Ğ¡¥¹Ğ¹Õµ‰•È°‰åÑ•mt‘…Ñ„°¥¹Ğİ¥‘Ñ °¥¹Ğ¡•¥¡Ğ°A‘™%µ…•¹½‘¥¹œ•¹½‘¥¹œ°¥¹Ğ½µÁ½¹•¹ÑÌ¤(€€€€€€€ì(€€€€€€€€€€€I•½É‘=™™Í•Ğ¡¹Õµ‰•È¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤¡¹Õµ‰•È¹Q½MÑÉ¥¹œ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤€¬€ˆ€À½‰©q¸ˆ¤ì(€€€€€€€€€€€ÍÑÉ¥¹œ½±½ÉMÁ…”€ô½µÁ½¹•¹ÑÌ€ôô€Ä€ü€ˆ½•Ù¥•É…äˆ€è€ˆ½•Ù¥•Iˆì(€€€€€€€€€€€ÍÑÉ¥¹œ‘¥Ñ¥½¹…Éäì(€€€€€€€€€€€¥˜€¡•¹½‘¥¹œ€ôôA‘™%µ…•¹½‘¥¹œ¹1½ÍÍ±•ÍÍIˆ¤(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€‘¥Ñ¥½¹…Éä€ôMÑÉ¥¹œ¹½Éµ…Ğ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”°(€€€€€€€€€€€€€€€€€€€€ˆğğ€½QåÁ”€½a=‰©•Ğ€½MÕ‰ÑåÁ”€½%µ…”€½]¥‘Ñ ìÁô€½!•¥¡ĞìÅô€½½±½ÉMÁ…”€½•Ù¥•I€½	¥ÑÍA•É½µÁ½¹•¹Ğ€à€½¥±Ñ•È€½±…Ñ••½‘”€½•½‘•A…ÉµÌ€ğğ€½AÉ•‘¥Ñ½È€ÄÔ€½½±½ÉÌ€Ì€½	¥ÑÍA•É½µÁ½¹•¹Ğ€à€½½±Õµ¹ÌìÁô€øø€½1•¹Ñ ìÉô€øùq¹ÍÑÉ•…µq¸ˆ°(€€€€€€€€€€€€€€€€€€€İ¥‘Ñ °¡•¥¡Ğ°‘…Ñ„¹1•¹Ñ ¤ì(€€€€€€€€€€€ô(€€€€€€€€€€€•±Í”(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€‘¥Ñ¥½¹…Éä€ôMÑÉ¥¹œ¹½Éµ…Ğ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”°(€€€€€€€€€€€€€€€€€€€€ˆğğ€½QåÁ”€½a=‰©•Ğ€½MÕ‰ÑåÁ”€½%µ…”€½]¥‘Ñ ìÁô€½!•¥¡ĞìÅô€½½±½ÉMÁ…”ìÉô€½	¥ÑÍA•É½µÁ½¹•¹Ğ€à€½¥±Ñ•È€½Q•½‘”€½1•¹Ñ ìÍô€øùq¹ÍÑÉ•…µq¸ˆ°(€€€€€€€€€€€€€€€€€€€İ¥‘Ñ °¡•¥¡Ğ°½±½ÉMÁ…”°‘…Ñ„¹1•¹Ñ ¤ì(€€€€€€€€€€€ô(€€€€€€€€€€€]É¥Ñ•Í¥¤¡‘¥Ñ¥½¹…Éä¤ì(€€€€€€€€€€€]É¥Ñ•	åÑ•Ì¡‘…Ñ„¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤ ‰q¹•¹‘ÍÑÉ•…µq¹•¹‘½‰©q¸ˆ¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”Ù½¥]É¥Ñ•I…İ%µ…•=‰©•Ğ¡¥¹Ğ¹Õµ‰•È°‰åÑ•mt‘…Ñ„°¥¹Ğİ¥‘Ñ °¥¹Ğ¡•¥¡Ğ°ÍÑÉ¥¹œ‘¥Ñ¥½¹…ÉåQ…¥°°¥¹ĞÍ½™Ñ5…Í­=‰©•Ğ¤(€€€€€€€ì(€€€€€€€€€€€I•½É‘=™™Í•Ğ¡¹Õµ‰•È¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤¡¹Õµ‰•È¹Q½MÑÉ¥¹œ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤€¬€ˆ€À½‰©q¸ˆ¤ì(€€€€€€€€€€€ÍÑÉ¥¹œÍ½™Ñ5…Í¬€ôÍ½™Ñ5…Í­=‰©•Ğ€ø€À€ü€ˆ€½M5…Í¬€ˆ€¬Í½™Ñ5…Í­=‰©•Ğ¹Q½MÑÉ¥¹œ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤€¬€ˆ€ÀHˆ€èMÑÉ¥¹œ¹µÁÑäì(€€€€€€€€€€€]É¥Ñ•Í¥¤¡MÑÉ¥¹œ¹½Éµ…Ğ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”°(€€€€€€€€€€€€€€€€ˆğğ€½QåÁ”€½a=‰©•Ğ€½MÕ‰ÑåÁ”€½%µ…”€½]¥‘Ñ ìÁô€½!•¥¡ĞìÅôìÉõìÍô€½1•¹Ñ ìÑô€øùq¹ÍÑÉ•…µq¸ˆ°(€€€€€€€€€€€€€€€İ¥‘Ñ °¡•¥¡Ğ°‘¥Ñ¥½¹…ÉåQ…¥°°Í½™Ñ5…Í¬°‘…Ñ„¹1•¹Ñ ¤¤ì(€€€€€€€€€€€]É¥Ñ•	åÑ•Ì¡‘…Ñ„¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤ ‰q¹•¹‘ÍÑÉ•…µq¹•¹‘½‰©q¸ˆ¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”Ù½¥]É¥Ñ•MÑÉ•…µ=‰©•Ğ¡¥¹Ğ¹Õµ‰•È°ÍÑÉ¥¹œ½¹Ñ•¹Ğ¤(€€€€€€€ì(€€€€€€€€€€€‰åÑ•mt‰åÑ•Ì€ô¹½‘¥¹œ¹M%$¹•Ñ	åÑ•Ì¡½¹Ñ•¹Ğ¤ì(€€€€€€€€€€€I•½É‘=™™Í•Ğ¡¹Õµ‰•È¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤¡¹Õµ‰•È¹Q½MÑÉ¥¹œ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤€¬€ˆ€À½‰©q¸ğğ€½1•¹Ñ €ˆ€¬‰åÑ•Ì¹1•¹Ñ ¹Q½MÑÉ¥¹œ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤€¬€ˆ€øùq¹ÍÑÉ•…µq¸ˆ¤ì(€€€€€€€€€€€]É¥Ñ•	åÑ•Ì¡‰åÑ•Ì¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤ ‰•¹‘ÍÑÉ•…µq¹•¹‘½‰©q¸ˆ¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”¥¹Ğ9•áÑ=‰©•Ğ ¤(€€€€€€€ì(€€€€€€€€€€€É•ÑÕÉ¸}¹•áÑ=‰©•Ğ¬¬ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”Ù½¥]É¥Ñ•Í¥¥=‰©•Ğ¡¥¹Ğ¹Õµ‰•È°ÍÑÉ¥¹œ‰½‘ä¤(€€€€€€€ì(€€€€€€€€€€€I•½É‘=™™Í•Ğ¡¹Õµ‰•È¤ì(€€€€€€€€€€€]É¥Ñ•Í¥¤¡¹Õµ‰•È¹Q½MÑÉ¥¹œ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤€¬€ˆ€À½‰©q¸ˆ€¬‰½‘ä€¬€‰q¹•¹‘½‰©q¸ˆ¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”Ù½¥I•½É‘=™™Í•Ğ¡¥¹Ğ¹Õµ‰•È¤(€€€€€€€ì(€€€€€€€€€€€İ¡¥±”€¡}½™™Í•ÑÌ¹½Õ¹Ğ€ğô¹Õµ‰•È¤}½™™Í•ÑÌ¹‘ À¤ì(€€€€€€€€€€€}½™™Í•ÑÍm¹Õµ‰•Ét€ô}ÍÑÉ•…´¹A½Í¥Ñ¥½¸ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”Ù½¥]É¥Ñ•Í¥¤¡ÍÑÉ¥¹œÑ•áĞ¤(€€€€€€€ì(€€€€€€€€€€€]É¥Ñ•	åÑ•Ì¡¹½‘¥¹œ¹M%$¹•Ñ	åÑ•Ì¡Ñ•áĞ¤¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”Ù½¥]É¥Ñ•	åÑ•Ì¡‰åÑ•mt‰åÑ•Ì¤(€€€€€€€ì(€€€€€€€€€€€}ÍÑÉ•…´¹]É¥Ñ”¡‰åÑ•Ì°€À°‰åÑ•Ì¹1•¹Ñ ¤ì(€€€€€€€ô((€€€€€€€ÁÕ‰±¥ŒÙ½¥¥ÍÁ½Í” ¤(€€€€€€€ì(€€€€€€€€€€€¥˜€ …}™¥¹¥Í¡•¤(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€ÑÉäì}ÍÑÉ•…´¹±ÕÍ  ¤ìô…Ñ ìô(€€€€€€€€€€€ô(€€€€€€€€€€€}ÍÑÉ•…´¹¥ÍÁ½Í” ¤ì(€€€€€€€ô(€€€ô((€€€¥¹Ñ•É¹…°ÍÑ…Ñ¥Œ±…ÍÌA‘™áÁ½ÉÑ•È(€€€ì(€€€€€€€ÁÕ‰±¥ŒÍÑ…Ñ¥ŒÙ½¥áÁ½ÉÑ5•É•¡ÍÑÉ¥¹œÑ…É•ÑA…Ñ °%1¥ÍĞñ%µ…•M¹…ÁÍ¡½Ğø¥Ñ•µÌ°áÁ½ÉÑ=ÁÑ¥½¹Ì½ÁÑ¥½¹Ì°Ñ¥½¸ñ¥¹ĞøÁÉ½É•ÍÌ°…¹•±±…Ñ¥½¹Q½­•¸Ñ½­•¸¤(€€€€€€€ì(€€€€€€€€€€€¥˜€¡¥Ñ•µÌ€ôô¹Õ±°ñğ¥Ñ•µÌ¹½Õ¹Ğ€ôô€À¤Ñ¡É½Ü¹•Ü%¹Ù…±¥‘=Á•É…Ñ¥½¹á•ÁÑ¥½¸ ‹šÊ‡šr'–>¿–¾ó–ëj–nû&ˆ¤ì(€€€€€€€€€€€ÍÑÉ¥¹œÑ•µÁ½É…ÉåA…Ñ €ôÑ…É•ÑA…Ñ €¬€ˆ¹ÑµÀ´ˆ€¬Õ¥¹9•İÕ¥ ¤¹Q½MÑÉ¥¹œ ‰8ˆ¤ì(€€€€€€€€€€€ÑÉä(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€ÕÍ¥¹œ€¡A‘™]É¥Ñ•ÉXÈİÉ¥Ñ•È€ô¹•ÜA‘™]É¥Ñ•ÉXÈ¡Ñ•µÁ½É…ÉåA…Ñ °½ÁÑ¥½¹Ì¹]…Ñ•Éµ…É¬¤¤(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€AÉ½•ÍÍ%¹=É‘•È¡¥Ñ•µÌ°½ÁÑ¥½¹Ì°Ñ½­•¸°‘•±•…Ñ”€¡AÉ•Á…É•‘A…”Á…”°¥¹Ğ¥¹‘•à¤(€€€€€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€€€€€İÉ¥Ñ•È¹‘‘A…”¡Á…”°¥¹‘•à€¬€Ä¤ì(€€€€€€€€€€€€€€€€€€€€€€€¥˜€¡ÁÉ½É•ÍÌ€„ô¹Õ±°¤ÁÉ½É•ÍÌ ¡¥¹‘•à€¬€Ä¤€¨€ÄÀÀ€¼¥Ñ•µÌ¹½Õ¹Ğ¤ì(€€€€€€€€€€€€€€€€€€€ô¤ì(€€€€€€€€€€€€€€€€€€€İÉ¥Ñ•È¹¥¹¥Í  ¤ì(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€I•Á±…•¥±”¡Ñ•µÁ½É…ÉåA…Ñ °Ñ…É•ÑA…Ñ ¤ì(€€€€€€€€€€€ô(€€€€€€€€€€€…Ñ (€€€€€€€€€€€ì(€€€€€€€€€€€€€€€QÉå•±•Ñ”¡Ñ•µÁ½É…ÉåA…Ñ ¤ì(€€€€€€€€€€€€€€€Ñ¡É½Üì(€€€€€€€€€€€ô(€€€€€€€ô((€€€€€€€ÁÕ‰±¥ŒÍÑ…Ñ¥ŒÙ½¥áÁ½ÉÑM•Á…É…Ñ”¡ÍÑÉ¥¹œ™½±‘•È°%1¥ÍĞñ%µ…•M¹…ÁÍ¡½Ğø¥Ñ•µÌ°áÁ½ÉÑ=ÁÑ¥½¹Ì½ÁÑ¥½¹Ì°Ñ¥½¸ñ¥¹ĞøÁÉ½É•ÍÌ°…¹•±±…Ñ¥½¹Q½­•¸Ñ½­•¸¤(€€€€€€€ì(€€€€€€€€€€€¥˜€¡¥Ñ•µÌ€ôô¹Õ±°ñğ¥Ñ•µÌ¹½Õ¹Ğ€ôô€À¤Ñ¡É½Ü¹•Ü%¹Ù…±¥‘=Á•É…Ñ¥½¹á•ÁÑ¥½¸ ‹šÊ‡šr'–>¿–¾ó–ëj–nû&ˆ¤ì(€€€€€€€€€€€¥É•Ñ½Éä¹É•…Ñ•¥É•Ñ½Éä¡™½±‘•È¤ì(€€€€€€€€€€€AÉ½•ÍÍ%¹=É‘•È¡¥Ñ•µÌ°½ÁÑ¥½¹Ì°Ñ½­•¸°‘•±•…Ñ”€¡AÉ•Á…É•‘A…”Á…”°¥¹Ğ¥¹‘•à¤(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€ÍÑÉ¥¹œÉ•ÅÕ•ÍÑ•€ô¥Ñ•µÍm¥¹‘•át¹=ÕÑÁÕÑ9…µ”ì(€€€€€€€€€€€€€€€¥˜€¡MÑÉ¥¹œ¹%Í9Õ±±=É]¡¥Ñ•MÁ…”¡É•ÅÕ•ÍÑ•¤¤É•ÅÕ•ÍÑ•€ôA…Ñ ¹•Ñ¥±•9…µ•]¥Ñ¡½ÕÑáÑ•¹Í¥½¸¡¥Ñ•µÍm¥¹‘•át¹A…Ñ ¤ì(€€€€€€€€€€€€€€€¥˜€¡É•ÅÕ•ÍÑ•¹¹‘Í]¥Ñ  ˆ¹Á‘˜ˆ°MÑÉ¥¹½µÁ…É¥Í½¸¹=É‘¥¹…±%¹½É•…Í”¤¤É•ÅÕ•ÍÑ•€ôÉ•ÅÕ•ÍÑ•¹MÕ‰ÍÑÉ¥¹œ À°É•ÅÕ•ÍÑ•¹1•¹Ñ €´€Ğ¤ì(€€€€€€€€€€€€€€€ÍÑÉ¥¹œÑ…É•ÑA…Ñ €ô•ÑU¹¥ÅÕ•A…Ñ ¡™½±‘•È°M…¹¥Ñ¥é•¥±•9…µ”¡É•ÅÕ•ÍÑ•¹QÉ¥´ ¤¤€¬€ˆ¹Á‘˜ˆ¤ì(€€€€€€€€€€€€€€€ÍÑÉ¥¹œÑ•µÁ½É…ÉåA…Ñ €ôÑ…É•ÑA…Ñ €¬€ˆ¹ÑµÀ´ˆ€¬Õ¥¹9•İÕ¥ ¤¹Q½MÑÉ¥¹œ ‰8ˆ¤ì(€€€€€€€€€€€€€€€ÑÉä(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€ÕÍ¥¹œ€¡A‘™]É¥Ñ•ÉXÈİÉ¥Ñ•È€ô¹•ÜA‘™]É¥Ñ•ÉXÈ¡Ñ•µÁ½É…ÉåA…Ñ °½ÁÑ¥½¹Ì¹]…Ñ•Éµ…É¬¤¤(€€€€€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€€€€€İÉ¥Ñ•È¹‘‘A…”¡Á…”°€Ä¤ì(€€€€€€€€€€€€€€€€€€€€€€€İÉ¥Ñ•È¹¥¹¥Í  ¤ì(€€€€€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€€€€€¥±”¹5½Ù”¡Ñ•µÁ½É…ÉåA…Ñ °Ñ…É•ÑA…Ñ ¤ì(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€…Ñ (€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€QÉå•±•Ñ”¡Ñ•µÁ½É…ÉåA…Ñ ¤ì(€€€€€€€€€€€€€€€€€€€Ñ¡É½Üì(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€¥˜€¡ÁÉ½É•ÍÌ€„ô¹Õ±°¤ÁÉ½É•ÍÌ ¡¥¹‘•à€¬€Ä¤€¨€ÄÀÀ€¼¥Ñ•µÌ¹½Õ¹Ğ¤ì(€€€€€€€€€€€ô¤ì(€€€€€€€ô((€€€€€€€ÁÕ‰±¥ŒÍÑ…Ñ¥ŒÍÑÉ¥¹œ•ÑU¹¥ÅÕ•A…Ñ ¡ÍÑÉ¥¹œ™½±‘•È°ÍÑÉ¥¹œ™¥±•9…µ”¤(€€€€€€€ì(€€€€€€€€€€€ÍÑÉ¥¹œ…¹‘¥‘…Ñ”€ôA…Ñ ¹½µ‰¥¹”¡™½±‘•È°™¥±•9…µ”¤ì(€€€€€€€€€€€¥˜€ …¥±”¹á¥ÍÑÌ¡…¹‘¥‘…Ñ”¤¤É•ÑÕÉ¸…¹‘¥‘…Ñ”ì(€€€€€€€€€€€ÍÑÉ¥¹œÍÑ•´€ôA…Ñ ¹•Ñ¥±•9…µ•]¥Ñ¡½ÕÑáÑ•¹Í¥½¸¡™¥±•9…µ”¤ì(€€€€€€€€€€€ÍÑÉ¥¹œ•áÑ•¹Í¥½¸€ôA…Ñ ¹•ÑáÑ•¹Í¥½¸¡™¥±•9…µ”¤ì(€€€€€€€€€€€¥¹Ğ¥¹‘•à€ô€Èì(€€€€€€€€€€€İ¡¥±”€¡¥±”¹á¥ÍÑÌ¡…¹‘¥‘…Ñ”¤¤(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€…¹‘¥‘…Ñ”€ôA…Ñ ¹½µ‰¥¹”¡™½±‘•È°ÍÑ•´€¬€ˆ€ ˆ€¬¥¹‘•à¹Q½MÑÉ¥¹œ¡Õ±ÑÕÉ•%¹™¼¹%¹Ù…É¥…¹ÑÕ±ÑÕÉ”¤€¬€ˆ¤ˆ€¬•áÑ•¹Í¥½¸¤ì(€€€€€€€€€€€€€€€¥¹‘•à¬¬ì(€€€€€€€€€€€ô(€€€€€€€€€€€É•ÑÕÉ¸…¹‘¥‘…Ñ”ì(€€€€€€€ô((€€€€€€€ÁÕ‰±¥ŒÍÑ…Ñ¥ŒÍÑÉ¥¹œM…¹¥Ñ¥é•¥±•9…µ”¡ÍÑÉ¥¹œ¹…µ”¤(€€€€€€€ì(€€€€€€€€€€€™½É•… €¡¡…È¥¹Ù…±¥¥¸A…Ñ ¹•Ñ%¹Ù…±¥‘¥±•9…µ•¡…ÉÌ ¤¤¹…µ”€ô¹…µ”¹I•Á±…”¡¥¹Ù…±¥¹Q½MÑÉ¥¹œ ¤°€‰|ˆ¤ì(€€€€€€€€€€€É•ÑÕÉ¸MÑÉ¥¹œ¹%Í9Õ±±=É]¡¥Ñ•MÁ…”¡¹…µ”¤€ü€‹–nû&ˆ€è¹…µ”ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”ÍÑ…Ñ¥ŒÙ½¥AÉ½•ÍÍ%¹=É‘•È¡%1¥ÍĞñ%µ…•M¹…ÁÍ¡½Ğø¥Ñ•µÌ°áÁ½ÉÑ=ÁÑ¥½¹Ì½ÁÑ¥½¹Ì°…¹•±±…Ñ¥½¹Q½­•¸Ñ½­•¸°Ñ¥½¸ñAÉ•Á…É•‘A…”°¥¹Ğø½¹ÍÕµ”¤(€€€€€€€ì(€€€€€€€€€€€¥¹Ğİ½É­•ÉÌ€ô•Ñ]½É­•É½Õ¹Ğ¡½ÁÑ¥½¹Ì¤ì(€€€€€€€€€€€™½È€¡¥¹ĞÍÑ…ÉĞ€ô€ÀìÍÑ…ÉĞ€ğ¥Ñ•µÌ¹½Õ¹ĞìÍÑ…ÉĞ€¬ôİ½É­•ÉÌ¤(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€Ñ½­•¸¹Q¡É½İ%™…¹•±±…Ñ¥½¹I•ÅÕ•ÍÑ• ¤ì(€€€€€€€€€€€€€€€¥¹Ğ½Õ¹Ğ€ô5…Ñ ¹5¥¸¡İ½É­•ÉÌ°¥Ñ•µÌ¹½Õ¹Ğ€´ÍÑ…ÉĞ¤ì(€€€€€€€€€€€€€€€Q…Í¬ñAÉ•Á…É•‘A…”ùmtÑ…Í­Ì€ô¹•ÜQ…Í¬ñAÉ•Á…É•‘A…”ùm½Õ¹Ñtì(€€€€€€€€€€€€€€€™½È€¡¥¹Ğ½™™Í•Ğ€ô€Àì½™™Í•Ğ€ğ½Õ¹Ğì½™™Í•Ğ¬¬¤(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€¥¹Ğ¥Ñ•µ%¹‘•à€ôÍÑ…ÉĞ€¬½™™Í•Ğì(€€€€€€€€€€€€€€€€€€€%µ…•M¹…ÁÍ¡½ĞÍ¹…ÁÍ¡½Ğ€ô¥Ñ•µÍm¥Ñ•µ%¹‘•átì(€€€€€€€€€€€€€€€€€€€Ñ…Í­Ím½™™Í•Ñt€ôQ…Í¬¹…Ñ½Éä¹MÑ…ÉÑ9•Ü (€€€€€€€€€€€€€€€€€€€€€€€‘•±•…Ñ”ìÉ•ÑÕÉ¸AÉ•Á…É•A…”¡Í¹…ÁÍ¡½Ğ°½ÁÑ¥½¹Ì°Ñ½­•¸¤ìô°(€€€€€€€€€€€€€€€€€€€€€€€Ñ½­•¸°Q…Í­É•…Ñ¥½¹=ÁÑ¥½¹Ì¹9½¹”°Q…Í­M¡•‘Õ±•È¹•™…Õ±Ğ¤ì(€€€€€€€€€€€€€€€ô((€€€€€€€€€€€€€€€ÑÉä(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€Q…Í¬¹]…¥Ñ±°¡Ñ…Í­Ì¤ì(€€€€€€€€€€€€€€€€€€€™½È€¡¥¹Ğ½™™Í•Ğ€ô€Àì½™™Í•Ğ€ğ½Õ¹Ğì½™™Í•Ğ¬¬¤(€€€€€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€€€€€Ñ½­•¸¹Q¡É½İ%™…¹•±±…Ñ¥½¹I•ÅÕ•ÍÑ• ¤ì(€€€€€€€€€€€€€€€€€€€€€€€AÉ•Á…É•‘A…”Á…”€ôÑ…Í­Ím½™™Í•Ñt¹I•ÍÕ±Ğì(€€€€€€€€€€€€€€€€€€€€€€€ÑÉä(€€€€€€€€€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€€€€€€€€€½¹ÍÕµ”¡Á…”°ÍÑ…ÉĞ€¬½™™Í•Ğ¤ì(€€€€€€€€€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€€€€€€€€€™¥¹…±±ä(€€€€€€€€€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€€€€€€€€€Á…”¹¥ÍÁ½Í” ¤ì(€€€€€€€€€€€€€€€€€€€€€€€€€€€Ñ…Í­Ím½™™Í•Ñt€ô¹Õ±°ì(€€€€€€€€€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€…Ñ €¡É•…Ñ•á•ÁÑ¥½¸…É•…Ñ”¤(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€É•…Ñ•á•ÁÑ¥½¸™±…ÑÑ•¹•€ô…É•…Ñ”¹±…ÑÑ•¸ ¤ì(€€€€€€€€€€€€€€€€€€€¥˜€¡™±…ÑÑ•¹•¹%¹¹•Éá•ÁÑ¥½¹Ì¹½Õ¹Ğ€ôô€Ä¤Ñ¡É½Ü™±…ÑÑ•¹•¹%¹¹•Éá•ÁÑ¥½¹ÍlÁtì(€€€€€€€€€€€€€€€€€€€Ñ¡É½Üì(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€™¥¹…±±ä(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€™½É•… €¡Q…Í¬ñAÉ•Á…É•‘A…”øÑ…Í¬¥¸Ñ…Í­Ì¤(€€€€€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€€€€€¥˜€¡Ñ…Í¬€„ô¹Õ±°€˜˜Ñ…Í¬¹MÑ…ÑÕÌ€ôôQ…Í­MÑ…ÑÕÌ¹I…¹Q½½µÁ±•Ñ¥½¸€˜˜Ñ…Í¬¹I•ÍÕ±Ğ€„ô¹Õ±°¤(€€€€€€€€€€€€€€€€€€€€€€€€€€€Ñ…Í¬¹I•ÍÕ±Ğ¹¥ÍÁ½Í” ¤ì(€€€€€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€ô(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”ÍÑ…Ñ¥Œ¥¹Ğ•Ñ]½É­•É½Õ¹Ğ¡áÁ½ÉÑ=ÁÑ¥½¹Ì½ÁÑ¥½¹Ì¤(€€€€€€€ì(€€€€€€€€€€€¥˜€¡½ÁÑ¥½¹Ì¹EÕ…±¥Ñä€ôôEÕ…±¥ÑåAÉ•Í•Ğ¹1½ÍÍ±•ÍÌ¤É•ÑÕÉ¸€Äì(€€€€€€€€€€€¥¹Ğ½É•Ì€ô¹Ù¥É½¹µ•¹Ğ¹AÉ½•ÍÍ½É½Õ¹Ğì(€€€€€€€€€€€¥˜€¡½É•Ì€øô€à¤É•ÑÕÉ¸€Ğì(€€€€€€€€€€€¥˜€¡½É•Ì€øô€Ğ¤É•ÑÕÉ¸€Èì(€€€€€€€€€€€É•ÑÕÉ¸€Äì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”ÍÑ…Ñ¥ŒAÉ•Á…É•‘A…”AÉ•Á…É•A…”¡%µ…•M¹…ÁÍ¡½ĞÍ¹…ÁÍ¡½Ğ°áÁ½ÉÑ=ÁÑ¥½¹Ì½ÁÑ¥½¹Ì°…¹•±±…Ñ¥½¹Q½­•¸Ñ½­•¸¤(€€€€€€€ì(€€€€€€€€€€€Ñ½­•¸¹Q¡É½İ%™…¹•±±…Ñ¥½¹I•ÅÕ•ÍÑ• ¤ì(€€€€€€€€€€€ÍÑÉ¥¹œ•áÑ•¹Í¥½¸€ôA…Ñ ¹•ÑáÑ•¹Í¥½¸¡Í¹…ÁÍ¡½Ğ¹A…Ñ ¤¹Q½1½İ•É%¹Ù…É¥…¹Ğ ¤ì(€€€€€€€€€€€‰½½°‘¥É•ÑAÉ•Í•Ğ€ô½ÁÑ¥½¹Ì¹EÕ…±¥Ñä€ôôEÕ…±¥ÑåAÉ•Í•Ğ¹Mµ…ÉÑ…ÍĞñğ½ÁÑ¥½¹Ì¹EÕ…±¥Ñä€ôôEÕ…±¥ÑåAÉ•Í•Ğ¹1½ÍÍ±•ÍÌì(€€€€€€€€€€€)Á•5•Ñ…‘…Ñ„©Á•œì(€€€€€€€€€€€¥˜€¡‘¥É•ÑAÉ•Í•Ğ€˜˜€¡•áÑ•¹Í¥½¸€ôô€ˆ¹©Áœˆñğ•áÑ•¹Í¥½¸€ôô€ˆ¹©Á•œˆ¤€˜˜)Á•%¹ÍÁ•Ñ½È¹QÉåI•…¡Í¹…ÁÍ¡½Ğ¹A…Ñ °½ÕĞ©Á•œ¤¤(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€¥¹Ğ½É¥•¹Ñ•‘]¥‘Ñ ì(€€€€€€€€€€€€€€€¥¹Ğ½É¥•¹Ñ•‘!•¥¡Ğì(€€€€€€€€€€€€€€€U¹¥Ñ5…ÑÉ¥à½É¥•¹Ñ…Ñ¥½¸€ô=É¥•¹Ñ…Ñ¥½¹QÉ…¹Í™½É´¹	Õ¥±¡©Á•œ¹]¥‘Ñ °©Á•œ¹!•¥¡Ğ°©Á•œ¹á¥™=É¥•¹Ñ…Ñ¥½¸°½ÁÑ¥½¹Ì¹ÕÑ½I½Ñ…Ñ”°Í¹…ÁÍ¡½Ğ¹5…¹Õ…±I½Ñ…Ñ¥½¸°½ÕĞ½É¥•¹Ñ•‘]¥‘Ñ °½ÕĞ½É¥•¹Ñ•‘!•¥¡Ğ¤ì(€€€€€€€€€€€€€€€A…•1…å½ÕĞ±…å½ÕĞ€ô%µ…•Q½½±Ì¹…±Õ±…Ñ•1…å½ÕĞ¡½É¥•¹Ñ•‘]¥‘Ñ °½É¥•¹Ñ•‘!•¥¡Ğ°½ÁÑ¥½¹Ì¹A…Á•ÉM¥é”°½ÁÑ¥½¹Ì¹=É¥•¹Ñ…Ñ¥½¸°½ÁÑ¥½¹Ì¹5…É¥¹5´¤ì(€€€€€€€€€€€€€€€É•ÑÕÉ¸¹•ÜAÉ•Á…É•‘A…”(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€¥É•Ñ)Á•A…Ñ €ôÍ¹…ÁÍ¡½Ğ¹A…Ñ °(€€€€€€€€€€€€€€€€€€€¹½‘¥¹œ€ôA‘™%µ…•¹½‘¥¹œ¹)Á•œ°(€€€€€€€€€€€€€€€€€€€]¥‘Ñ €ô©Á•œ¹]¥‘Ñ °(€€€€€€€€€€€€€€€€€€€!•¥¡Ğ€ô©Á•œ¹!•¥¡Ğ°(€€€€€€€€€€€€€€€€€€€½µÁ½¹•¹ÑÌ€ô©Á•œ¹½µÁ½¹•¹ÑÌ°(€€€€€€€€€€€€€€€€€€€1…å½ÕĞ€ô±…å½ÕĞ°(€€€€€€€€€€€€€€€€€€€%µ…•5…ÑÉ¥à€ô=É¥•¹Ñ…Ñ¥½¹QÉ…¹Í™½É´¹A±…”¡½É¥•¹Ñ…Ñ¥½¸°±…å½ÕĞ¤(€€€€€€€€€€€€€€€ôì(€€€€€€€€€€€ô((€€€€€€€€€€€ÕÍ¥¹œ€¡	¥Ñµ…ÀÍ½ÕÉ”€ô%µ…•Q½½±Ì¹1½…‘QÉ…¹Í™½Éµ•¡Í¹…ÁÍ¡½Ğ¹A…Ñ °Í¹…ÁÍ¡½Ğ¹5…¹Õ…±I½Ñ…Ñ¥½¸°½ÁÑ¥½¹Ì¹ÕÑ½I½Ñ…Ñ”¤¤(€€€€€€€€€€€ì(€€€€€€€€€€€€€€€Ñ½­•¸¹Q¡É½İ%™…¹•±±…Ñ¥½¹I•ÅÕ•ÍÑ• ¤ì(€€€€€€€€€€€€€€€A…•1…å½ÕĞ±…å½ÕĞ€ô%µ…•Q½½±Ì¹…±Õ±…Ñ•1…å½ÕĞ¡Í½ÕÉ”¹]¥‘Ñ °Í½ÕÉ”¹!•¥¡Ğ°½ÁÑ¥½¹Ì¹A…Á•ÉM¥é”°½ÁÑ¥½¹Ì¹=É¥•¹Ñ…Ñ¥½¸°½ÁÑ¥½¹Ì¹5…É¥¹5´¤ì(€€€€€€€€€€€€€€€¥¹ĞÑ…É•Ñ]¥‘Ñ ì(€€€€€€€€€€€€€€€¥¹ĞÑ…É•Ñ!•¥¡Ğì(€€€€€€€€€€€€€€€¥˜€¡½ÁÑ¥½¹Ì¹EÕ…±¥Ñä€ôôEÕ…±¥ÑåAÉ•Í•Ğ¹1½ÍÍ±•ÍÌ¤(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€Ñ…É•Ñ]¥‘Ñ €ôÍ½ÕÉ”¹]¥‘Ñ ì(€€€€€€€€€€€€€€€€€€€Ñ…É•Ñ!•¥¡Ğ€ôÍ½ÕÉ”¹!•¥¡Ğì(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€•±Í”(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€¥¹Ğ‘Á¤€ôEÕ…±¥ÑåM•ÑÑ¥¹Ì¹•ÑÁ¤¡½ÁÑ¥½¹Ì¹EÕ…±¥Ñä¤ì(€€€€€€€€€€€€€€€€€€€Ñ…É•Ñ]¥‘Ñ €ô5…Ñ ¹5…à Ä°€¡¥¹Ğ¥5…Ñ ¹I½Õ¹¡±…å½ÕĞ¹]¥‘Ñ¡AĞ€¼€ÜÉ˜€¨‘Á¤¤¤ì(€€€€€€€€€€€€€€€€€€€Ñ…É•Ñ!•¥¡Ğ€ô5…Ñ ¹5…à Ä°€¡¥¹Ğ¥5…Ñ ¹I½Õ¹¡±…å½ÕĞ¹!•¥¡ÑAĞ€¼€ÜÉ˜€¨‘Á¤¤¤ì(€€€€€€€€€€€€€€€€€€€Ñ…É•Ñ]¥‘Ñ €ô5…Ñ ¹5¥¸¡Ñ…É•Ñ]¥‘Ñ °5…Ñ ¹5…à Ä°Í½ÕÉ”¹]¥‘Ñ ¤¤ì(€€€€€€€€€€€€€€€€€€€Ñ…É•Ñ!•¥¡Ğ€ô5…Ñ ¹5¥¸¡Ñ…É•Ñ!•¥¡Ğ°5…Ñ ¹5…à Ä°Í½ÕÉ”¹!•¥¡Ğ¤¤ì(€€€€€€€€€€€€€€€ô((€€€€€€€€€€€€€€€ÕÍ¥¹œ€¡	¥Ñµ…ÀÉ•¹‘•É•€ô%µ…•Q½½±Ì¹I•¹‘•É%µ…”¡Í½ÕÉ”°Ñ…É•Ñ]¥‘Ñ °Ñ…É•Ñ!•¥¡Ğ¤¤(€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€Ñ½­•¸¹Q¡É½İ%™…¹•±±…Ñ¥½¹I•ÅÕ•ÍÑ• ¤ì(€€€€€€€€€€€€€€€€€€€‰½½°±½ÍÍ±•ÍÌ€ô½ÁÑ¥½¹Ì¹EÕ…±¥Ñä€ôôEÕ…±¥ÑåAÉ•Í•Ğ¹1½ÍÍ±•ÍÌì(€€€€€€€€€€€€€€€€€€€‰åÑ•mt‘…Ñ„€ô±½ÍÍ±•ÍÌ€ü%µ…•Q½½±Ì¹Q½1½ÍÍ±•ÍÍIˆ¡É•¹‘•É•¤€è%µ…•Q½½±Ì¹Q½)Á•œ¡É•¹‘•É•°EÕ…±¥ÑåM•ÑÑ¥¹Ì¹•Ñ)Á•EÕ…±¥Ñä¡½ÁÑ¥½¹Ì¹EÕ…±¥Ñä¤¤ì(€€€€€€€€€€€€€€€€€€€É•ÑÕÉ¸¹•ÜAÉ•Á…É•‘A…”(€€€€€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€€€€€%µ…•…Ñ„€ô‘…Ñ„°(€€€€€€€€€€€€€€€€€€€€€€€¹½‘¥¹œ€ô±½ÍÍ±•ÍÌ€üA‘™%µ…•¹½‘¥¹œ¹1½ÍÍ±•ÍÍIˆ€èA‘™%µ…•¹½‘¥¹œ¹)Á•œ°(€€€€€€€€€€€€€€€€€€€€€€€]¥‘Ñ €ôÉ•¹‘•É•¹]¥‘Ñ °(€€€€€€€€€€€€€€€€€€€€€€€!•¥¡Ğ€ôÉ•¹‘•É•¹!•¥¡Ğ°(€€€€€€€€€€€€€€€€€€€€€€€½µÁ½¹•¹ÑÌ€ô€Ì°(€€€€€€€€€€€€€€€€€€€€€€€1…å½ÕĞ€ô±…å½ÕĞ°(€€€€€€€€€€€€€€€€€€€€€€€%µ…•5…ÑÉ¥à€ô¹•ÜU¹¥Ñ5…ÑÉ¥àì€ô±…å½ÕĞ¹]¥‘Ñ¡AĞ°€ô±…å½ÕĞ¹!•¥¡ÑAĞ°€ô±…å½ÕĞ¹aAĞ°€ô±…å½ÕĞ¹eAĞô(€€€€€€€€€€€€€€€€€€€ôì(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€ô(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”ÍÑ…Ñ¥ŒÙ½¥I•Á±…•¥±”¡ÍÑÉ¥¹œÑ•µÁ½É…ÉåA…Ñ °ÍÑÉ¥¹œÑ…É•ÑA…Ñ ¤(€€€€€€€ì(€€€€€€€€€€€¥˜€¡¥±”¹á¥ÍÑÌ¡Ñ…É•ÑA…Ñ ¤¤¥±”¹I•Á±…”¡Ñ•µÁ½É…ÉåA…Ñ °Ñ…É•ÑA…Ñ °¹Õ±°¤ì(€€€€€€€€€€€•±Í”¥±”¹5½Ù”¡Ñ•µÁ½É…ÉåA…Ñ °Ñ…É•ÑA…Ñ ¤ì(€€€€€€€ô((€€€€€€€ÁÉ¥Ù…Ñ”ÍÑ…Ñ¥ŒÙ½¥QÉå•±•Ñ”¡ÍÑÉ¥¹œÁ…Ñ ¤(€€€€€€€ì(€€€€€€€€€€€ÑÉäì¥˜€¡¥±”¹á¥ÍÑÌ¡Á…Ñ ¤¤¥±”¹•±•Ñ”¡Á…Ñ ¤ìô…Ñ ìô(€€€€€€€ô(€€€ô)ô(
+                }
+                finally
+                {
+                    bitmap.UnlockBits(data);
+                }
+            }
+
+            byte[] rgb = new byte[width * height * 3];
+            for (int index = 0; index < width * height; index++)
+            {
+                int offset = index * 3;
+                rgb[offset] = WatermarkColor.R;
+                rgb[offset + 1] = WatermarkColor.G;
+                rgb[offset + 2] = WatermarkColor.B;
+            }
+            int opacity = Math.Max(5, Math.Min(60, options.OpacityPercent));
+            for (int index = 0; index < alpha.Length; index++)
+                alpha[index] = (byte)(alpha[index] * opacity / 100);
+
+            return new WatermarkAsset
+            {
+                Width = width,
+                Height = height,
+                RgbData = Zlib.Compress(rgb),
+                AlphaData = Zlib.Compress(alpha),
+                Options = options.Clone()
+            };
+        }
+
+        public static void DrawPreview(Bitmap page, WatermarkOptions options)
+        {
+            if (page == null || !IsEnabled(options)) return;
+            using (Graphics graphics = Graphics.FromImage(page))
+            {
+                graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+                int opacity = Math.Max(5, Math.Min(60, options.OpacityPercent));
+                using (Brush brush = new SolidBrush(Color.FromArgb((int)Math.Round(255 * opacity / 100.0), WatermarkColor)))
+                using (Font font = new Font(ResolveFontFamily(), Math.Max(18f, page.Width / 18f), FontStyle.Bold, GraphicsUnit.Pixel))
+                using (StringFormat format = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+                {
+                    string text = options.Text.Trim();
+                    if (options.Layout == WatermarkLayout.Tile)
+                    {
+                        int stepX = Math.Max(180, page.Width / 2);
+                        int stepY = Math.Max(130, page.Height / 4);
+                        for (int y = stepY / 2; y < page.Height + stepY / 2; y += stepY)
+                            for (int x = stepX / 2; x < page.Width + stepX / 2; x += stepX)
+                                DrawRotatedText(graphics, text, font, brush, format, x, y, options.AngleDegrees);
+                    }
+                    else if (options.Layout == WatermarkLayout.BottomRight)
+                    {
+                        DrawRotatedText(graphics, text, font, brush, format, page.Width * 0.78f, page.Height * 0.9f, options.AngleDegrees);
+                    }
+                    else
+                    {
+                        DrawRotatedText(graphics, text, font, brush, format, page.Width / 2f, page.Height / 2f, options.AngleDegrees);
+                    }
+                }
+            }
+        }
+
+        private static void DrawRotatedText(Graphics graphics, string text, Font font, Brush brush, StringFormat format, float x, float y, float angle)
+        {
+            GraphicsState state = graphics.Save();
+            try
+            {
+                graphics.TranslateTransform(x, y);
+                graphics.RotateTransform(angle);
+                graphics.DrawString(text, font, brush, new PointF(0, 0), format);
+            }
+            finally { graphics.Restore(state); }
+        }
+
+        private static FontFamily ResolveFontFamily()
+        {
+            string[] names = { "Microsoft YaHei UI", "Microsoft YaHei", "SimSun", FontFamily.GenericSansSerif.Name };
+            foreach (string name in names)
+            {
+                try { return new FontFamily(name); } catch { }
+            }
+            return FontFamily.GenericSansSerif;
+        }
+    }
+
+    internal static class Zlib
+    {
+        public static byte[] Compress(byte[] bytes)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                stream.WriteByte(0x78);
+                stream.WriteByte(0x9C);
+                using (DeflateStream deflate = new DeflateStream(stream, CompressionMode.Compress, true))
+                    deflate.Write(bytes, 0, bytes.Length);
+                uint checksum = Adler32(bytes);
+                stream.WriteByte((byte)(checksum >> 24));
+                stream.WriteByte((byte)(checksum >> 16));
+                stream.WriteByte((byte)(checksum >> 8));
+                stream.WriteByte((byte)checksum);
+                return stream.ToArray();
+            }
+        }
+
+        private static uint Adler32(byte[] bytes)
+        {
+            const uint modulo = 65521;
+            uint a = 1;
+            uint b = 0;
+            int offset = 0;
+            while (offset < bytes.Length)
+            {
+                int end = Math.Min(offset + 5552, bytes.Length);
+                for (; offset < end; offset++)
+                {
+                    a += bytes[offset];
+                    b += a;
+                }
+                a %= modulo;
+                b %= modulo;
+            }
+            return (b << 16) | a;
+        }
+    }
+
+    internal sealed class PdfWriterV2 : IDisposable
+    {
+        private readonly FileStream _stream;
+        private readonly List<long> _offsets = new List<long> { 0 };
+        private readonly List<int> _pageObjects = new List<int>();
+        private readonly WatermarkAsset _watermark;
+        private int _nextObject = 3;
+        private int _watermarkMaskObject;
+        private int _watermarkImageObject;
+        private bool _watermarkWritten;
+        private bool _finished;
+
+        public PdfWriterV2(string path, WatermarkOptions watermark)
+        {
+            _stream = new FileStream(path, FileMode.CreateNew, FileAccess.Write, FileShare.None, 1024 * 128, FileOptions.SequentialScan);
+            _watermark = WatermarkRenderer.CreateAsset(watermark);
+            WriteBytes(Encoding.ASCII.GetBytes("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n"));
+            WriteAsciiObject(1, "<< /Type /Catalog /Pages 2 0 R >>");
+        }
+
+        public void AddPage(PreparedPage prepared, int pageNumber)
+        {
+            EnsureWatermarkObjects();
+            int pageObject = NextObject();
+            int imageObject = NextObject();
+            int contentObject = NextObject();
+            _pageObjects.Add(pageObject);
+            string imageName = "Im" + pageNumber.ToString(CultureInfo.InvariantCulture);
+            string resources = "<< /ProcSet [/PDF /ImageC] /XObject << /" + imageName + " " + imageObject.ToString(CultureInfo.InvariantCulture) + " 0 R";
+            if (_watermarkImageObject > 0)
+                resources += " /Wm " + _watermarkImageObject.ToString(CultureInfo.InvariantCulture) + " 0 R";
+            resources += " >> >>";
+            string page = String.Format(CultureInfo.InvariantCulture,
+                "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 {0:0.###} {1:0.###}] /Resources {2} /Contents {3} 0 R >>",
+                prepared.Layout.PageWidthPt, prepared.Layout.PageHeightPt, resources, contentObject);
+            WriteAsciiObject(pageObject, page);
+
+            if (!String.IsNullOrEmpty(prepared.DirectJpegPath))
+                WriteJpegObjectFromFile(imageObject, prepared.DirectJpegPath, prepared.Width, prepared.Height, prepared.Components);
+            else
+                WriteImageObject(imageObject, prepared.ImageData, prepared.Width, prepared.Height, prepared.Encoding, prepared.Components);
+
+            StringBuilder content = new StringBuilder();
+            content.Append("q\n");
+            AppendMatrix(content, prepared.ImageMatrix);
+            content.Append(" cm\n/").Append(imageName).Append(" Do\nQ\n");
+            if (_watermark != null)
+                AppendWatermarkContent(content, prepared.Layout.PageWidthPt, prepared.Layout.PageHeightPt);
+            WriteStreamObject(contentObject, content.ToString());
+        }
+
+        public void Finish()
+        {
+            if (_finished) return;
+            StringBuilder kids = new StringBuilder("[");
+            foreach (int page in _pageObjects)
+                kids.Append(page.ToString(CultureInfo.InvariantCulture)).Append(" 0 R ");
+            kids.Append("]");
+            WriteAsciiObject(2, "<< /Type /Pages /Kids " + kids + " /Count " + _pageObjects.Count.ToString(CultureInfo.InvariantCulture) + " >>");
+            long xref = _stream.Position;
+            int objectCount = _nextObject;
+            WriteAscii("xref\n0 " + objectCount.ToString(CultureInfo.InvariantCulture) + "\n");
+            WriteAscii("0000000000 65535 f \n");
+            for (int index = 1; index < objectCount; index++)
+                WriteAscii(_offsets[index].ToString("0000000000", CultureInfo.InvariantCulture) + " 00000 n \n");
+            WriteAscii("trailer\n<< /Size " + objectCount.ToString(CultureInfo.InvariantCulture) + " /Root 1 0 R >>\nstartxref\n" + xref.ToString(CultureInfo.InvariantCulture) + "\n%%EOF\n");
+            _stream.Flush(true);
+            _finished = true;
+        }
+
+        private void EnsureWatermarkObjects()
+        {
+            if (_watermark == null || _watermarkWritten) return;
+            _watermarkMaskObject = NextObject();
+            _watermarkImageObject = NextObject();
+            WriteRawImageObject(_watermarkMaskObject, _watermark.AlphaData, _watermark.Width, _watermark.Height,
+                "/ColorSpace /DeviceGray /BitsPerComponent 8 /Filter /FlateDecode", 0);
+            WriteRawImageObject(_watermarkImageObject, _watermark.RgbData, _watermark.Width, _watermark.Height,
+                "/ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /FlateDecode", _watermarkMaskObject);
+            _watermarkWritten = true;
+        }
+
+        private void AppendWatermarkContent(StringBuilder content, float pageWidth, float pageHeight)
+        {
+            WatermarkOptions options = _watermark.Options;
+            if (options.Layout == WatermarkLayout.Tile)
+            {
+                float stepX = pageWidth * 0.46f;
+                float stepY = pageHeight * 0.28f;
+                for (float y = stepY * 0.45f; y < pageHeight + stepY * 0.2f; y += stepY)
+                    for (float x = stepX * 0.45f; x < pageWidth + stepX * 0.2f; x += stepX)
+                        AppendWatermarkAt(content, x, y, pageWidth * 0.34f, options.AngleDegrees);
+            }
+            else if (options.Layout == WatermarkLayout.BottomRight)
+            {
+                AppendWatermarkAt(content, pageWidth * 0.79f, pageHeight * 0.09f, pageWidth * 0.26f, options.AngleDegrees);
+            }
+            else
+            {
+                AppendWatermarkAt(content, pageWidth / 2f, pageHeight / 2f, pageWidth * 0.56f, options.AngleDegrees);
+            }
+        }
+
+        private void AppendWatermarkAt(StringBuilder content, float centerX, float centerY, float desiredWidth, int angleDegrees)
+        {
+            double desiredHeight = desiredWidth * _watermark.Height / Math.Max(1.0, _watermark.Width);
+            double radians = angleDegrees * Math.PI / 180.0;
+            double cos = Math.Cos(radians);
+            double sin = Math.Sin(radians);
+            double a = desiredWidth * cos;
+            double b = desiredWidth * sin;
+            double c = -desiredHeight * sin;
+            double d = desiredHeight * cos;
+            double e = centerX - (a + c) / 2.0;
+            double f = centerY - (b + d) / 2.0;
+            content.Append("q\n");
+            AppendMatrix(content, new UnitMatrix { A = a, B = b, C = c, D = d, E = e, F = f });
+            content.Append(" cm\n/Wm Do\nQ\n");
+        }
+
+        private static void AppendMatrix(StringBuilder builder, UnitMatrix matrix)
+        {
+            builder.Append(matrix.A.ToString("0.#####", CultureInfo.InvariantCulture)).Append(' ')
+                .Append(matrix.B.ToString("0.#####", CultureInfo.InvariantCulture)).Append(' ')
+                .Append(matrix.C.ToString("0.#####", CultureInfo.InvariantCulture)).Append(' ')
+                .Append(matrix.D.ToString("0.#####", CultureInfo.InvariantCulture)).Append(' ')
+                .Append(matrix.E.ToString("0.#####", CultureInfo.InvariantCulture)).Append(' ')
+                .Append(matrix.F.ToString("0.#####", CultureInfo.InvariantCulture));
+        }
+
+        private void WriteJpegObjectFromFile(int number, string path, int width, int height, int components)
+        {
+            FileInfo file = new FileInfo(path);
+            RecordOffset(number);
+            WriteAscii(number.ToString(CultureInfo.InvariantCulture) + " 0 obj\n");
+            string colorSpace = components == 1 ? "/DeviceGray" : "/DeviceRGB";
+            WriteAscii(String.Format(CultureInfo.InvariantCulture,
+                "<< /Type /XObject /Subtype /Image /Width {0} /Height {1} /ColorSpace {2} /BitsPerComponent 8 /Filter /DCTDecode /Length {3} >>\nstream\n",
+                width, height, colorSpace, file.Length));
+            using (FileStream input = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read, 1024 * 128, FileOptions.SequentialScan))
+                input.CopyTo(_stream, 1024 * 128);
+            WriteAscii("\nendstream\nendobj\n");
+        }
+
+        private void WriteImageObject(int number, byte[] data, int width, int height, PdfImageEncoding encoding, int components)
+        {
+            RecordOffset(number);
+            WriteAscii(number.ToString(CultureInfo.InvariantCulture) + " 0 obj\n");
+            string colorSpace = components == 1 ? "/DeviceGray" : "/DeviceRGB";
+            string dictionary;
+            if (encoding == PdfImageEncoding.LosslessRgb)
+            {
+                dictionary = String.Format(CultureInfo.InvariantCulture,
+                    "<< /Type /XObject /Subtype /Image /Width {0} /Height {1} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /FlateDecode /DecodeParms << /Predictor 15 /Colors 3 /BitsPerComponent 8 /Columns {0} >> /Length {2} >>\nstream\n",
+                    width, height, data.Length);
+            }
+            else
+            {
+                dictionary = String.Format(CultureInfo.InvariantCulture,
+                    "<< /Type /XObject /Subtype /Image /Width {0} /Height {1} /ColorSpace {2} /BitsPerComponent 8 /Filter /DCTDecode /Length {3} >>\nstream\n",
+                    width, height, colorSpace, data.Length);
+            }
+            WriteAscii(dictionary);
+            WriteBytes(data);
+            WriteAscii("\nendstream\nendobj\n");
+        }
+
+        private void WriteRawImageObject(int number, byte[] data, int width, int height, string dictionaryTail, int softMaskObject)
+        {
+            RecordOffset(number);
+            WriteAscii(number.ToString(CultureInfo.InvariantCulture) + " 0 obj\n");
+            string softMask = softMaskObject > 0 ? " /SMask " + softMaskObject.ToString(CultureInfo.InvariantCulture) + " 0 R" : String.Empty;
+            WriteAscii(String.Format(CultureInfo.InvariantCulture,
+                "<< /Type /XObject /Subtype /Image /Width {0} /Height {1} {2}{3} /Length {4} >>\nstream\n",
+                width, height, dictionaryTail, softMask, data.Length));
+            WriteBytes(data);
+            WriteAscii("\nendstream\nendobj\n");
+        }
+
+        private void WriteStreamObject(int number, string content)
+        {
+            byte[] bytes = Encoding.ASCII.GetBytes(content);
+            RecordOffset(number);
+            WriteAscii(number.ToString(CultureInfo.InvariantCulture) + " 0 obj\n<< /Length " + bytes.Length.ToString(CultureInfo.InvariantCulture) + " >>\nstream\n");
+            WriteBytes(bytes);
+            WriteAscii("endstream\nendobj\n");
+        }
+
+        private int NextObject()
+        {
+            return _nextObject++;
+        }
+
+        private void WriteAsciiObject(int number, string body)
+        {
+            RecordOffset(number);
+            WriteAscii(number.ToString(CultureInfo.InvariantCulture) + " 0 obj\n" + body + "\nendobj\n");
+        }
+
+        private void RecordOffset(int number)
+        {
+            while (_offsets.Count <= number) _offsets.Add(0);
+            _offsets[number] = _stream.Position;
+        }
+
+        private void WriteAscii(string text)
+        {
+            WriteBytes(Encoding.ASCII.GetBytes(text));
+        }
+
+        private void WriteBytes(byte[] bytes)
+        {
+            _stream.Write(bytes, 0, bytes.Length);
+        }
+
+        public void Dispose()
+        {
+            if (!_finished)
+            {
+                try { _stream.Flush(); } catch { }
+            }
+            _stream.Dispose();
+        }
+    }
+
+    internal static class PdfExporter
+    {
+        public static void ExportMerged(string targetPath, IList<ImageSnapshot> items, ExportOptions options, Action<int> progress, CancellationToken token)
+        {
+            if (items == null || items.Count == 0) throw new InvalidOperationException("æ²¡æœ‰å¯å¯¼å‡ºçš„å›¾ç‰‡ã€‚");
+            string temporaryPath = targetPath + ".tmp-" + Guid.NewGuid().ToString("N");
+            try
+            {
+                using (PdfWriterV2 writer = new PdfWriterV2(temporaryPath, options.Watermark))
+                {
+                    ProcessInOrder(items, options, token, delegate (PreparedPage page, int index)
+                    {
+                        writer.AddPage(page, index + 1);
+                        if (progress != null) progress((index + 1) * 100 / items.Count);
+                    });
+                    writer.Finish();
+                }
+                ReplaceFile(temporaryPath, targetPath);
+            }
+            catch
+            {
+                TryDelete(temporaryPath);
+                throw;
+            }
+        }
+
+        public static void ExportSeparate(string folder, IList<ImageSnapshot> items, ExportOptions options, Action<int> progress, CancellationToken token)
+        {
+            if (items == null || items.Count == 0) throw new InvalidOperationException("æ²¡æœ‰å¯å¯¼å‡ºçš„å›¾ç‰‡ã€‚");
+            Directory.CreateDirectory(folder);
+            ProcessInOrder(items, options, token, delegate (PreparedPage page, int index)
+            {
+                string requested = items[index].OutputName;
+                if (String.IsNullOrWhiteSpace(requested)) requested = Path.GetFileNameWithoutExtension(items[index].Path);
+                if (requested.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase)) requested = requested.Substring(0, requested.Length - 4);
+                string targetPath = GetUniquePath(folder, SanitizeFileName(requested.Trim()) + ".pdf");
+                string temporaryPath = targetPath + ".tmp-" + Guid.NewGuid().ToString("N");
+                try
+                {
+                    using (PdfWriterV2 writer = new PdfWriterV2(temporaryPath, options.Watermark))
+                    {
+                        writer.AddPage(page, 1);
+                        writer.Finish();
+                    }
+                    File.Move(temporaryPath, targetPath);
+                }
+                catch
+                {
+                    TryDelete(temporaryPath);
+                    throw;
+                }
+                if (progress != null) progress((index + 1) * 100 / items.Count);
+            });
+        }
+
+        public static string GetUniquePath(string folder, string fileName)
+        {
+            string candidate = Path.Combine(folder, fileName);
+            if (!File.Exists(candidate)) return candidate;
+            string stem = Path.GetFileNameWithoutExtension(fileName);
+            string extension = Path.GetExtension(fileName);
+            int index = 2;
+            while (File.Exists(candidate))
+            {
+                candidate = Path.Combine(folder, stem + " (" + index.ToString(CultureInfo.InvariantCulture) + ")" + extension);
+                index++;
+            }
+            return candidate;
+        }
+
+        public static string SanitizeFileName(string name)
+        {
+            foreach (char invalid in Path.GetInvalidFileNameChars()) name = name.Replace(invalid.ToString(), "_");
+            return String.IsNullOrWhiteSpace(name) ? "å›¾ç‰‡" : name;
+        }
+
+        private static void ProcessInOrder(IList<ImageSnapshot> items, ExportOptions options, CancellationToken token, Action<PreparedPage, int> consume)
+        {
+            int workers = GetWorkerCount(options);
+            for (int start = 0; start < items.Count; start += workers)
+            {
+                token.ThrowIfCancellationRequested();
+                int count = Math.Min(workers, items.Count - start);
+                Task<PreparedPage>[] tasks = new Task<PreparedPage>[count];
+                for (int offset = 0; offset < count; offset++)
+                {
+                    int itemIndex = start + offset;
+                    ImageSnapshot snapshot = items[itemIndex];
+                    tasks[offset] = Task.Factory.StartNew(
+                        delegate { return PreparePage(snapshot, options, token); },
+                        token, TaskCreationOptions.None, TaskScheduler.Default);
+                }
+
+                try
+                {
+                    Task.WaitAll(tasks);
+                    for (int offset = 0; offset < count; offset++)
+                    {
+                        token.ThrowIfCancellationRequested();
+                        PreparedPage page = tasks[offset].Result;
+                        try
+                        {
+                            consume(page, start + offset);
+                        }
+                        finally
+                        {
+                            page.Dispose();
+                            tasks[offset] = null;
+                        }
+                    }
+                }
+                catch (AggregateException aggregate)
+                {
+                    AggregateException flattened = aggregate.Flatten();
+                    if (flattened.InnerExceptions.Count == 1) throw flattened.InnerExceptions[0];
+                    throw;
+                }
+                finally
+                {
+                    foreach (Task<PreparedPage> task in tasks)
+                    {
+                        if (task != null && task.Status == TaskStatus.RanToCompletion && task.Result != null)
+                            task.Result.Dispose();
+                    }
+                }
+            }
+        }
+
+        private static int GetWorkerCount(ExportOptions options)
+        {
+            if (options.Quality == QualityPreset.Lossless) return 1;
+            int cores = Environment.ProcessorCount;
+            if (cores >= 8) return 4;
+            if (cores >= 4) return 2;
+            return 1;
+        }
+
+        private static PreparedPage PreparePage(ImageSnapshot snapshot, ExportOptions options, CancellationToken token)
+        {
+            token.ThrowIfCancellationRequested();
+            string extension = Path.GetExtension(snapshot.Path).ToLowerInvariant();
+            bool directPreset = options.Quality == QualityPreset.SmartFast || options.Quality == QualityPreset.Lossless;
+            JpegMetadata jpeg;
+            if (directPreset && (extension == ".jpg" || extension == ".jpeg") && JpegInspector.TryRead(snapshot.Path, out jpeg))
+            {
+                int orientedWidth;
+                int orientedHeight;
+                UnitMatrix orientation = OrientationTransform.Build(jpeg.Width, jpeg.Height, jpeg.ExifOrientation, options.AutoRotate, snapshot.ManualRotation, out orientedWidth, out orientedHeight);
+                PageLayout layout = ImageTools.CalculateLayout(orientedWidth, orientedHeight, options.PaperSize, options.Orientation, options.MarginMm);
+                return new PreparedPage
+                {
+                    DirectJpegPath = snapshot.Path,
+                    Encoding = PdfImageEncoding.Jpeg,
+                    Width = jpeg.Width,
+                    Height = jpeg.Height,
+                    Components = jpeg.Components,
+                    Layout = layout,
+                    ImageMatrix = OrientationTransform.Place(orientation, layout)
+                };
+            }
+
+            using (Bitmap source = ImageTools.LoadTransformed(snapshot.Path, snapshot.ManualRotation, options.AutoRotate))
+            {
+                token.ThrowIfCancellationRequested();
+                PageLayout layout = ImageTools.CalculateLayout(source.Width, source.Height, options.PaperSize, options.Orientation, options.MarginMm);
+                int targetWidth;
+                int targetHeight;
+                if (options.Quality == QualityPreset.Lossless)
+                {
+                    targetWidth = source.Width;
+                    targetHeight = source.Height;
+                }
+                else
+                {
+                    int dpi = QualitySettings.GetDpi(options.Quality);
+                    targetWidth = Math.Max(1, (int)Math.Round(layout.WidthPt / 72f * dpi));
+                    targetHeight = Math.Max(1, (int)Math.Round(layout.HeightPt / 72f * dpi));
+                    targetWidth = Math.Min(targetWidth, Math.Max(1, source.Width));
+                    targetHeight = Math.Min(targetHeight, Math.Max(1, source.Height));
+                }
+
+                using (Bitmap rendered = ImageTools.RenderImage(source, targetWidth, targetHeight))
+                {
+                    token.ThrowIfCancellationRequested();
+                    bool lossless = options.Quality == QualityPreset.Lossless;
+                    byte[] data = lossless ? ImageTools.ToLosslessRgb(rendered) : ImageTools.ToJpeg(rendered, QualitySettings.GetJpegQuality(options.Quality));
+                    return new PreparedPage
+                    {
+                        ImageData = data,
+                        Encoding = lossless ? PdfImageEncoding.LosslessRgb : PdfImageEncoding.Jpeg,
+                        Width = rendered.Width,
+                        Height = rendered.Height,
+                        Components = 3,
+                        Layout = layout,
+                        ImageMatrix = new UnitMatrix { A = layout.WidthPt, D = layout.HeightPt, E = layout.XPt, F = layout.YPt }
+                    };
+                }
+            }
+        }
+
+        private static void ReplaceFile(string temporaryPath, string targetPath)
+        {
+            if (File.Exists(targetPath)) File.Replace(temporaryPath, targetPath, null);
+            else File.Move(temporaryPath, targetPath);
+        }
+
+        private static void TryDelete(string path)
+        {
+            try { if (File.Exists(path)) File.Delete(path); } catch { }
+        }
+    }
+}

@@ -445,7 +445,1372 @@ namespace LocalImageToPdf
             BitmapData data = null;
             try
             {
-                data = bitmap.Lock×<âÚ$z{-®éÜj×“°¢–b‡&V¦V7FVBä6÷VçBâ¢°¢7G&–æt'V–ÆFW"ÖW76vRÒæWr7G&–æt'V–ÆFW"‚“°¢ÖW76vRäVæDÆ–æR‚.Kº^Kˆ¾ih~K»niÊ®XªXZ^ûÉ¢"“°¢–çBÆ–Ö—BÒÖF‚äÖ–âƒ#Â&V¦V7FVBä6÷VçB“°¢f÷"†–çB–æFW‚Ò²–æFW‚ÂÆ–Ö—C²–æFW‚²²’ÖW76vRäVæDÆ–æR‚.(
-""²&V¦V7FVE¶–æFW…Ò“°¢–b‡&V¦V7FVBä6÷VçBâÆ–Ö—B’ÖW76vRäVæDÆ–æR‚.(
-n(
-nXúniÈ’"²‡&V¦V7FVBä6÷VçBÒÆ–Ö—B’åFõ7G&–ær‚’²"KŠ®ih~K»n8""“°¢ÖW76vT&÷‚å6†÷r‡F†—2ÂÖW76vRåFõ7G&–ær‚’Â.Y»îx˜~ZûÎXZ^hùzK¢"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâåv&æ–ær“°¢Ğ¢Ğ ¢&—fFRfö–B6ÆV$—FV×2‚¢°¢f÷&V6‚„–ÖvT—FVÒ—FVÒ–âö—FV×2’—FVÒäF—7÷6U&Wf–Wr‚“°¢ö—FV×2ä6ÆV"‚“°¢÷F‡2ä6ÆV"‚“°¢&Vg&W6„6&G2‚“°¢Ğ ¢&—fFRfö–B&Vg&W6„6&G2‚¢°¢–b…÷&Vg&W6†–ær’&WGW&ã°¢÷&Vg&W6†–ærÒG'VS°¢G'¢°¢ö6&G2å7W7VæDÆ–÷WB‚“°¢f÷&V6‚„6öçG&öÂ6öçG&öÂ–âö6&G2ä6öçG&öÇ2’6öçG&öÂäF—7÷6R‚“°¢ö6&G2ä6öçG&öÇ2ä6ÆV"‚“°¢W%6—¦T¶–æBW%6—¦RÒvWEW%6—¦R‚“°¢vT÷&–VçFF–öâ÷&–VçFF–öâÒvWD÷&–VçFF–öâ‚“°¢&ööÂWFõ&÷FFRÒöWFõ&÷FFT6†V6²ÒçVÆÂbböWFõ&÷FFT6†V6²ä6†V6¶VC°¢–çBÖ&v–âÒvWDÖ&v–äÖÒ‚“°¢–çB&Wf–Wuv–GFƒ°¢–çB&Wf–Wt†V–v‡C°¢vWE&Wf–WtF–ÖVç6–öç2‡W%6—¦RÂ÷&–VçFF–öâÂ÷WB&Wf–Wuv–GF‚Â÷WB&Wf–Wt†V–v‡B“°¢7W'6÷"Ò7W'6÷'2åv—D7W'6÷#°¢f÷&V6‚„–ÖvT—FVÒ—FVÒ–âö—FV×2¢°¢—FVÒäF—7÷6U&Wf–Wr‚“°¢G'¢°¢—FVÒå&Wf–WtW'&÷"ÒçVÆÃ°¢—FVÒå&Wf–WrÒ–ÖvUFööÇ2å&VæFW%vU&Wf–Wr†—FVÒÂW%6—¦RÂ÷&–VçFF–öâÂWFõ&÷FFRÂÖ&v–âÂ&Wf–Wuv–GF‚Â&Wf–Wt†V–v‡B“°¢Ğ¢6F6‚„W†6WF–öâW'&÷"¢°¢—FVÒå&Wf–WtW'&÷"ÒW'&÷"äÖW76vS°¢—FVÒå&Wf–WrÒæWr&—FÖ‡&Wf–Wuv–GF‚Â&Wf–Wt†V–v‡BÂ—†VÄf÷&ÖBäf÷&ÖC#F'&v"“°¢W6–ær„w&†–72w&†–72Òw&†–72äg&öÔ–ÖvR†—FVÒå&Wf–Wr’’²w&†–72ä6ÆV"„6öÆ÷"åv†—FR“²Ğ¢Ğ¢–ÖvT6&B6&BÒæWr–ÖvT6&B‡F†—2Â—FVÒ“°¢Væ&ÆTW‡FW&æÄG&÷†6&B“°¢ö6&G2ä6öçG&öÇ2äFB†6&B“°¢Ğ¢Ğ¢f–æÆÇ¢°¢7W'6÷"Ò7W'6÷'2äFVfVÇC°¢ö6&G2å&W7VÖTÆ–÷WB‚“°¢÷&Vg&W6†–ærÒfÇ6S°¢WFFT6÷VçB‚“°¢Ğ¢Ğ ¢&—fFRfö–BW‡÷'D6Æ–6¶VB†ö&¦V7B6VæFW"ÂWfVçD&w2R¢°¢–b…ö6æ6VÆÆF–öâÒçVÆÂ’&WGW&ã°¢–b…ö—FV×2ä6÷VçBÓÒ¢°¢ÖW76vT&÷‚å6†÷r‡F†—2Â.Šû~XXk{¾XªY»îx˜~8""Â.izk9^ZûÎX{¢"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâä–æf÷&ÖF–öâ“°¢&WGW&ã°¢Ğ¢Æ—7CÇ7G&–æsâVæf–Æ&ÆRÒæWrÆ—7CÇ7G&–æsâ‚“°¢f÷&V6‚„–ÖvT—FVÒ—FVÒ–âö—FV×2¢°¢–b‚f–ÆRäW†—7G2†—FVÒåF‚’’Væf–Æ&ÆRäFB†—FVÒäf–ÆTæÖR“°¢Ğ¢–b‡Væf–Æ&ÆRä6÷VçBâ¢°¢ÖW76vT&÷‚å6†÷r‡F†—2Â.Kº^Kˆ¾k©ih~K»n[{.{¸şKˆŞZÙYÊûÈÎŠû~˜xŞikk{¾XªYîXhŞZûÎX{®ûÉ¥ÆåÆâ"²7G&–ærä¦ö–â‚%Æâ"ÂVæf–Æ&ÆRåFô'&’‚’’Â.izk9^ZûÎX{¢"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâåv&æ–ær“°¢&WGW&ã°¢Ğ ¢W‡÷'D÷F–öç2÷F–öç2ÒvWD÷F–öç2‚“°¢7G&–ærF&vWBÒçVÆÃ°¢7G&–ærföÆFW"ÒçVÆÃ°¢–b†÷F–öç2äÖöFRÓÒW‡÷'DÖöFRäÖW&vR¢°¢W6–ær…6fTf–ÆTF–ÆörF–ÆörÒæWr6fTf–ÆTF–Æör‚’¢°¢F–ÆöråF—FÆRÒ.KùŞZÙY[›bDb#°¢F–Æöräf–ÇFW"Ò%Dbih~K»gÂ¢çFb#°¢F–Æöräf–ÆTæÖRÒVç7W&UFdW‡FVç6–öâ†÷F–öç2ä&6TæÖR“°¢–b†F–Æörå6†÷tF–Æör‡F†—2’ÒF–Æöu&W7VÇBäô²’&WGW&ã°¢F&vWBÒF–Æöräf–ÆTæÖS°¢Ğ¢Ğ¢VÇ6P¢°¢W6–ær„föÆFW$'&÷w6W$F–ÆörF–ÆörÒæWrföÆFW$'&÷w6W$F–Æör‚’¢°¢F–ÆöräFW67&—F–öâÒ.˜hº˜	šRDby¨N‹é>X{®ih~K»nZK’#°¢–b†F–Æörå6†÷tF–Æör‡F†—2’ÒF–Æöu&W7VÇBäô²’&WGW&ã°¢föÆFW"ÒF–Æörå6VÆV7FVEFƒ°¢Ğ¢Ğ ¢Æ—7CÄ–ÖvU6æ6†÷Câ6æ6†÷G2ÒæWrÆ—7CÄ–ÖvU6æ6†÷Câ‚“°¢f÷&V6‚„–ÖvT—FVÒ—FVÒ–âö—FV×2¢°¢6æ6†÷G2äFB†æWr–ÖvU6æ6†÷B²F‚Ò—FVÒåF‚ÂÖçVÅ&÷FF–öâÒ—FVÒäÖçVÅ&÷FF–öâÂ÷WGWDæÖRÒ—FVÒä÷WGWDæÖRÒ“°¢Ğ¢ö6æ6VÆÆF–öâÒæWr6æ6VÆÆF–öåFö¶Vå6÷W&6R‚“°¢öW‡÷'D'WGFöâäVæ&ÆVBÒfÇ6S°¢ö6æ6VÄ'WGFöâåf—6–&ÆRÒG'VS°¢÷7FGW4Æ&VÂåFW‡BÒ.jÚ>YÊZûÎX{¢Râââ#°¢6æ6VÆÆF–öåFö¶VâFö¶VâÒö6æ6VÆÆF–öâåFö¶Vã°¢F6²å'Vâ†FVÆVvFP¢°¢G'¢°¢7F–öãÆ–çCâ&öw&W72ÒFVÆVvFR†–çBfÇVR¢°¢–b‚—4F—7÷6VB’&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFR²÷7FGW4Æ&VÂåFW‡BÒ.jÚ>YÊZûÎX{¢"²fÇVRåFõ7G&–ær‚’²"Râââ#²Ò“°¢Ó°¢–b†÷F–öç2äÖöFRÓÒW‡÷'DÖöFRäÖW&vR¢FdW‡÷'FW"äW‡÷'DÖW&vVB‡F&vWBÂ6æ6†÷G2Â÷F–öç2Â&öw&W72ÂFö¶Vâ“°¢VÇ6P¢FdW‡÷'FW"äW‡÷'E6W&FR†föÆFW"Â6æ6†÷G2Â÷F–öç2Â&öw&W72ÂFö¶Vâ“°¢–b‚—4F—7÷6VB’&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFP¢°¢÷7FGW4Æ&VÂåFW‡BÒ.ZûÎX{®ZèÎh‰8"#°¢ÖW76vT&÷‚å6†÷r‡F†—2Â%Db[{.h‰X©şZûÎX{®8""Â.ZèÎh‰"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâä–æf÷&ÖF–öâ“°¢Ò“°¢Ğ¢6F6‚„÷W&F–öä6æ6VÆVDW†6WF–öâ¢°¢–b‚—4F—7÷6VB’&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFR²÷7FGW4Æ&VÂåFW‡BÒ.[{.XùnkhZûÎX{®8"#²Ò“°¢Ğ¢6F6‚„W†6WF–öâW'&÷"¢°¢–b‚—4F—7÷6VB’&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFR²÷7FGW4Æ&VÂåFW‡BÒ.ZûÎX{®ZK‹J^8"#²ÖW76vT&÷‚å6†÷r‡F†—2ÂW'&÷"äÖW76vRÂ.ZûÎX{®ZK‹JR"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâäW'&÷"“²Ò“°¢Ğ¢f–æÆÇ¢°¢–b‚—4F—7÷6VB’&Vv–ä–çfö¶R‚„7F–öâ–FVÆVvFR²ö6æ6VÄ'WGFöâåf—6–&ÆRÒfÇ6S²öW‡÷'D'WGFöâäVæ&ÆVBÒG'VS²ö6æ6VÆÆF–öâäF—7÷6R‚“²ö6æ6VÆÆF–öâÒçVÆÃ²Ò“°¢Ğ¢Ò“°¢Ğ ¢&—fFRW‡÷'D÷F–öç2vWD÷F–öç2‚¢°¢&WGW&âæWrW‡÷'D÷F–öç0¢°¢W%6—¦RÒvWEW%6—¦R‚’À¢÷&–VçFF–öâÒvWD÷&–VçFF–öâ‚’À¢WFõ&÷FFRÒöWFõ&÷FFT6†V6²ä6†V6¶VBÀ¢Ö&v–äÖÒÒvWDÖ&v–äÖÒ‚’À¢VÆ—G’Ò…VÆ—G•&W6WB•÷VÆ—G”6öÖ&òå6VÆV7FVD–æFW‚À¢ÖöFRÒöÖöFT6öÖ&òå6VÆV7FVD–æFW‚ÓÒòW‡÷'DÖöFRå6W&FR¢W‡÷'DÖöFRäÖW&vRÀ¢&6TæÖRÒ7G&–ærä—4çVÆÄ÷%v†—FU76R…öf–ÆTæÖT&÷‚åFW‡B’ò.Y»îx˜~Y[›eò"²FFUF–ÖRäæ÷råFõ7G&–ær‚'———”ÔÖFEô„†ÖÒ"’¢öf–ÆTæÖT&÷‚åFW‡BåG&–Ò‚¢Ó°¢Ğ ¢&—fFRvT÷&–VçFF–öâvWD÷&–VçFF–öâ‚¢°¢&WGW&âö÷&–VçFF–öä6öÖ&òÒçVÆÂbbö÷&–VçFF–öä6öÖ&òå6VÆV7FVD–æFW‚ÓÒòvT÷&–VçFF–öâäÆæG66R¢vT÷&–VçFF–öâå÷'G&—C°¢Ğ ¢&—fFRW%6—¦T¶–æBvWEW%6—¦R‚¢°¢–b…÷W$6öÖ&òÓÒçVÆÂÇÂ÷W$6öÖ&òå6VÆV7FVD–æFW‚Â¢&WGW&âW%6—¦T¶–æBäC°¢&WGW&â…W%6—¦T¶–æB”ÖF‚äÖ‚ƒÂÖF‚äÖ–â…W%6—¦W2äF—7Æ”æÖW2äÆVæwF‚ÒÂ÷W$6öÖ&òå6VÆV7FVD–æFW‚’“°¢Ğ ¢&—fFRfö–BvWE&Wf–WtF–ÖVç6–öç2…W%6—¦T¶–æBW%6—¦RÂvT÷&–VçFF–öâ÷&–VçFF–öâÂ÷WB–çBv–GF‚Â÷WB–çB†V–v‡B¢°¢–çBÆöæu6–FS°¢–b…ö—FV×2ä6÷VçBÃÒ"¢Æöæu6–FRÒƒ°¢VÇ6R–b…ö—FV×2ä6÷VçBÃÒc¢Æöæu6–FRÒcs“°¢VÇ6P¢Æöæu6–FRÒ&Wf–Wu÷'G&—D†V–v‡C° ¢fÆöBW%v–GF‚ÒW%6—¦W2ävWEv–GF„ÖÒ‡W%6—¦R“°¢fÆöBW$†V–v‡BÒW%6—¦W2ävWD†V–v‡DÖÒ‡W%6—¦R“°¢–b†÷&–VçFF–öâÓÒvT÷&–VçFF–öâäÆæG66R¢°¢fÆöB7vÒW%v–GFƒ°¢W%v–GF‚ÒW$†V–v‡C°¢W$†V–v‡BÒ7v°¢Ğ¢–b‡W%v–GF‚ãÒW$†V–v‡B¢°¢v–GF‚ÒÆöæu6–FS°¢†V–v‡BÒÖF‚äÖ‚ƒÂ†–çB”ÖF‚å&÷VæB†Æöæu6–FR¢W$†V–v‡BòW%v–GF‚’“°¢Ğ¢VÇ6P¢°¢†V–v‡BÒÆöæu6–FS°¢v–GF‚ÒÖF‚äÖ‚ƒÂ†–çB”ÖF‚å&÷VæB†Æöæu6–FR¢W%v–GF‚òW$†V–v‡B’“°¢Ğ¢Ğ ¢&—fFR–çBvWDÖ&v–äÖÒ‚¢°¢&WGW&âöÖ&v–ä6öÖ&òÓÒçVÆÂò¢…öÖ&v–ä6öÖ&òå6VÆV7FVD–æFW‚ÓÒò¢…öÖ&v–ä6öÖ&òå6VÆV7FVD–æFW‚ÓÒòR¢’“°¢Ğ ¢&—fFR7FF–27G&–ærVç7W&UFdW‡FVç6–öâ‡7G&–æræÖR¢°¢&WGW&âæÖRäVæG5v—F‚‚"çFb"Â7G&–æt6ö×&—6öâä÷&F–æÄ–væ÷&T66R’òæÖR¢æÖR²"çFb#°¢Ğ ¢&—fFRfö–B6WGF–æw46†ævVB†ö&¦V7B6VæFW"ÂWfVçD&w2R¢°¢–b‚÷&Vg&W6†–ær’&Vg&W6„6&G2‚“°¢Ğ ¢&—fFRfö–BWFFT6÷VçB‚¢°¢–b…ö6÷VçDÆ&VÂÒçVÆÂ’ö6÷VçDÆ&VÂåFW‡BÒ.X["²ö—FV×2ä6÷VçBåFõ7G&–ær‚’²"šR#°¢–b…÷7FGW4Æ&VÂÒçVÆÂbbö6æ6VÆÆF–öâÓÒçVÆÂ’÷7FGW4Æ&VÂåFW‡BÒö—FV×2ä6÷VçBÓÒò.Xúşk{¾XªY»îx˜~[ÈZx¾‹ÚÎhÚ""¢.[{.XxnZHr"²ö—FV×2ä6÷VçBåFõ7G&–ær‚’²"[ÊY»îx˜r#°¢Ğ ¢&—fFRfö–BVæ&ÆTW‡FW&æÄG&÷„6öçG&öÂ6öçG&öÂ¢°¢–b†6öçG&öÂÓÒçVÆÂ’&WGW&ã°¢–b†6öçG&öÂÒö6&G2¢°¢6öçG&öÂäÆÆ÷tG&÷ÒG'VS°¢6öçG&öÂäG&tVçFW"³Ò†æFÆTG&tVçFW#°¢6öçG&öÂäG&tG&÷³Ò†æFÆTG&tG&÷°¢Ğ¢f÷&V6‚„6öçG&öÂ6†–ÆB–â6öçG&öÂä6öçG&öÇ2¢Væ&ÆTW‡FW&æÄG&÷†6†–ÆB“°¢Ğ ¢&—fFRfö–B†æFÆTG&tVçFW"†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢–b†RäFFävWDFF&W6VçB„FFf÷&ÖG2äf–ÆTG&÷’¢RäVffV7BÒG&tG&÷VffV7G2ä6÷“°¢VÇ6R–b†RäFFävWDFF&W6VçB‡G—Vöb„–ÖvT—FVÒ’’¢RäVffV7BÒG&tG&÷VffV7G2äÖ÷fS°¢VÇ6P¢RäVffV7BÒG&tG&÷VffV7G2äæöæS°¢Ğ ¢&—fFRfö–B†æFÆTG&tG&÷†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢–b†RäFFävWDFF&W6VçB‡G—Vöb„–ÖvT—FVÒ’’¢°¢6&G4G&tG&÷…ö6&G2ÂR“°¢&WGW&ã°¢Ğ¢7G&–æuµÒf–ÆW2ÒRäFFävWDFF„FFf÷&ÖG2äf–ÆTG&÷’27G&–æuµÓ°¢–b†f–ÆW2ÒçVÆÂ’FDf–ÆW2†f–ÆW2“°¢Ğ ¢&—fFRfö–B6&G4G&tVçFW"†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢†æFÆTG&tVçFW"‡6VæFW"ÂR“°¢Ğ ¢&—fFRfö–B6&G4G&t÷fW"†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢–b†RäFFävWDFF&W6VçB„FFf÷&ÖG2äf–ÆTG&÷’¢RäVffV7BÒG&tG&÷VffV7G2ä6÷“°¢VÇ6R–b†RäFFävWDFF&W6VçB‡G—Vöb„–ÖvT—FVÒ’’¢RäVffV7BÒG&tG&÷VffV7G2äÖ÷fS°¢VÇ6P¢RäVffV7BÒG&tG&÷VffV7G2äæöæS°¢Ğ ¢&—fFRfö–B6&G4G&tG&÷†ö&¦V7B6VæFW"ÂG&tWfVçD&w2R¢°¢7G&–æuµÒf–ÆW2ÒRäFFävWDFF„FFf÷&ÖG2äf–ÆTG&÷’27G&–æuµÓ°¢–b†f–ÆW2ÒçVÆÂ¢°¢FDf–ÆW2†f–ÆW2“°¢&WGW&ã°¢Ğ¢–ÖvT—FVÒ—FVÒÒRäFFävWDFF‡G—Vöb„–ÖvT—FVÒ’’2–ÖvT—FVÓ°¢–b†—FVÒÓÒçVÆÂ’&WGW&ã°¢ö–çBÆö6F–öâÒö6&G2åö–çEFô6Æ–VçB†æWrö–çB†Rå‚ÂRå’’“°¢–çBF&vWD–æFW‚Òö—FV×2ä6÷VçBÒ°¢f÷"†–çB–æFW‚Ò²–æFW‚Âö6&G2ä6öçG&öÇ2ä6÷VçC²–æFW‚²²¢°¢–b…ö6&G2ä6öçG&öÇ5¶–æFW…Òä&÷VæG2ä6öçF–ç2†Æö6F–öâ’’²F&vWD–æFW‚Ò–æFWƒ²'&V³²Ğ¢Ğ¢–çB6÷W&6T–æFW‚Òö—FV×2ä–æFW„öb†—FVÒ“°¢–b‡6÷W&6T–æFW‚ÂÇÂ6÷W&6T–æFW‚ÓÒF&vWD–æFW‚’&WGW&ã°¢ö—FV×2å&VÖ÷fTB‡6÷W&6T–æFW‚“°¢–b‡6÷W&6T–æFW‚ÂF&vWD–æFW‚’F&vWD–æFW‚ÒÓ°¢F&vWD–æFW‚ÒÖF‚äÖ‚ƒÂÖF‚äÖ–â‡F&vWD–æFW‚Âö—FV×2ä6÷VçB’“°¢ö—FV×2ä–ç6W'B‡F&vWD–æFW‚Â—FVÒ“°¢&Vg&W6„6&G2‚“°¢Ğ ¢&—fFRfö–BFE6VæEFô6Æ–6¶VB†ö&¦V7B6VæFW"ÂWfVçD&w2R¢°¢G'’²6VæEFôÖævW"äFB‚“²ÖW76vT&÷‚å6†÷r‡F†—2Â.[{.k{¾XªX‹[Ù>X˜ŞyJh‹~y¨N(	ÎXù˜X‹(	ŞˆùÎXÙ^8""Â.Xû>™JîXZ^Xú2"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâä–æf÷&ÖF–öâ“²Ğ¢6F6‚„W†6WF–öâW'&÷"’²ÖW76vT&÷‚å6†÷r‡F†—2ÂW'&÷"äÖW76vRÂ.k{¾XªZK‹JR"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâäW'&÷"“²Ğ¢Ğ ¢&—fFRfö–B&VÖ÷fU6VæEFô6Æ–6¶VB†ö&¦V7B6VæFW"ÂWfVçD&w2R¢°¢G'’²6VæEFôÖævW"å&VÖ÷fR‚“²ÖW76vT&÷‚å6†÷r‡F†—2Â.[{.z{¾™šNXû>™JîXZ^Xú>8""Â.Xû>™JîXZ^Xú2"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâä–æf÷&ÖF–öâ“²Ğ¢6F6‚„W†6WF–öâW'&÷"’²ÖW76vT&÷‚å6†÷r‡F†—2ÂW'&÷"äÖW76vRÂ.z{¾™šNZK‹JR"ÂÖW76vT&÷„'WGFöç2äô²ÂÖW76vT&÷„–6öâäW'&÷"“²Ğ¢Ğ ¢&—fFR7FF–2'WGFöâÖ¶T†VFW$'WGFöâ‡7G&–ærFW‡B¢°¢&WGW&âæWr'WGFöâ²FW‡BÒFW‡BÂv–GF‚ÒBÂ†V–v‡BÒ3BÂÖ&v–âÒæWrFF–ærƒbÂÂÂ’ÂfÆE7G–ÆRÒfÆE7G–ÆRäfÆBÂ&6´6öÆ÷"Ò6öÆ÷"åv†—FRÓ°¢Ğ ¢&—fFR7FF–2Æ&VÂÖ¶U6V7F–öåF—FÆR‡7G&–ærFW‡B¢°¢&WGW&âæWrÆ&VÂ²FW‡BÒFW‡BÂWFõ6—¦RÒG'VRÂföçBÒæWrföçB‚$Ö–7&÷6ögB–†V’T’"Â&bÂföçE7G–ÆRä&öÆB’Âf÷&T6öÆ÷"Ò6öÆ÷"äg&öÔ&v"ƒrÂ#BÂ3’’Ó°¢Ğ ¢&—fFR7FF–2Æ&VÂÖ¶Tf–VÆDÆ&VÂ‡7G&–ærFW‡B¢°¢&WGW&âæWrÆ&VÂ²FW‡BÒFW‡BÂWFõ6—¦RÒG'VRÂf÷&T6öÆ÷"Ò6öÆ÷"äg&öÔ&v"ƒsRÂƒRÂ“’’Ó°¢Ğ ¢&—fFR7FF–26öÖ&ô&÷‚Ö¶T6öÖ&ò‡7G&–æuµÒfÇVW2¢°¢6öÖ&ô&÷‚6öÖ&òÒæWr6öÖ&ô&÷‚²v–GF‚Ò“Â†V–v‡BÒ#‚ÂG&÷F÷vå7G–ÆRÒ6öÖ&ô&÷…7G–ÆRäG&÷F÷väÆ—7BÂfÆE7G–ÆRÒfÆE7G–ÆRäfÆBÓ°¢6öÖ&òä—FV×2äFE&ævR‡fÇVW2“°¢&WGW&â6öÖ&ó°¢Ğ ¢&÷FV7FVB÷fW'&–FRfö–Böäf÷&Ô6Æ÷6–ær„f÷&Ô6Æ÷6–ætWfVçD&w2R¢°¢–b…ö6æ6VÆÆF–öâÒçVÆÂ’ö6æ6VÆÆF–öâä6æ6VÂ‚“°¢f÷&V6‚„–ÖvT—FVÒ—FVÒ–âö—FV×2’—FVÒäF—7÷6U&Wf–Wr‚“°¢&6Räöäf÷&Ô6Æ÷6–ær†R“°¢Ğ¢Ğ ¢–çFW&æÂ7FF–26Æ72&öw&Ğ¢°¢µ5DF‡&VEĞ¢&—fFR7FF–2fö–BÖ–â‡7G&–æuµÒ&w2¢°¢Æ–6F–öâäVæ&ÆUf—7VÅ7G–ÆW2‚“°¢Æ–6F–öâå6WD6ö×F–&ÆUFW‡E&VæFW&–ætFVfVÇB†fÇ6R“°¢Æ–6F–öâå'Vâ†æWrÖ–äf÷&Ò†&w2’“°¢Ğ¢Ğ§Ğ
+                data = bitmap.LockBits(rectangle, ImageLockMode.ReadOnly, PixelFormat.Format24bppRgb);
+                int rowBytes = bitmap.Width * 3;
+                byte[] raw = new byte[(rowBytes + 1) * bitmap.Height];
+                byte[] row = new byte[rowBytes];
+                for (int y = 0; y < bitmap.Height; y++)
+                {
+                    int rawOffset = y * (rowBytes + 1);
+                    raw[rawOffset] = 0;
+                    IntPtr rowPointer = IntPtr.Add(data.Scan0, y * data.Stride);
+                    Marshal.Copy(rowPointer, row, 0, rowBytes);
+                    for (int x = 0; x < rowBytes; x += 3)
+                    {
+                        raw[rawOffset + 1 + x] = row[x + 2];
+                        raw[rawOffset + 1 + x + 1] = row[x + 1];
+                        raw[rawOffset + 1 + x + 2] = row[x];
+                    }
+                }
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    using (DeflateStream deflate = new DeflateStream(stream, CompressionMode.Compress, true))
+                    {
+                        deflate.Write(raw, 0, raw.Length);
+                    }
+                    byte[] deflated = stream.ToArray();
+                    byte[] zlib = new byte[deflated.Length + 6];
+                    zlib[0] = 0x78;
+                    zlib[1] = 0x9C;
+                    Buffer.BlockCopy(deflated, 0, zlib, 2, deflated.Length);
+                    uint checksum = Adler32(raw);
+                    zlib[zlib.Length - 4] = (byte)(checksum >> 24);
+                    zlib[zlib.Length - 3] = (byte)(checksum >> 16);
+                    zlib[zlib.Length - 2] = (byte)(checksum >> 8);
+                    zlib[zlib.Length - 1] = (byte)checksum;
+                    return zlib;
+                }
+            }
+            finally
+            {
+                if (data != null)
+                    bitmap.UnlockBits(data);
+            }
+        }
+
+        private static uint Adler32(byte[] bytes)
+        {
+            const uint Modulo = 65521;
+            uint a = 1;
+            uint b = 0;
+            for (int index = 0; index < bytes.Length; index++)
+            {
+                a = (a + bytes[index]) % Modulo;
+                b = (b + a) % Modulo;
+            }
+            return (b << 16) | a;
+        }
+
+        private static void PrepareGraphics(Graphics graphics)
+        {
+            graphics.CompositingMode = CompositingMode.SourceOver;
+            graphics.CompositingQuality = CompositingQuality.HighQuality;
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            graphics.SmoothingMode = SmoothingMode.HighQuality;
+            graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+        }
+    }
+
+    internal sealed class SimplePdfWriter : IDisposable
+    {
+        private readonly FileStream _stream;
+        private readonly List<long> _offsets = new List<long> { 0 };
+        private readonly List<int> _pageObjects = new List<int>();
+        private int _nextObject = 3;
+        private bool _finished;
+
+        public SimplePdfWriter(string path)
+        {
+            _stream = new FileStream(path, FileMode.CreateNew, FileAccess.Write, FileShare.None, 1024 * 64);
+            WriteBytes(Encoding.ASCII.GetBytes("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n"));
+            WriteAsciiObject(1, "<< /Type /Catalog /Pages 2 0 R >>");
+        }
+
+        public void AddPage(byte[] imageData, int imageWidth, int imageHeight, PageLayout layout, int pageNumber, bool lossless)
+        {
+            int pageObject = NextObject();
+            int imageObject = NextObject();
+            int contentObject = NextObject();
+            _pageObjects.Add(pageObject);
+
+            string imageName = "Im" + pageNumber.ToString(System.Globalization.CultureInfo.InvariantCulture);
+            string page = String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 {0:0.###} {1:0.###}] /Resources << /ProcSet [/PDF /ImageC] /XObject << /{2} {3} 0 R >> >> /Contents {4} 0 R >>",
+                layout.PageWidthPt, layout.PageHeightPt, imageName, imageObject, contentObject);
+            WriteAsciiObject(pageObject, page);
+
+            WriteImageObject(imageObject, imageData, imageWidth, imageHeight, lossless);
+
+            string content = String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "q\n{0:0.###} 0 0 {1:0.###} {2:0.###} {3:0.###} cm\n/{4} Do\nQ\n",
+                layout.WidthPt, layout.HeightPt, layout.XPt, layout.YPt, imageName);
+            WriteStreamObject(contentObject, content);
+        }
+
+        public void Finish()
+        {
+            if (_finished)
+                return;
+
+            StringBuilder kids = new StringBuilder();
+            kids.Append("[");
+            foreach (int page in _pageObjects)
+            {
+                kids.Append(page.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                kids.Append(" 0 R ");
+            }
+            kids.Append("]");
+            WriteAsciiObject(2, String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "<< /Type /Pages /Kids {0} /Count {1} >>", kids, _pageObjects.Count));
+
+            long xrefPosition = _stream.Position;
+            int objectCount = _nextObject;
+            WriteAscii("xref\n0 " + objectCount.ToString(System.Globalization.CultureInfo.InvariantCulture) + "\n");
+            WriteAscii("0000000000 65535 f \n");
+            for (int index = 1; index < objectCount; index++)
+            {
+                long offset = index < _offsets.Count ? _offsets[index] : 0;
+                WriteAscii(offset.ToString("0000000000", System.Globalization.CultureInfo.InvariantCulture) + " 00000 n \n");
+            }
+            WriteAscii(String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "trailer\n<< /Size {0} /Root 1 0 R >>\nstartxref\n{1}\n%%EOF\n", objectCount, xrefPosition));
+            _stream.Flush(true);
+            _finished = true;
+        }
+
+        private int NextObject()
+        {
+            return _nextObject++;
+        }
+
+        private void WriteAsciiObject(int number, string body)
+        {
+            RecordOffset(number);
+            WriteAscii(number.ToString(System.Globalization.CultureInfo.InvariantCulture) + " 0 obj\n");
+            WriteAscii(body + "\nendobj\n");
+        }
+
+        private void WriteImageObject(int number, byte[] imageData, int width, int height, bool lossless)
+        {
+            RecordOffset(number);
+            WriteAscii(number.ToString(System.Globalization.CultureInfo.InvariantCulture) + " 0 obj\n");
+            string dictionary;
+            if (lossless)
+            {
+                dictionary = String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                    "<< /Type /XObject /Subtype /Image /Width {0} /Height {1} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /FlateDecode /DecodeParms << /Predictor 15 /Colors 3 /BitsPerComponent 8 /Columns {0} >> /Length {2} >>\nstream\n",
+                    width, height, imageData.Length);
+            }
+            else
+            {
+                dictionary = String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                    "<< /Type /XObject /Subtype /Image /Width {0} /Height {1} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length {2} >>\nstream\n",
+                    width, height, imageData.Length);
+            }
+            WriteAscii(dictionary);
+            WriteBytes(imageData);
+            WriteAscii("\nendstream\nendobj\n");
+        }
+
+        private void WriteStreamObject(int number, string content)
+        {
+            byte[] bytes = Encoding.ASCII.GetBytes(content);
+            RecordOffset(number);
+            WriteAscii(number.ToString(System.Globalization.CultureInfo.InvariantCulture) + " 0 obj\n");
+            WriteAscii("<< /Length " + bytes.Length.ToString(System.Globalization.CultureInfo.InvariantCulture) + " >>\nstream\n");
+            WriteBytes(bytes);
+            WriteAscii("endstream\nendobj\n");
+        }
+
+        private void RecordOffset(int number)
+        {
+            while (_offsets.Count <= number)
+                _offsets.Add(0);
+            _offsets[number] = _stream.Position;
+        }
+
+        private void WriteAscii(string value)
+        {
+            WriteBytes(Encoding.ASCII.GetBytes(value));
+        }
+
+        private void WriteBytes(byte[] bytes)
+        {
+            _stream.Write(bytes, 0, bytes.Length);
+        }
+
+        public void Dispose()
+        {
+            if (!_finished)
+            {
+                try { _stream.Flush(); } catch { }
+            }
+            _stream.Dispose();
+        }
+    }
+
+    internal static class LegacyPdfExporter
+    {
+        public static void ExportMerged(string targetPath, IList<ImageSnapshot> items, ExportOptions options, Action<int> progress, CancellationToken token)
+        {
+            string temporaryPath = targetPath + ".tmp-" + Guid.NewGuid().ToString("N");
+            try
+            {
+                using (SimplePdfWriter writer = new SimplePdfWriter(temporaryPath))
+                {
+                    for (int index = 0; index < items.Count; index++)
+                    {
+                        token.ThrowIfCancellationRequested();
+                        AddSnapshot(writer, items[index], options, index + 1);
+                        if (progress != null)
+                            progress((index + 1) * 100 / items.Count);
+                    }
+                    writer.Finish();
+                }
+                ReplaceFile(temporaryPath, targetPath);
+            }
+            catch
+            {
+                TryDelete(temporaryPath);
+                throw;
+            }
+        }
+
+        public static void ExportSeparate(string folder, IList<ImageSnapshot> items, ExportOptions options, Action<int> progress, CancellationToken token)
+        {
+            List<string> created = new List<string>();
+            try
+            {
+                for (int index = 0; index < items.Count; index++)
+                {
+                    token.ThrowIfCancellationRequested();
+                    string requestedName = items[index].OutputName;
+                    if (String.IsNullOrWhiteSpace(requestedName))
+                        requestedName = System.IO.Path.GetFileNameWithoutExtension(items[index].Path);
+                    requestedName = requestedName.Trim();
+                    if (requestedName.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+                        requestedName = requestedName.Substring(0, requestedName.Length - 4);
+                    string baseName = SanitizeFileName(requestedName);
+                    string targetPath = GetUniquePath(folder, baseName + ".pdf");
+                    string temporaryPath = targetPath + ".tmp-" + Guid.NewGuid().ToString("N");
+                    try
+                    {
+                        using (SimplePdfWriter writer = new SimplePdfWriter(temporaryPath))
+                        {
+                            AddSnapshot(writer, items[index], options, 1);
+                            writer.Finish();
+                        }
+                        ReplaceFile(temporaryPath, targetPath);
+                        created.Add(targetPath);
+                    }
+                    catch
+                    {
+                        TryDelete(temporaryPath);
+                        throw;
+                    }
+                    if (progress != null)
+                        progress((index + 1) * 100 / items.Count);
+                }
+            }
+            catch
+            {
+                // Completed files are intentional output and are retained for separate export.
+                throw;
+            }
+        }
+
+        private static void AddSnapshot(SimplePdfWriter writer, ImageSnapshot snapshot, ExportOptions options, int pageNumber)
+        {
+            using (Bitmap source = ImageTools.LoadTransformed(snapshot.Path, snapshot.ManualRotation, options.AutoRotate))
+            {
+                PageLayout layout = ImageTools.CalculateLayout(source.Width, source.Height, options.PaperSize, options.Orientation, options.MarginMm);
+                int dpi = QualitySettings.GetDpi(options.Quality);
+                long quality = QualitySettings.GetJpegQuality(options.Quality);
+                int targetWidth = Math.Max(1, (int)Math.Round(layout.WidthPt / 72f * dpi));
+                int targetHeight = Math.Max(1, (int)Math.Round(layout.HeightPt / 72f * dpi));
+                targetWidth = Math.Min(targetWidth, Math.Max(1, source.Width));
+                targetHeight = Math.Min(targetHeight, Math.Max(1, source.Height));
+
+                using (Bitmap rendered = ImageTools.RenderImage(source, targetWidth, targetHeight))
+                {
+                    bool lossless = options.Quality == QualityPreset.Print;
+                    byte[] imageData = lossless ? ImageTools.ToLosslessRgb(rendered) : ImageTools.ToJpeg(rendered, quality);
+                    writer.AddPage(imageData, rendered.Width, rendered.Height, layout, pageNumber, lossless);
+                }
+            }
+        }
+
+        private static string GetUniquePath(string folder, string fileName)
+        {
+            string candidate = System.IO.Path.Combine(folder, fileName);
+            if (!File.Exists(candidate))
+                return candidate;
+            string stem = System.IO.Path.GetFileNameWithoutExtension(fileName);
+            string extension = System.IO.Path.GetExtension(fileName);
+            int index = 2;
+            while (File.Exists(candidate))
+            {
+                candidate = System.IO.Path.Combine(folder, stem + " (" + index.ToString(System.Globalization.CultureInfo.InvariantCulture) + ")" + extension);
+                index++;
+            }
+            return candidate;
+        }
+
+        private static string SanitizeFileName(string name)
+        {
+            foreach (char invalid in System.IO.Path.GetInvalidFileNameChars())
+                name = name.Replace(invalid.ToString(), "_");
+            return String.IsNullOrWhiteSpace(name) ? "å›¾ç‰‡" : name;
+        }
+
+        private static void ReplaceFile(string temporaryPath, string targetPath)
+        {
+            if (File.Exists(targetPath))
+                File.Replace(temporaryPath, targetPath, null);
+            else
+                File.Move(temporaryPath, targetPath);
+        }
+
+        private static void TryDelete(string path)
+        {
+            try
+            {
+                if (File.Exists(path))
+                    File.Delete(path);
+            }
+            catch { }
+        }
+    }
+
+    internal static class SendToManager
+    {
+        private static string ShortcutPath
+        {
+            get
+            {
+                return System.IO.Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    "Microsoft\\Windows\\SendTo\\å›¾ç‰‡è½¬PDF.lnk");
+            }
+        }
+
+        public static void Add()
+        {
+            string directory = System.IO.Path.GetDirectoryName(ShortcutPath);
+            Directory.CreateDirectory(directory);
+            Type shellType = Type.GetTypeFromProgID("WScript.Shell");
+            if (shellType == null)
+                throw new InvalidOperationException("ç³»ç»Ÿæœªæä¾› Windows å¿«æ·æ–¹å¼ç»„ä»¶ã€‚");
+
+            object shell = Activator.CreateInstance(shellType);
+            object shortcut = null;
+            try
+            {
+                shortcut = shellType.InvokeMember("CreateShortcut", System.Reflection.BindingFlags.InvokeMethod, null, shell, new object[] { ShortcutPath });
+                Type shortcutType = shortcut.GetType();
+                shortcutType.InvokeMember("TargetPath", System.Reflection.BindingFlags.SetProperty, null, shortcut, new object[] { Application.ExecutablePath });
+                shortcutType.InvokeMember("WorkingDirectory", System.Reflection.BindingFlags.SetProperty, null, shortcut, new object[] { System.IO.Path.GetDirectoryName(Application.ExecutablePath) });
+                shortcutType.InvokeMember("Description", System.Reflection.BindingFlags.SetProperty, null, shortcut, new object[] { "å›¾ç‰‡è½¬ PDF" });
+                shortcutType.InvokeMember("Save", System.Reflection.BindingFlags.InvokeMethod, null, shortcut, null);
+            }
+            finally
+            {
+                if (shortcut != null && Marshal.IsComObject(shortcut)) Marshal.FinalReleaseComObject(shortcut);
+                if (shell != null && Marshal.IsComObject(shell)) Marshal.FinalReleaseComObject(shell);
+            }
+        }
+
+        public static void Remove()
+        {
+            if (File.Exists(ShortcutPath))
+                File.Delete(ShortcutPath);
+        }
+
+        public static bool Exists()
+        {
+            return File.Exists(ShortcutPath);
+        }
+    }
+
+    internal sealed class NaturalComparer : IComparer<ImageItem>
+    {
+        private static readonly Regex NumberPattern = new Regex("(\\d+)", RegexOptions.Compiled);
+
+        public int Compare(ImageItem left, ImageItem right)
+        {
+            string a = left == null ? "" : left.FileName;
+            string b = right == null ? "" : right.FileName;
+            MatchCollection am = NumberPattern.Matches(a);
+            MatchCollection bm = NumberPattern.Matches(b);
+            int positionA = 0;
+            int positionB = 0;
+            int count = Math.Min(am.Count, bm.Count);
+            for (int index = 0; index < count; index++)
+            {
+                int textCompare = StringComparer.CurrentCultureIgnoreCase.Compare(a.Substring(positionA, am[index].Index - positionA), b.Substring(positionB, bm[index].Index - positionB));
+                if (textCompare != 0) return textCompare;
+                long numberA;
+                long numberB;
+                if (!Int64.TryParse(am[index].Value, out numberA) || !Int64.TryParse(bm[index].Value, out numberB))
+                    continue;
+                if (numberA != numberB) return numberA < numberB ? -1 : 1;
+                positionA = am[index].Index + am[index].Length;
+                positionB = bm[index].Index + bm[index].Length;
+            }
+            return StringComparer.CurrentCultureIgnoreCase.Compare(a.Substring(positionA), b.Substring(positionB));
+        }
+    }
+
+    internal sealed class SharpPreviewBox : PictureBox
+    {
+        public float Zoom { get; set; }
+
+        public SharpPreviewBox()
+        {
+            DoubleBuffered = true;
+            SizeMode = PictureBoxSizeMode.Normal;
+            Zoom = 1f;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.Clear(BackColor);
+            if (Image == null)
+                return;
+
+            Rectangle area = new Rectangle(
+                Padding.Left,
+                Padding.Top,
+                Math.Max(1, ClientSize.Width - Padding.Horizontal),
+                Math.Max(1, ClientSize.Height - Padding.Vertical));
+            float scale = Math.Min((float)area.Width / Image.Width, (float)area.Height / Image.Height) * Math.Max(0.1f, Zoom);
+            int width = Math.Max(1, (int)Math.Round(Image.Width * scale));
+            int height = Math.Max(1, (int)Math.Round(Image.Height * scale));
+            Rectangle destination = new Rectangle(
+                area.X + (area.Width - width) / 2,
+                area.Y + (area.Height - height) / 2,
+                width,
+                height);
+
+            Graphics graphics = e.Graphics;
+            graphics.CompositingMode = CompositingMode.SourceOver;
+            graphics.CompositingQuality = CompositingQuality.HighQuality;
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            graphics.SmoothingMode = SmoothingMode.HighQuality;
+            graphics.DrawImage(Image, destination, 0, 0, Image.Width, Image.Height, GraphicsUnit.Pixel);
+        }
+    }
+
+    internal sealed class LargePreviewForm : Form
+    {
+        private readonly Bitmap _image;
+        private readonly SharpPreviewBox _preview;
+
+        public LargePreviewForm(string fileName, Bitmap image, Icon applicationIcon)
+        {
+            _image = image;
+            Text = "é¢„è§ˆ - " + fileName;
+            Icon = applicationIcon;
+            StartPosition = FormStartPosition.CenterParent;
+            ClientSize = new Size(1100, 760);
+            MinimumSize = new Size(640, 480);
+            BackColor = Color.FromArgb(35, 38, 45);
+            KeyPreview = true;
+            _preview = new SharpPreviewBox
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(28),
+                BackColor = Color.FromArgb(35, 38, 45),
+                Image = image,
+                Cursor = Cursors.Hand
+            };
+            _preview.MouseEnter += delegate { _preview.Focus(); };
+            _preview.MouseWheel += delegate (object sender, MouseEventArgs args)
+            {
+                _preview.Zoom = Math.Max(1f, Math.Min(4f, _preview.Zoom + (args.Delta > 0 ? 0.25f : -0.25f)));
+                _preview.Invalidate();
+            };
+            Controls.Add(_preview);
+            KeyDown += delegate (object sender, KeyEventArgs args)
+            {
+                if (args.KeyCode == Keys.Escape)
+                    Close();
+            };
+            FormClosed += delegate
+            {
+                _preview.Image = null;
+                _image.Dispose();
+            };
+        }
+    }
+
+    internal sealed class ImageCard : Panel
+    {
+        private readonly IImageCardOwner _owner;
+        private readonly ImageItem _item;
+        private Control _dragControl;
+        private Point _dragStart;
+        private bool _dragging;
+
+        public ImageCard(IImageCardOwner owner, ImageItem item)
+        {
+            _owner = owner;
+            _item = item;
+            Width = 340;
+            Height = 560;
+            Margin = new Padding(10);
+            BackColor = Color.White;
+            BorderStyle = BorderStyle.FixedSingle;
+
+            SharpPreviewBox preview = new SharpPreviewBox
+            {
+                Dock = DockStyle.Top,
+                Height = 410,
+                Padding = new Padding(10),
+                BackColor = Color.FromArgb(250, 250, 250),
+                Image = item.Preview,
+                Cursor = Cursors.Hand
+            };
+            preview.Click += delegate { _owner.ShowPreview(_item); };
+            Label label = new Label
+            {
+                Dock = DockStyle.Top,
+                Height = 32,
+                Text = item.PreviewError == null ? item.FileName : item.FileName + "ï¼ˆæ— æ³•è¯»å–ï¼‰",
+                TextAlign = ContentAlignment.MiddleCenter,
+                AutoEllipsis = true,
+                ForeColor = Color.FromArgb(55, 65, 81),
+                Padding = new Padding(6, 0, 6, 0)
+            };
+            if (item.PreviewError != null)
+                label.ForeColor = Color.FromArgb(185, 28, 28);
+            TextBox outputName = new TextBox
+            {
+                Dock = DockStyle.Top,
+                Height = 30,
+                Text = item.OutputName,
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White,
+                ForeColor = Color.FromArgb(31, 41, 55),
+                Padding = new Padding(5, 4, 5, 2),
+                AccessibleName = "PDF è¾“å‡ºæ–‡ä»¶å",
+                AccessibleDescription = "ä¸€å›¾ä¸€ä¸ª PDF æ¨¡å¼ä½¿ç”¨çš„è¾“å‡ºæ–‡ä»¶åï¼Œä¸å«æ‰©å±•å"
+            };
+            outputName.TextChanged += delegate { _item.OutputName = outputName.Text; };
+            FlowLayoutPanel actions = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 46,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Padding = new Padding(8, 6, 8, 5)
+            };
+            Button left = MakeActionButton("â†¶");
+            Button right = MakeActionButton("â†·");
+            Button remove = MakeActionButton("åˆ é™¤");
+            left.Click += delegate { _owner.RotateItem(_item, -90); };
+            right.Click += delegate { _owner.RotateItem(_item, 90); };
+            remove.Click += delegate { _owner.RemoveItem(_item); };
+            actions.Controls.Add(left);
+            actions.Controls.Add(right);
+            actions.Controls.Add(remove);
+
+            Controls.Add(actions);
+            Controls.Add(outputName);
+            Controls.Add(label);
+            Controls.Add(preview);
+            AttachDrag(this);
+            AttachDrag(preview);
+            AttachDrag(label);
+        }
+
+        private static Button MakeActionButton(string text)
+        {
+            return new Button
+            {
+                Text = text,
+                Width = text == "åˆ é™¤" ? 72 : 46,
+                Height = 29,
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.FromArgb(247, 248, 250),
+                FlatAppearance = { BorderColor = Color.FromArgb(220, 224, 230) }
+            };
+        }
+
+        private void AttachDrag(Control control)
+        {
+            control.MouseDown += delegate (object sender, MouseEventArgs args)
+            {
+                if (args.Button == MouseButtons.Left)
+                {
+                    _dragControl = control;
+                    _dragStart = args.Location;
+                    _dragging = false;
+                }
+            };
+            control.MouseMove += delegate (object sender, MouseEventArgs args)
+            {
+                if (_dragControl != control || _dragging || (Control.MouseButtons & MouseButtons.Left) == 0)
+                    return;
+                Rectangle dragRectangle = new Rectangle(
+                    _dragStart.X - SystemInformation.DragSize.Width / 2,
+                    _dragStart.Y - SystemInformation.DragSize.Height / 2,
+                    SystemInformation.DragSize.Width,
+                    SystemInformation.DragSize.Height);
+                if (dragRectangle.Contains(args.Location))
+                    return;
+                _dragging = true;
+                try { DoDragDrop(_item, DragDropEffects.Move); }
+                finally { _dragging = false; }
+            };
+            control.MouseUp += delegate
+            {
+                if (_dragControl == control)
+                {
+                    _dragControl = null;
+                    _dragging = false;
+                }
+            };
+        }
+    }
+
+    internal sealed class LegacyMainForm : Form, IImageCardOwner
+    {
+        private const int PreviewPortraitWidth = 360;
+        private const int PreviewPortraitHeight = 510;
+        private const int PreviewLandscapeWidth = 510;
+        private const int PreviewLandscapeHeight = 360;
+        private readonly string[] _startupArgs;
+        private readonly List<ImageItem> _items = new List<ImageItem>();
+        private readonly HashSet<string> _paths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private FlowLayoutPanel _cards;
+        private Label _countLabel;
+        private Label _statusLabel;
+        private ComboBox _paperCombo;
+        private ComboBox _orientationCombo;
+        private CheckBox _autoRotateCheck;
+        private ComboBox _marginCombo;
+        private ComboBox _qualityCombo;
+        private ComboBox _modeCombo;
+        private TextBox _batchNameBox;
+        private TextBox _fileNameBox;
+        private Button _exportButton;
+        private Button _cancelButton;
+        private CancellationTokenSource _cancellation;
+        private bool _refreshing;
+
+        public LegacyMainForm(string[] startupArgs)
+        {
+            _startupArgs = startupArgs ?? new string[0];
+            Text = "å›¾ç‰‡è½¬PDF";
+            StartPosition = FormStartPosition.CenterScreen;
+            ClientSize = new Size(1240, 820);
+            MinimumSize = new Size(980, 650);
+            BackColor = Color.FromArgb(244, 246, 249);
+            try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
+            AllowDrop = true;
+            BuildUi();
+            DragEnter += HandleDragEnter;
+            DragDrop += HandleDragDrop;
+            Shown += delegate { AddFiles(_startupArgs); };
+        }
+
+        public void RotateItem(ImageItem item, int delta)
+        {
+            if (item == null) return;
+            item.ManualRotation = ImageTools.NormalizeRotation(item.ManualRotation + delta);
+            RefreshCards();
+        }
+
+        public void ShowPreview(ImageItem item)
+        {
+            if (item == null) return;
+            Bitmap display = null;
+            try
+            {
+                bool autoRotate = _autoRotateCheck != null && _autoRotateCheck.Checked;
+                using (Bitmap source = ImageTools.LoadTransformed(item, autoRotate))
+                {
+                    display = ImageTools.RenderImage(source, source.Width, source.Height);
+                }
+                using (LargePreviewForm dialog = new LargePreviewForm(item.FileName, display, Icon))
+                {
+                    display = null;
+                    dialog.ShowDialog(this);
+                }
+            }
+            catch (Exception error)
+            {
+                if (display != null) display.Dispose();
+                MessageBox.Show(this, "æ— æ³•æ‰“å¼€å¤§å›¾é¢„è§ˆï¼š" + error.Message, "é¢„è§ˆå¤±è´¥", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void RemoveItem(ImageItem item)
+        {
+            if (item == null) return;
+            _items.Remove(item);
+            _paths.Remove(item.Path);
+            item.DisposePreview();
+            RefreshCards();
+        }
+
+        private void BuildUi()
+        {
+            TableLayoutPanel root = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 2,
+                RowCount = 2,
+                BackColor = BackColor
+            };
+            root.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+            root.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 355f));
+            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 62f));
+            root.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
+            Controls.Add(root);
+
+            Panel header = new Panel { Dock = DockStyle.Fill, Padding = new Padding(20, 12, 12, 8) };
+            _countLabel = new Label { Text = "å…± 0 é¡µ", AutoSize = true, Font = new Font("Microsoft YaHei UI", 14f, FontStyle.Regular), ForeColor = Color.FromArgb(31, 41, 55), Location = new Point(20, 19) };
+            FlowLayoutPanel headerActions = new FlowLayoutPanel { Dock = DockStyle.Right, Width = 470, FlowDirection = FlowDirection.RightToLeft, WrapContents = false };
+            Button add = MakeHeaderButton("æ·»åŠ å›¾ç‰‡");
+            Button sort = MakeHeaderButton("æ’åº â–¾");
+            Button clear = MakeHeaderButton("æ¸…ç©º");
+            add.Click += delegate { ChooseFiles(); };
+            ContextMenuStrip sortMenu = new ContextMenuStrip();
+            AddSortMenuItem(sortMenu, "æ–‡ä»¶åï¼ˆå‡åºï¼‰", SortMode.NameAscending);
+            AddSortMenuItem(sortMenu, "æ–‡ä»¶åï¼ˆé™åºï¼‰", SortMode.NameDescending);
+            sortMenu.Items.Add(new ToolStripSeparator());
+            AddSortMenuItem(sortMenu, "æ–‡ä»¶å¤§å°ï¼ˆå¤§ â†’ å°ï¼‰", SortMode.SizeDescending);
+            AddSortMenuItem(sortMenu, "æ–‡ä»¶å¤§å°ï¼ˆå° â†’ å¤§ï¼‰", SortMode.SizeAscending);
+            AddSortMenuItem(sortMenu, "ä¿®æ”¹æ—¥æœŸï¼ˆæ–° â†’ æ—§ï¼‰", SortMode.ModifiedDescending);
+            AddSortMenuItem(sortMenu, "ä¿®æ”¹æ—¥æœŸï¼ˆæ—§ â†’ æ–°ï¼‰", SortMode.ModifiedAscending);
+            AddSortMenuItem(sortMenu, "æœ€è¿‘åŠ å…¥ï¼ˆæ–° â†’ æ—§ï¼‰", SortMode.AddedDescending);
+            AddSortMenuItem(sortMenu, "æœ€è¿‘åŠ å…¥ï¼ˆæ—§ â†’ æ–°ï¼‰", SortMode.AddedAscending);
+            sort.Click += delegate { sortMenu.Show(sort, 0, sort.Height); };
+            clear.Click += delegate { ClearItems(); };
+            headerActions.Controls.Add(add);
+            headerActions.Controls.Add(clear);
+            headerActions.Controls.Add(sort);
+            header.Controls.Add(_countLabel);
+            header.Controls.Add(headerActions);
+            root.Controls.Add(header, 0, 0);
+            root.SetColumnSpan(header, 2);
+
+            _cards = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                AllowDrop = true,
+                WrapContents = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                Padding = new Padding(14),
+                BackColor = Color.FromArgb(244, 246, 249)
+            };
+            _cards.DragEnter += CardsDragEnter;
+            _cards.DragOver += CardsDragOver;
+            _cards.DragDrop += CardsDragDrop;
+            Panel leftArea = new Panel { Dock = DockStyle.Fill, Padding = new Padding(8, 0, 8, 8) };
+            leftArea.Controls.Add(_cards);
+            root.Controls.Add(leftArea, 0, 1);
+
+            Panel settings = BuildSettingsPanel();
+            root.Controls.Add(settings, 1, 1);
+            EnableExternalDrop(root);
+        }
+
+        private Panel BuildSettingsPanel()
+        {
+            Panel outer = new Panel { Dock = DockStyle.Fill, Padding = new Padding(0, 0, 12, 8), BackColor = Color.FromArgb(244, 246, 249) };
+            Panel panel = new Panel { Dock = DockStyle.Fill, BackColor = Color.White, Padding = new Padding(20, 18, 20, 16), AutoScroll = true };
+            outer.Controls.Add(panel);
+            int y = 12;
+            Label title = MakeSectionTitle("è¾“å‡ºè®¾ç½®");
+            title.Location = new Point(20, y);
+            panel.Controls.Add(title);
+            y += 48;
+            Label paperLabel = MakeFieldLabel("çº¸å¼ å¤§å°");
+            paperLabel.Location = new Point(20, y + 5);
+            panel.Controls.Add(paperLabel);
+            _paperCombo = MakeCombo(PaperSizes.DisplayNames);
+            _paperCombo.SelectedIndex = 0;
+            _paperCombo.Location = new Point(115, y);
+            _paperCombo.SelectedIndexChanged += SettingsChanged;
+            panel.Controls.Add(_paperCombo);
+            y += 48;
+
+            Label orientationLabel = MakeFieldLabel("çº¸å¼ æ–¹å‘");
+            orientationLabel.Location = new Point(20, y + 5);
+            panel.Controls.Add(orientationLabel);
+            _orientationCombo = MakeCombo(new[] { "ç«–å‘", "æ¨ªå‘" });
+            _orientationCombo.Location = new Point(115, y);
+            _orientationCombo.SelectedIndex = 0;
+            _orientationCombo.SelectedIndexChanged += SettingsChanged;
+            panel.Controls.Add(_orientationCombo);
+            y += 48;
+
+            _autoRotateCheck = new CheckBox { Text = "æ¨ªå›¾è‡ªåŠ¨è½¬æ­£ï¼ˆé¡ºæ—¶é’ˆ 90Â°ï¼‰", Checked = true, AutoSize = true, Location = new Point(20, y + 2), ForeColor = Color.FromArgb(55, 65, 81) };
+            _autoRotateCheck.CheckedChanged += SettingsChanged;
+            panel.Controls.Add(_autoRotateCheck);
+            y += 42;
+
+            Label marginLabel = MakeFieldLabel("é¡µé¢è¾¹è·");
+            marginLabel.Location = new Point(20, y + 5);
+            panel.Controls.Add(marginLabel);
+            _marginCombo = MakeCombo(new[] { "æ— è¾¹è·ï¼ˆ0 mmï¼‰", "çª„è¾¹è·ï¼ˆ5 mmï¼‰", "æ ‡å‡†è¾¹è·ï¼ˆ10 mmï¼‰" });
+            _marginCombo.SelectedIndex = 2;
+            _marginCombo.Location = new Point(115, y);
+            _marginCombo.SelectedIndexChanged += SettingsChanged;
+            panel.Controls.Add(_marginCombo);
+            y += 48;
+
+            Label qualityLabel = MakeFieldLabel("è¾“å‡ºè´¨é‡");
+            qualityLabel.Location = new Point(20, y + 5);
+            panel.Controls.Add(qualityLabel);
+            _qualityCombo = MakeCombo(new[] { "æ¸…æ™°æ‰“å°ï¼ˆ300 DPIï¼‰", "æ ‡å‡†ï¼ˆ220 DPIï¼‰", "å°æ–‡ä»¶ï¼ˆ150 DPIï¼‰" });
+            _qualityCombo.SelectedIndex = 0;
+            _qualityCombo.Location = new Point(115, y);
+            panel.Controls.Add(_qualityCombo);
+            y += 48;
+
+            Label modeLabel = MakeFieldLabel("å¯¼å‡ºæ–¹å¼");
+            modeLabel.Location = new Point(20, y + 5);
+            panel.Controls.Add(modeLabel);
+            _modeCombo = MakeCombo(new[] { "åˆå¹¶ä¸ºä¸€ä¸ª PDF", "ä¸€å›¾ä¸€ä¸ª PDF" });
+            _modeCombo.SelectedIndex = 0;
+            _modeCombo.Location = new Point(115, y);
+            panel.Controls.Add(_modeCombo);
+            y += 48;
+
+            Label batchLabel = MakeFieldLabel("é€é¡µæ‰¹é‡å‘½å");
+            batchLabel.Location = new Point(20, y + 5);
+            panel.Controls.Add(batchLabel);
+            _batchNameBox = new TextBox { Location = new Point(115, y), Width = 140, Text = "å›¾ç‰‡", BorderStyle = BorderStyle.FixedSingle };
+            panel.Controls.Add(_batchNameBox);
+            Button applyBatch = new Button { Text = "åº”ç”¨", Location = new Point(260, y - 1), Width = 45, Height = 28, FlatStyle = FlatStyle.Flat };
+            applyBatch.Click += ApplyBatchNamesClicked;
+            panel.Controls.Add(applyBatch);
+            Label batchHint = new Label
+            {
+                Text = "ç”¨äºä¸€å›¾ä¸€ä¸ª PDFï¼›åº”ç”¨åå¯é€å¼ ä¿®æ”¹",
+                AutoSize = false,
+                Width = 285,
+                Height = 34,
+                Font = new Font("Microsoft YaHei UI", 8.5f),
+                ForeColor = Color.FromArgb(107, 114, 128),
+                Location = new Point(20, y + 32),
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+            panel.Controls.Add(batchHint);
+            y += 78;
+
+            Label nameLabel = MakeFieldLabel("åˆå¹¶æ–‡ä»¶å");
+            nameLabel.Location = new Point(20, y + 5);
+            panel.Controls.Add(nameLabel);
+            _fileNameBox = new TextBox { Location = new Point(115, y), Width = 190, Text = "å›¾ç‰‡åˆå¹¶_" + DateTime.Now.ToString("yyyyMMdd_HHmm"), BorderStyle = BorderStyle.FixedSingle };
+            panel.Controls.Add(_fileNameBox);
+            y += 58;
+
+            _statusLabel = new Label { Text = "å¯æ·»åŠ å›¾ç‰‡å¼€å§‹è½¬æ¢", AutoSize = false, Width = 305, Height = 42, ForeColor = Color.FromArgb(107, 114, 128), Location = new Point(20, y), AutoEllipsis = true };
+            panel.Controls.Add(_statusLabel);
+            y += 50;
+
+            _exportButton = new Button { Text = "å¯¼å‡º PDF", Location = new Point(20, y), Width = 305, Height = 43, BackColor = Color.FromArgb(79, 70, 229), ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Font = new Font("Microsoft YaHei UI", 10f, FontStyle.Bold) };
+            _exportButton.FlatAppearance.BorderSize = 0;
+            _exportButton.Click += ExportClicked;
+            panel.Controls.Add(_exportButton);
+            y += 50;
+            _cancelButton = new Button { Text = "å–æ¶ˆå¯¼å‡º", Location = new Point(20, y), Width = 305, Height = 36, Visible = false, FlatStyle = FlatStyle.Flat };
+            _cancelButton.Click += delegate { if (_cancellation != null) _cancellation.Cancel(); };
+            panel.Controls.Add(_cancelButton);
+            y += 54;
+
+            Label menuTitle = MakeSectionTitle("å³é”®å…¥å£");
+            menuTitle.Location = new Point(20, y);
+            panel.Controls.Add(menuTitle);
+            y += 42;
+            Button addMenu = new Button { Text = "æ·»åŠ åˆ°â€œå‘é€åˆ°â€èœå•", Location = new Point(20, y), Width = 145, Height = 34, FlatStyle = FlatStyle.Flat };
+            Button removeMenu = new Button { Text = "ç§»é™¤å³é”®å…¥å£", Location = new Point(180, y), Width = 145, Height = 34, FlatStyle = FlatStyle.Flat };
+            addMenu.Click += AddSendToClicked;
+            removeMenu.Click += RemoveSendToClicked;
+            panel.Controls.Add(addMenu);
+            panel.Controls.Add(removeMenu);
+            return outer;
+        }
+
+        private void ApplyBatchNamesClicked(object sender, EventArgs e)
+        {
+            string baseName = _batchNameBox == null ? "å›¾ç‰‡" : _batchNameBox.Text.Trim();
+            if (String.IsNullOrWhiteSpace(baseName))
+                baseName = "å›¾ç‰‡";
+            for (int index = 0; index < _items.Count; index++)
+                _items[index].OutputName = baseName + "_" + (index + 1).ToString("00");
+            RefreshCards();
+        }
+
+        private void AddSortMenuItem(ContextMenuStrip menu, string text, SortMode mode)
+        {
+            ToolStripMenuItem item = new ToolStripMenuItem(text);
+            item.Click += delegate { SortItems(mode); };
+            menu.Items.Add(item);
+        }
+
+        private void SortItems(SortMode mode)
+        {
+            NaturalComparer natural = new NaturalComparer();
+            _items.Sort(delegate (ImageItem left, ImageItem right)
+            {
+                int result = CompareBySortMode(left, right, mode);
+                if (result != 0)
+                    return result;
+                result = natural.Compare(left, right);
+                if (result != 0)
+                    return result;
+                return left.AddedOrder.CompareTo(right.AddedOrder);
+            });
+            RefreshCards();
+        }
+
+        private static int CompareBySortMode(ImageItem left, ImageItem right, SortMode mode)
+        {
+            if (mode == SortMode.NameAscending)
+                return new NaturalComparer().Compare(left, right);
+            if (mode == SortMode.NameDescending)
+                return new NaturalComparer().Compare(right, left);
+
+            FileInfo leftInfo = TryGetFileInfo(left == null ? null : left.Path);
+            FileInfo rightInfo = TryGetFileInfo(right == null ? null : right.Path);
+            if (leftInfo == null && rightInfo != null) return 1;
+            if (leftInfo != null && rightInfo == null) return -1;
+            if (leftInfo != null && rightInfo != null)
+            {
+                switch (mode)
+                {
+                    case SortMode.SizeDescending:
+                        return rightInfo.Length.CompareTo(leftInfo.Length);
+                    case SortMode.SizeAscending:
+                        return leftInfo.Length.CompareTo(rightInfo.Length);
+                    case SortMode.ModifiedDescending:
+                        return rightInfo.LastWriteTime.CompareTo(leftInfo.LastWriteTime);
+                    case SortMode.ModifiedAscending:
+                        return leftInfo.LastWriteTime.CompareTo(rightInfo.LastWriteTime);
+                }
+            }
+            if (mode == SortMode.AddedDescending)
+                return right.AddedOrder.CompareTo(left.AddedOrder);
+            if (mode == SortMode.AddedAscending)
+                return left.AddedOrder.CompareTo(right.AddedOrder);
+            return 0;
+        }
+
+        private static FileInfo TryGetFileInfo(string path)
+        {
+            if (String.IsNullOrWhiteSpace(path)) return null;
+            try
+            {
+                return File.Exists(path) ? new FileInfo(path) : null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private void ChooseFiles()
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Title = "é€‰æ‹©å›¾ç‰‡";
+                dialog.Multiselect = true;
+                dialog.Filter = "æ”¯æŒçš„å›¾ç‰‡|*.jpg;*.jpeg;*.png;*.bmp|JPG|*.jpg;*.jpeg|PNG|*.png|BMP|*.bmp";
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                    AddFiles(dialog.FileNames);
+            }
+        }
+
+        private void AddFiles(IEnumerable<string> paths)
+        {
+            List<string> rejected = new List<string>();
+            int added = 0;
+            foreach (string rawPath in paths ?? new string[0])
+            {
+                if (String.IsNullOrWhiteSpace(rawPath)) continue;
+                string path;
+                try { path = System.IO.Path.GetFullPath(rawPath); } catch { rejected.Add(rawPath + "ï¼ˆè·¯å¾„æ— æ•ˆï¼‰"); continue; }
+                if (!File.Exists(path)) { rejected.Add(System.IO.Path.GetFileName(path) + "ï¼ˆæ–‡ä»¶ä¸å­˜åœ¨ï¼‰"); continue; }
+                if (!ImageTools.IsSupportedPath(path)) { rejected.Add(System.IO.Path.GetFileName(path) + "ï¼ˆä¸æ”¯æŒçš„æ ¼å¼ï¼‰"); continue; }
+                if (_paths.Contains(path)) continue;
+                try
+                {
+                    using (Image image = Image.FromFile(path))
+                    {
+                        if (image.Width <= 0 || image.Height <= 0) throw new InvalidDataException("å°ºå¯¸æ— æ•ˆ");
+                    }
+                    ImageItem item = new ImageItem(path);
+                    _items.Add(item);
+                    _paths.Add(path);
+                    added++;
+                }
+                catch (Exception error)
+                {
+                    rejected.Add(System.IO.Path.GetFileName(path) + "ï¼ˆæ— æ³•è¯»å–ï¼š" + error.Message + "ï¼‰");
+                }
+            }
+            if (added > 0)
+                RefreshCards();
+            if (rejected.Count > 0)
+            {
+                StringBuilder message = new StringBuilder();
+                message.AppendLine("ä»¥ä¸‹æ–‡ä»¶æœªåŠ å…¥ï¼š");
+                int limit = Math.Min(20, rejected.Count);
+                for (int index = 0; index < limit; index++) message.AppendLine("â€¢ " + rejected[index]);
+                if (rejected.Count > limit) message.AppendLine("â€¦â€¦å¦æœ‰ " + (rejected.Count - limit).ToString() + " ä¸ªæ–‡ä»¶ã€‚");
+                MessageBox.Show(this, message.ToString(), "å›¾ç‰‡å¯¼å…¥æç¤º", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void ClearItems()
+        {
+            foreach (ImageItem item in _items) item.DisposePreview();
+            _items.Clear();
+            _paths.Clear();
+            RefreshCards();
+        }
+
+        private void RefreshCards()
+        {
+            if (_refreshing) return;
+            _refreshing = true;
+            try
+            {
+                _cards.SuspendLayout();
+                foreach (Control control in _cards.Controls) control.Dispose();
+                _cards.Controls.Clear();
+                PaperSizeKind paperSize = GetPaperSize();
+                PageOrientation orientation = GetOrientation();
+                bool autoRotate = _autoRotateCheck != null && _autoRotateCheck.Checked;
+                int margin = GetMarginMm();
+                int previewWidth;
+                int previewHeight;
+                GetPreviewDimensions(paperSize, orientation, out previewWidth, out previewHeight);
+                Cursor = Cursors.WaitCursor;
+                foreach (ImageItem item in _items)
+                {
+                    item.DisposePreview();
+                    try
+                    {
+                        item.PreviewError = null;
+                        item.Preview = ImageTools.RenderPagePreview(item, paperSize, orientation, autoRotate, margin, previewWidth, previewHeight);
+                    }
+                    catch (Exception error)
+                    {
+                        item.PreviewError = error.Message;
+                        item.Preview = new Bitmap(previewWidth, previewHeight, PixelFormat.Format24bppRgb);
+                        using (Graphics graphics = Graphics.FromImage(item.Preview)) { graphics.Clear(Color.White); }
+                    }
+                    ImageCard card = new ImageCard(this, item);
+                    EnableExternalDrop(card);
+                    _cards.Controls.Add(card);
+                }
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+                _cards.ResumeLayout();
+                _refreshing = false;
+                UpdateCount();
+            }
+        }
+
+        private void ExportClicked(object sender, EventArgs e)
+        {
+            if (_cancellation != null) return;
+            if (_items.Count == 0)
+            {
+                MessageBox.Show(this, "è¯·å…ˆæ·»åŠ å›¾ç‰‡ã€‚", "æ— æ³•å¯¼å‡º", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            List<string> unavailable = new List<string>();
+            foreach (ImageItem item in _items)
+            {
+                if (!File.Exists(item.Path)) unavailable.Add(item.FileName);
+            }
+            if (unavailable.Count > 0)
+            {
+                MessageBox.Show(this, "ä»¥ä¸‹æºæ–‡ä»¶å·²ç»ä¸å­˜åœ¨ï¼Œè¯·é‡æ–°æ·»åŠ åå†å¯¼å‡ºï¼š\n\n" + String.Join("\n", unavailable.ToArray()), "æ— æ³•å¯¼å‡º", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ExportOptions options = GetOptions();
+            string target = null;
+            string folder = null;
+            if (options.Mode == ExportMode.Merge)
+            {
+                using (SaveFileDialog dialog = new SaveFileDialog())
+                {
+                    dialog.Title = "ä¿å­˜åˆå¹¶ PDF";
+                    dialog.Filter = "PDF æ–‡ä»¶|*.pdf";
+                    dialog.FileName = EnsurePdfExtension(options.BaseName);
+                    if (dialog.ShowDialog(this) != DialogResult.OK) return;
+                    target = dialog.FileName;
+                }
+            }
+            else
+            {
+                using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+                {
+                    dialog.Description = "é€‰æ‹©é€é¡µ PDF çš„è¾“å‡ºæ–‡ä»¶å¤¹";
+                    if (dialog.ShowDialog(this) != DialogResult.OK) return;
+                    folder = dialog.SelectedPath;
+                }
+            }
+
+            List<ImageSnapshot> snapshots = new List<ImageSnapshot>();
+            foreach (ImageItem item in _items)
+            {
+                snapshots.Add(new ImageSnapshot { Path = item.Path, ManualRotation = item.ManualRotation, OutputName = item.OutputName });
+            }
+            _cancellation = new CancellationTokenSource();
+            _exportButton.Enabled = false;
+            _cancelButton.Visible = true;
+            _statusLabel.Text = "æ­£åœ¨å¯¼å‡º 0%...";
+            CancellationToken token = _cancellation.Token;
+            Task.Run(delegate
+            {
+                try
+                {
+                    Action<int> progress = delegate (int value)
+                    {
+                        if (!IsDisposed) BeginInvoke((Action)delegate { _statusLabel.Text = "æ­£åœ¨å¯¼å‡º " + value.ToString() + "%..."; });
+                    };
+                    if (options.Mode == ExportMode.Merge)
+                        PdfExporter.ExportMerged(target, snapshots, options, progress, token);
+                    else
+                        PdfExporter.ExportSeparate(folder, snapshots, options, progress, token);
+                    if (!IsDisposed) BeginInvoke((Action)delegate
+                    {
+                        _statusLabel.Text = "å¯¼å‡ºå®Œæˆã€‚";
+                        MessageBox.Show(this, "PDF å·²æˆåŠŸå¯¼å‡ºã€‚", "å®Œæˆ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    });
+                }
+                catch (OperationCanceledException)
+                {
+                    if (!IsDisposed) BeginInvoke((Action)delegate { _statusLabel.Text = "å·²å–æ¶ˆå¯¼å‡ºã€‚"; });
+                }
+                catch (Exception error)
+                {
+                    if (!IsDisposed) BeginInvoke((Action)delegate { _statusLabel.Text = "å¯¼å‡ºå¤±è´¥ã€‚"; MessageBox.Show(this, error.Message, "å¯¼å‡ºå¤±è´¥", MessageBoxButtons.OK, MessageBoxIcon.Error); });
+                }
+                finally
+                {
+                    if (!IsDisposed) BeginInvoke((Action)delegate { _cancelButton.Visible = false; _exportButton.Enabled = true; _cancellation.Dispose(); _cancellation = null; });
+                }
+            });
+        }
+
+        private ExportOptions GetOptions()
+        {
+            return new ExportOptions
+            {
+                PaperSize = GetPaperSize(),
+                Orientation = GetOrientation(),
+                AutoRotate = _autoRotateCheck.Checked,
+                MarginMm = GetMarginMm(),
+                Quality = (QualityPreset)_qualityCombo.SelectedIndex,
+                Mode = _modeCombo.SelectedIndex == 1 ? ExportMode.Separate : ExportMode.Merge,
+                BaseName = String.IsNullOrWhiteSpace(_fileNameBox.Text) ? "å›¾ç‰‡åˆå¹¶_" + DateTime.Now.ToString("yyyyMMdd_HHmm") : _fileNameBox.Text.Trim()
+            };
+        }
+
+        private PageOrientation GetOrientation()
+        {
+            return _orientationCombo != null && _orientationCombo.SelectedIndex == 1 ? PageOrientation.Landscape : PageOrientation.Portrait;
+        }
+
+        private PaperSizeKind GetPaperSize()
+        {
+            if (_paperCombo == null || _paperCombo.SelectedIndex < 0)
+                return PaperSizeKind.A4;
+            return (PaperSizeKind)Math.Max(0, Math.Min(PaperSizes.DisplayNames.Length - 1, _paperCombo.SelectedIndex));
+        }
+
+        private void GetPreviewDimensions(PaperSizeKind paperSize, PageOrientation orientation, out int width, out int height)
+        {
+            int longSide;
+            if (_items.Count <= 12)
+                longSide = 1018;
+            else if (_items.Count <= 60)
+                longSide = 679;
+            else
+                longSide = PreviewPortraitHeight;
+
+            float paperWidth = PaperSizes.GetWidthMm(paperSize);
+            float paperHeight = PaperSizes.GetHeightMm(paperSize);
+            if (orientation == PageOrientation.Landscape)
+            {
+                float swap = paperWidth;
+                paperWidth = paperHeight;
+                paperHeight = swap;
+            }
+            if (paperWidth >= paperHeight)
+            {
+                width = longSide;
+                height = Math.Max(1, (int)Math.Round(longSide * paperHeight / paperWidth));
+            }
+            else
+            {
+                height = longSide;
+                width = Math.Max(1, (int)Math.Round(longSide * paperWidth / paperHeight));
+            }
+        }
+
+        private int GetMarginMm()
+        {
+            return _marginCombo == null ? 10 : (_marginCombo.SelectedIndex == 0 ? 0 : (_marginCombo.SelectedIndex == 1 ? 5 : 10));
+        }
+
+        private static string EnsurePdfExtension(string name)
+        {
+            return name.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase) ? name : name + ".pdf";
+        }
+
+        private void SettingsChanged(object sender, EventArgs e)
+        {
+            if (!_refreshing) RefreshCards();
+        }
+
+        private void UpdateCount()
+        {
+            if (_countLabel != null) _countLabel.Text = "å…± " + _items.Count.ToString() + " é¡µ";
+            if (_statusLabel != null && _cancellation == null) _statusLabel.Text = _items.Count == 0 ? "å¯æ·»åŠ å›¾ç‰‡å¼€å§‹è½¬æ¢" : "å·²å‡†å¤‡ " + _items.Count.ToString() + " å¼ å›¾ç‰‡";
+        }
+
+        private void EnableExternalDrop(Control control)
+        {
+            if (control == null) return;
+            if (control != _cards)
+            {
+                control.AllowDrop = true;
+                control.DragEnter += HandleDragEnter;
+                control.DragDrop += HandleDragDrop;
+            }
+            foreach (Control child in control.Controls)
+                EnableExternalDrop(child);
+        }
+
+        private void HandleDragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+            else if (e.Data.GetDataPresent(typeof(ImageItem)))
+                e.Effect = DragDropEffects.Move;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void HandleDragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(ImageItem)))
+            {
+                CardsDragDrop(_cards, e);
+                return;
+            }
+            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (files != null) AddFiles(files);
+        }
+
+        private void CardsDragEnter(object sender, DragEventArgs e)
+        {
+            HandleDragEnter(sender, e);
+        }
+
+        private void CardsDragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+            else if (e.Data.GetDataPresent(typeof(ImageItem)))
+                e.Effect = DragDropEffects.Move;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void CardsDragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (files != null)
+            {
+                AddFiles(files);
+                return;
+            }
+            ImageItem item = e.Data.GetData(typeof(ImageItem)) as ImageItem;
+            if (item == null) return;
+            Point location = _cards.PointToClient(new Point(e.X, e.Y));
+            int targetIndex = _items.Count - 1;
+            for (int index = 0; index < _cards.Controls.Count; index++)
+            {
+                if (_cards.Controls[index].Bounds.Contains(location)) { targetIndex = index; break; }
+            }
+            int sourceIndex = _items.IndexOf(item);
+            if (sourceIndex < 0 || sourceIndex == targetIndex) return;
+            _items.RemoveAt(sourceIndex);
+            if (sourceIndex < targetIndex) targetIndex--;
+            targetIndex = Math.Max(0, Math.Min(targetIndex, _items.Count));
+            _items.Insert(targetIndex, item);
+            RefreshCards();
+        }
+
+        private void AddSendToClicked(object sender, EventArgs e)
+        {
+            try { SendToManager.Add(); MessageBox.Show(this, "å·²æ·»åŠ åˆ°å½“å‰ç”¨æˆ·çš„â€œå‘é€åˆ°â€èœå•ã€‚", "å³é”®å…¥å£", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            catch (Exception error) { MessageBox.Show(this, error.Message, "æ·»åŠ å¤±è´¥", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void RemoveSendToClicked(object sender, EventArgs e)
+        {
+            try { SendToManager.Remove(); MessageBox.Show(this, "å·²ç§»é™¤å³é”®å…¥å£ã€‚", "å³é”®å…¥å£", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            catch (Exception error) { MessageBox.Show(this, error.Message, "ç§»é™¤å¤±è´¥", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private static Button MakeHeaderButton(string text)
+        {
+            return new Button { Text = text, Width = 104, Height = 34, Margin = new Padding(6, 0, 0, 0), FlatStyle = FlatStyle.Flat, BackColor = Color.White };
+        }
+
+        private static Label MakeSectionTitle(string text)
+        {
+            return new Label { Text = text, AutoSize = true, Font = new Font("Microsoft YaHei UI", 12f, FontStyle.Bold), ForeColor = Color.FromArgb(17, 24, 39) };
+        }
+
+        private static Label MakeFieldLabel(string text)
+        {
+            return new Label { Text = text, AutoSize = true, ForeColor = Color.FromArgb(75, 85, 99) };
+        }
+
+        private static ComboBox MakeCombo(string[] values)
+        {
+            ComboBox combo = new ComboBox { Width = 190, Height = 28, DropDownStyle = ComboBoxStyle.DropDownList, FlatStyle = FlatStyle.Flat };
+            combo.Items.AddRange(values);
+            return combo;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (_cancellation != null) _cancellation.Cancel();
+            foreach (ImageItem item in _items) item.DisposePreview();
+            base.OnFormClosing(e);
+        }
+    }
+
+    internal static class Program
+    {
+        [STAThread]
+        private static void Main(string[] args)
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm(args));
+        }
+    }
+}
