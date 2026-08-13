@@ -1,0 +1,23 @@
+# Local build and test artifacts
+tests/bin/
+tests/out/
+tests/release/
+tests/fixtures/benchmark-a4-2480x3508.jpg
+
+# Executables are published as GitHub Release assets instead of Git blobs.
+dist/*.exe
+
+# IDE and compiler artifacts
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.pdb
+
+# Temporary files and local settings
+*.tmp
+*.tmp-*
+settings.json
+Thumbs.db
+Desktop.ini
