@@ -32,7 +32,9 @@
 
 ## 直接使用
 
-从 [Releases](https://github.com/TrendPioneerAI/image-to-pdf/releases/latest) 下载 `图片转PDF.exe` 后双击即可。它不依赖同目录 DLL，单独发送这个 EXE 也能运行；[`dist\快速使用指南.pdf`](dist/快速使用指南.pdf) 可作为用户手册一并发送。
+推荐直接下载 [`图片转PDF-v1.0.0-Windows.zip`](release/图片转PDF-v1.0.0-Windows.zip)。压缩包内只有 `图片转PDF.exe` 和 `快速使用指南.pdf`，解压后双击 EXE 即可使用；程序不依赖同目录 DLL，也可以单独发送 EXE。
+
+文件校验值见 [`release/SHA256SUMS.txt`](release/SHA256SUMS.txt)。后续版本也会发布到 [Releases](https://github.com/TrendPioneerAI/image-to-pdf/releases)。
 
 还可以把图片或文件夹作为启动参数传入：
 
