@@ -6,6 +6,7 @@ tests/fixtures/benchmark-a4-2480x3508.jpg
 
 # Executables are published as GitHub Release assets instead of Git blobs.
 dist/*.exe
+dist/*.zip
 
 # IDE and compiler artifacts
 .vs/
