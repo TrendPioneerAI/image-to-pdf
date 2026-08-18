@@ -40,10 +40,19 @@ namespace LocalImageToPdf
         private Button _exportButton;
         private Button _cancelButton;
         private CancellationTokenSource _exportCancellation;
+        private readonly bool _showReturnToImages;
+
+        internal event EventHandler ReturnToImagesRequested;
 
         public PdfToImageForm(IEnumerable<string> initialPaths, Icon icon)
+            : this(initialPaths, icon, false)
+        {
+        }
+
+        public PdfToImageForm(IEnumerable<string> initialPaths, Icon icon, bool showReturnToImages)
         {
             _initialPaths = initialPaths ?? new string[0];
+            _showReturnToImages = showReturnToImages;
             _settings = AppSettingsStore.Load();
             Text = "PDF转图片";
             Icon = icon;
@@ -74,7 +83,7 @@ namespace LocalImageToPdf
                 BackColor = UiTheme.Background,
                 Padding = new Padding(16, 10, 16, 12)
             };
-            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 82f));
+            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 122f));
             root.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
             root.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
             root.Controls.Add(BuildHeader(), 0, 0);
@@ -92,9 +101,9 @@ namespace LocalImageToPdf
             Label title = new Label
             {
                 Left = 10,
-                Top = 8,
-                Width = 190,
-                Height = 31,
+                Top = 10,
+                AutoSize = true,
+                MaximumSize = new Size(210, 0),
                 Text = "PDF 转图片",
                 Font = UiTheme.Font(16f, FontStyle.Bold),
                 ForeColor = UiTheme.Text
@@ -102,14 +111,34 @@ namespace LocalImageToPdf
             _countLabel = new Label
             {
                 Left = 12,
-                Top = 43,
-                Width = 190,
-                Height = 25,
+                Top = 52,
+                AutoSize = true,
+                MaximumSize = new Size(210, 0),
                 Text = "共 0 个 PDF",
                 ForeColor = UiTheme.Muted
             };
+            LinkLabel returnToImages = null;
+            if (_showReturnToImages)
+            {
+                returnToImages = new LinkLabel
+                {
+                    Left = 12,
+                    Top = 82,
+                    AutoSize = true,
+                    Text = "← 返回图片转 PDF",
+                    LinkColor = UiTheme.Primary,
+                    ActiveLinkColor = UiTheme.Primary,
+                    VisitedLinkColor = UiTheme.Primary,
+                    Font = UiTheme.Font(9.2f, FontStyle.Regular)
+                };
+                returnToImages.LinkClicked += delegate
+                {
+                    EventHandler handler = ReturnToImagesRequested;
+                    if (handler != null) handler(this, EventArgs.Empty); else Close();
+                };
+            }
 
-            DropHintPanel dropHint = new DropHintPanel { Left = 205, Top = 7, Width = 350, Height = 60, Anchor = AnchorStyles.Left | AnchorStyles.Top };
+            DropHintPanel dropHint = new DropHintPanel { Left = 225, Top = 13, Width = 350, Height = 64, Anchor = AnchorStyles.Left | AnchorStyles.Top };
             Label dropTitle = new Label { Left = 22, Top = 9, Width = 305, Height = 23, Text = "拖入 PDF 文件或文件夹", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Text, Font = UiTheme.Font(10f, FontStyle.Regular) };
             Label dropSub = new Label { Left = 18, Top = 32, Width = 315, Height = 20, Text = "文件夹只读取当前层，不递归子文件夹", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.7f, FontStyle.Regular) };
             dropHint.Controls.Add(dropTitle);
@@ -122,7 +151,7 @@ namespace LocalImageToPdf
             {
                 Width = 500,
                 Height = 56,
-                Top = 10,
+                Top = 16,
                 FlowDirection = FlowDirection.LeftToRight,
                 WrapContents = false,
                 Anchor = AnchorStyles.Top | AnchorStyles.Right
@@ -145,11 +174,12 @@ namespace LocalImageToPdf
 
             header.Controls.Add(title);
             header.Controls.Add(_countLabel);
+            if (returnToImages != null) header.Controls.Add(returnToImages);
             header.Controls.Add(dropHint);
             header.Controls.Add(actions);
             header.Resize += delegate
             {
-                actions.Left = Math.Max(570, header.ClientSize.Width - actions.Width);
+                actions.Left = Math.Max(590, header.ClientSize.Width - actions.Width);
                 dropHint.Visible = actions.Left - dropHint.Right > 15;
             };
             return header;
@@ -390,6 +420,11 @@ namespace LocalImageToPdf
             UpdateCount();
             foreach (PdfSourceItem source in added) QueueInspection(source);
             ShowRejectedSummary(rejected);
+        }
+
+        internal void AddExternalInputs(IEnumerable<string> inputs)
+        {
+            if (inputs != null) AddInputs(inputs);
         }
 
         private void QueueInspection(PdfSourceItem source)
