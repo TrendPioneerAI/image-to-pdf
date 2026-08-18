@@ -541,7 +541,7 @@ namespace LocalImageToPdf
                 Top = 311,
                 Width = 500,
                 Height = 72,
-                Text = "图片与PDF转换  v1.2.0\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
+                Text = "图片与PDF转换  v1.2.1\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
                 ForeColor = UiTheme.Muted
             };
             LinkLabel projectLink = new LinkLabel
@@ -641,7 +641,7 @@ namespace LocalImageToPdf
         }
     }
 
-    internal sealed class MainForm : Form, IImageCardOwner
+    internal sealed class MainForm : DisplayAwareMainForm, IImageCardOwner
     {
         private readonly string[] _startupArgs;
         private readonly List<ImageItem> _items = new List<ImageItem>();
@@ -691,6 +691,11 @@ namespace LocalImageToPdf
         private PdfToImageForm _pdfConverter;
         private int _previewGeneration;
         private bool _buildingUi;
+
+        protected override Size MinimumLogicalWindowSize
+        {
+            get { return new Size(1080, 700); }
+        }
 
         public MainForm(string[] startupArgs)
         {
@@ -768,6 +773,7 @@ namespace LocalImageToPdf
                 BackColor = UiTheme.Background,
                 Padding = new Padding(16, 10, 16, 12)
             };
+            root.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
             root.RowStyles.Add(new RowStyle(SizeType.Absolute, 78f));
             root.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
             root.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
@@ -868,8 +874,8 @@ namespace LocalImageToPdf
             header.Controls.Add(actions);
             header.Resize += delegate
             {
-                actions.Left = Math.Max(135, header.ClientSize.Width - actions.Width);
-                dropHint.Visible = actions.Left - dropHint.Right > 15;
+                actions.Left = Math.Max(ScaleLogical(135), header.ClientSize.Width - actions.Width);
+                dropHint.Visible = actions.Left - dropHint.Right > ScaleLogical(15);
             };
             return header;
         }
@@ -1073,10 +1079,10 @@ namespace LocalImageToPdf
             footer.Controls.Add(_exportButton);
             footer.Resize += delegate
             {
-                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - 12;
-                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - 10;
-                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - 12;
-                privacy.Width = Math.Max(220, _statusLabel.Left - privacy.Left - 10);
+                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - ScaleLogical(12);
+                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - ScaleLogical(10);
+                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - ScaleLogical(12);
+                privacy.Width = Math.Max(ScaleLogical(220), _statusLabel.Left - privacy.Left - ScaleLogical(10));
             };
             return footer;
         }
@@ -1321,6 +1327,7 @@ namespace LocalImageToPdf
             _pdfConverter = new PdfToImageForm(new string[0], Icon, true)
             {
                 TopLevel = false,
+                AutoScaleMode = AutoScaleMode.Inherit,
                 FormBorderStyle = FormBorderStyle.None,
                 Dock = DockStyle.Fill,
                 ShowInTaskbar = false,

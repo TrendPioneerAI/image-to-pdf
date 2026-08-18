@@ -19,7 +19,7 @@ namespace LocalImageToPdf
         public ListViewItem Row { get; set; }
     }
 
-    internal sealed class PdfToImageForm : Form
+    internal sealed class PdfToImageForm : DisplayAwareMainForm
     {
         private readonly IEnumerable<string> _initialPaths;
         private readonly List<PdfSourceItem> _sources = new List<PdfSourceItem>();
@@ -41,6 +41,11 @@ namespace LocalImageToPdf
         private Button _cancelButton;
         private CancellationTokenSource _exportCancellation;
         private readonly bool _showReturnToImages;
+
+        protected override Size MinimumLogicalWindowSize
+        {
+            get { return new Size(940, 640); }
+        }
 
         internal event EventHandler ReturnToImagesRequested;
 
@@ -83,6 +88,7 @@ namespace LocalImageToPdf
                 BackColor = UiTheme.Background,
                 Padding = new Padding(16, 10, 16, 12)
             };
+            root.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
             root.RowStyles.Add(new RowStyle(SizeType.Absolute, 122f));
             root.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
             root.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
@@ -179,8 +185,8 @@ namespace LocalImageToPdf
             header.Controls.Add(actions);
             header.Resize += delegate
             {
-                actions.Left = Math.Max(590, header.ClientSize.Width - actions.Width);
-                dropHint.Visible = actions.Left - dropHint.Right > 15;
+                actions.Left = Math.Max(ScaleLogical(225), header.ClientSize.Width - actions.Width);
+                dropHint.Visible = actions.Left - dropHint.Right > ScaleLogical(15);
             };
             return header;
         }
@@ -218,7 +224,15 @@ namespace LocalImageToPdf
             _sourceList.Resize += delegate
             {
                 if (_sourceList.Columns.Count == 4)
-                    _sourceList.Columns[3].Width = Math.Max(180, _sourceList.ClientSize.Width - 470);
+                {
+                    int fileWidth = ScaleLogical(260);
+                    int pagesWidth = ScaleLogical(90);
+                    int sizeWidth = ScaleLogical(100);
+                    _sourceList.Columns[0].Width = fileWidth;
+                    _sourceList.Columns[1].Width = pagesWidth;
+                    _sourceList.Columns[2].Width = sizeWidth;
+                    _sourceList.Columns[3].Width = Math.Max(ScaleLogical(180), _sourceList.ClientSize.Width - fileWidth - pagesWidth - sizeWidth - ScaleLogical(20));
+                }
             };
             listShell.Controls.Add(_sourceList);
             content.Controls.Add(listShell, 0, 0);
@@ -340,10 +354,10 @@ namespace LocalImageToPdf
             footer.Controls.Add(_exportButton);
             footer.Resize += delegate
             {
-                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - 12;
-                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - 10;
-                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - 12;
-                privacy.Width = Math.Max(220, _statusLabel.Left - privacy.Left - 10);
+                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - ScaleLogical(12);
+                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - ScaleLogical(10);
+                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - ScaleLogical(12);
+                privacy.Width = Math.Max(ScaleLogical(220), _statusLabel.Left - privacy.Left - ScaleLogical(10));
             };
             return footer;
         }

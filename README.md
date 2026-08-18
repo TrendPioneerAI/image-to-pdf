@@ -10,6 +10,7 @@
 - **PDF → 图片**：选中一个或多个 PDF，使用同一个右键入口，直接进入“PDF 转图片”，不会再先显示空白的图片窗口。
 - **批量且快速**：两种方向均支持多文件、文件夹和拖入；图片快速档优先直嵌 JPEG，转换在后台执行并可取消。
 - **完全离线**：单 EXE、无需安装、无需网络，文件始终留在本机。
+- **主窗口自动适配**：跟随 Windows 100%～250% 显示缩放及当前屏幕工作区调整窗口，始终保留 v1.2.0 的左右栏布局。
 
 首次只需点一下：
 
@@ -33,7 +34,7 @@
 - 支持逐图命名、批量编号、非法字符替换和同名自动追加 `(2)`、`(3)`。
 - 记住最后一次成功输出目录与文件/文件夹模式，不记录源图片路径。
 
-## PDF 转图片（v1.2.0）
+## PDF 转图片（v1.2.1）
 
 - 在主界面点击“PDF 转图片”，或把一个或多个 PDF 直接拖到主窗口，即可进入转换界面。
 - 图片与 PDF 功能在同一个主窗口内即时换页，不再创建或叠放第二个窗口；PDF 页左上角可随时返回，并原样保留图片页内容和设置。
@@ -59,7 +60,7 @@
 
 ## 直接使用
 
-下载 [`图片转PDF-v1.2.0-Windows.zip`](release/图片转PDF-v1.2.0-Windows.zip) 后直接解压即可。压缩包内只有 `图片转PDF.exe` 和 `快速使用指南.pdf`；双击 EXE 就能使用，不需要安装，也不依赖同目录 DLL。
+下载 [`图片转PDF-v1.2.1-Windows.zip`](release/图片转PDF-v1.2.1-Windows.zip) 后直接解压即可。压缩包内只有 `图片转PDF.exe` 和 `快速使用指南.pdf`；双击 EXE 就能使用，不需要安装，也不依赖同目录 DLL。
 
 四页快速指南先说明核心亮点与右键入口，再分别说明图片转 PDF 和 PDF 转图片。文件校验值见 [`release/SHA256SUMS.txt`](release/SHA256SUMS.txt)，后续版本也会发布到 [Releases](https://github.com/TrendPioneerAI/image-to-pdf/releases)。
 
@@ -86,6 +87,7 @@
 
 ```powershell
 .\tests\make-fixtures.ps1
+.\tests\smoke-main-window-scaling.ps1
 .\tests\smoke-startup-routing.ps1
 .\tests\smoke-view-switch.ps1
 .\tests\smoke-export.ps1
@@ -94,7 +96,7 @@
 .\tests\validate-v1.ps1
 ```
 
-`smoke-startup-routing.ps1` 验证图片与 PDF 的启动分流，尤其确认纯 PDF 会直接进入 PDF 转图片。`smoke-view-switch.ps1` 验证两项功能使用同一窗口、返回入口存在，并要求预创建后的换页不超过 500 ms。`validate-v1.ps1` 验证 JPEG DCT 字节直嵌、无水印、水印覆盖层、PNG 快速/无损编码、220/300 DPI 编码以及 EXIF 方向对照数据。`smoke-pdf-to-images.ps1` 验证四页 PNG、指定页 JPEG、分辨率、重名自动编号、非法页码和临时文件清理。PDF 视觉验收使用 Poppler 或 Windows 内置渲染器逐页检查。
+`smoke-main-window-scaling.ps1` 验证 100%～250% 七档 DPI 下图片页与 PDF 页仍保持 v1.2.0 左右栏、单行页头和单行页脚，并确认四类对话框未被改动。`smoke-startup-routing.ps1` 验证图片与 PDF 的启动分流，尤其确认纯 PDF 会直接进入 PDF 转图片。`smoke-view-switch.ps1` 验证两项功能使用同一窗口、返回入口存在，并要求预创建后的换页不超过 500 ms。`validate-v1.ps1` 验证 JPEG DCT 字节直嵌、无水印、水印覆盖层、PNG 快速/无损编码、220/300 DPI 编码以及 EXIF 方向对照数据。`smoke-pdf-to-images.ps1` 验证四页 PNG、指定页 JPEG、分辨率、重名自动编号、非法页码和临时文件清理。PDF 视觉验收使用 Poppler 或 Windows 内置渲染器逐页检查。
 
 ## 配置与隐私
 
