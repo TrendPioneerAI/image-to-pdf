@@ -29,7 +29,7 @@ namespace LocalImageToPdf
         private readonly CancellationTokenSource _inspectionCancellation = new CancellationTokenSource();
         private ListView _sourceList;
         private Label _countLabel;
-        private Label _statusLabel;
+        private LinkLabel _statusLabel;
         private CheckBox _allPagesCheck;
         private TextBox _pageRangeBox;
         private ComboBox _formatCombo;
@@ -37,6 +37,9 @@ namespace LocalImageToPdf
         private Label _jpegQualityLabel;
         private NumericUpDown _jpegQuality;
         private TextBox _outputPathBox;
+        private ComboBox _namingModeCombo;
+        private Label _customNameLabel;
+        private TextBox _customNameBox;
         private Button _exportButton;
         private Button _cancelButton;
         private CancellationTokenSource _exportCancellation;
@@ -280,7 +283,7 @@ namespace LocalImageToPdf
 
         private Control BuildImageSection()
         {
-            Panel panel = SectionPanel(370, 224);
+            Panel panel = AutoHeightSectionPanel(370);
             panel.Controls.Add(SectionTitle("图片设置", 10));
             panel.Controls.Add(FieldLabel("图片格式", 59));
             _formatCombo = MakeCombo(new[] { "PNG（默认，无损）", "JPEG（文件较小）", "BMP（兼容，文件较大）", "TIFF（高质量，文件较大）" }, 118, 52, 232);
@@ -295,13 +298,22 @@ namespace LocalImageToPdf
             _jpegQuality = new NumericUpDown { Left = 118, Top = 153, Width = 112, Height = 28, Minimum = 50, Maximum = 100, Value = 92, Increment = 1 };
             panel.Controls.Add(_jpegQualityLabel);
             panel.Controls.Add(_jpegQuality);
-            panel.Controls.Add(new Label { Left = 18, Top = 187, Width = 332, Height = 34, Text = "默认 PNG（无损）；JPEG 更小。\r\nBMP / TIFF 用于兼容，文件较大。", ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.2f, FontStyle.Regular) });
+            panel.Controls.Add(new Label
+            {
+                Left = 18,
+                Top = 187,
+                AutoSize = true,
+                MaximumSize = new Size(332, 0),
+                Text = "默认 PNG（无损）；JPEG 更小。\r\nBMP / TIFF 用于兼容，文件较大。",
+                ForeColor = UiTheme.Muted,
+                Font = UiTheme.Font(8.2f, FontStyle.Regular)
+            });
             return panel;
         }
 
         private Control BuildOutputSection()
         {
-            Panel panel = SectionPanel(370, 180);
+            Panel panel = AutoHeightSectionPanel(370);
             panel.Controls.Add(SectionTitle("输出", 10));
             panel.Controls.Add(FieldLabel("输出文件夹", 59));
             _outputPathBox = new TextBox { Left = 18, Top = 88, Width = 250, Height = 28, Text = _settings.LastOutputDirectory, BorderStyle = BorderStyle.FixedSingle };
@@ -311,16 +323,38 @@ namespace LocalImageToPdf
             browse.Click += delegate { BrowseOutputFolder(); };
             panel.Controls.Add(_outputPathBox);
             panel.Controls.Add(browse);
+
+            panel.Controls.Add(FieldLabel("命名方式", 134));
+            _namingModeCombo = MakeCombo(new[] { "默认（使用 PDF 名称）", "自定义" }, 118, 127, 232);
+            _namingModeCombo.SelectedIndex = 0;
+            _namingModeCombo.SelectedIndexChanged += delegate { UpdateNamingUi(); };
+            panel.Controls.Add(_namingModeCombo);
+
+            _customNameLabel = FieldLabel("自定义名称", 177);
+            _customNameBox = new TextBox
+            {
+                Left = 118,
+                Top = 172,
+                Width = 232,
+                Height = 28,
+                MaxLength = 64,
+                Enabled = false,
+                BorderStyle = BorderStyle.FixedSingle,
+                AccessibleName = "转换后图片的自定义名称"
+            };
+            panel.Controls.Add(_customNameLabel);
+            panel.Controls.Add(_customNameBox);
             panel.Controls.Add(new Label
             {
                 Left = 18,
-                Top = 127,
-                Width = 332,
-                Height = 44,
-                Text = "每个 PDF 保存到“PDF名-转换后”文件夹；重名自动编号。\r\n图片命名：PDF名_第001页.png。",
+                Top = 215,
+                AutoSize = true,
+                MaximumSize = new Size(332, 0),
+                Text = "默认：PDF名-转换后 / PDF名_第001页.png。\r\n自定义名称同时用于结果文件夹和图片；非法字符自动替换。",
                 ForeColor = UiTheme.Muted,
                 Font = UiTheme.Font(8.4f, FontStyle.Regular)
             });
+            UpdateNamingUi();
             return panel;
         }
 
@@ -338,7 +372,21 @@ namespace LocalImageToPdf
                 Font = UiTheme.Font(9f, FontStyle.Regular),
                 AutoEllipsis = true
             };
-            _statusLabel = new Label { Top = 21, Width = 290, Height = 28, TextAlign = ContentAlignment.MiddleRight, ForeColor = UiTheme.Muted };
+            _statusLabel = new LinkLabel
+            {
+                Top = 21,
+                Width = 290,
+                Height = 28,
+                TextAlign = ContentAlignment.MiddleRight,
+                ForeColor = UiTheme.Muted,
+                LinkColor = UiTheme.Primary,
+                ActiveLinkColor = UiTheme.Primary,
+                VisitedLinkColor = UiTheme.Primary,
+                LinkBehavior = LinkBehavior.HoverUnderline,
+                AutoEllipsis = true
+            };
+            _statusLabel.LinkArea = new LinkArea(0, 0);
+            _statusLabel.LinkClicked += OpenOutputFolderLink;
             _cancelButton = UiTheme.Button("取消", 90, 44);
             _cancelButton.Top = 10;
             _cancelButton.Visible = false;
@@ -553,8 +601,15 @@ namespace LocalImageToPdf
                     (_formatCombo.SelectedIndex == 2 ? PdfRasterFormat.Bmp :
                     (_formatCombo.SelectedIndex == 3 ? PdfRasterFormat.Tiff : PdfRasterFormat.Png)),
                 Dpi = _dpiCombo.SelectedIndex == 1 ? 220 : (_dpiCombo.SelectedIndex == 2 ? 300 : 150),
-                JpegQuality = (int)_jpegQuality.Value
+                JpegQuality = (int)_jpegQuality.Value,
+                CustomBaseName = GetCustomBaseName()
             };
+            if (_namingModeCombo.SelectedIndex == 1 && String.IsNullOrWhiteSpace(options.CustomBaseName))
+            {
+                MessageBox.Show(this, "请输入自定义名称。", "命名方式", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _customNameBox.Focus();
+                return;
+            }
             List<string> sources = _sources.Select(delegate (PdfSourceItem item) { return item.Path; }).ToList();
             _exportCancellation = new CancellationTokenSource();
             CancellationToken token = _exportCancellation.Token;
@@ -569,7 +624,7 @@ namespace LocalImageToPdf
                         {
                             BeginInvoke((Action)delegate
                             {
-                                _statusLabel.Text = "正在转换 " + progress.CompletedPages.ToString() + "/" + progress.TotalPages.ToString() + " · " + progress.SourceName;
+                                SetStatusText("正在转换 " + progress.CompletedPages.ToString() + "/" + progress.TotalPages.ToString() + " · " + progress.SourceName);
                             });
                         }
                         catch { }
@@ -578,17 +633,18 @@ namespace LocalImageToPdf
                     BeginInvoke((Action)delegate
                     {
                         if (result.OutputFiles.Count > 0) SaveSuccessfulOutputDirectory(options.OutputDirectory);
-                        _statusLabel.Text = result.OutputFiles.Count > 0 ? "已导出 " + result.OutputFiles.Count.ToString() + " 张图片" : "没有图片导出";
+                        if (result.OutputFiles.Count > 0) SetSuccessfulStatus(result, options.OutputDirectory);
+                        else SetStatusText("没有图片导出");
                         MessageBox.Show(this, BuildCompletionMessage(result), result.OutputFiles.Count > 0 ? "转换完成" : "转换未完成", MessageBoxButtons.OK, result.Failures.Count == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
                     });
                 }
                 catch (OperationCanceledException)
                 {
-                    if (!IsDisposed) try { BeginInvoke((Action)delegate { _statusLabel.Text = "已取消；已完成的图片已保留"; }); } catch { }
+                    if (!IsDisposed) try { BeginInvoke((Action)delegate { SetStatusText("已取消；已完成的图片已保留"); }); } catch { }
                 }
                 catch (Exception error)
                 {
-                    if (!IsDisposed) try { BeginInvoke((Action)delegate { _statusLabel.Text = "转换失败"; MessageBox.Show(this, error.Message, "转换失败", MessageBoxButtons.OK, MessageBoxIcon.Error); }); } catch { }
+                    if (!IsDisposed) try { BeginInvoke((Action)delegate { SetStatusText("转换失败"); MessageBox.Show(this, error.Message, "转换失败", MessageBoxButtons.OK, MessageBoxIcon.Error); }); } catch { }
                 }
                 finally
                 {
@@ -602,7 +658,8 @@ namespace LocalImageToPdf
             _exportButton.Enabled = !exporting && _sources.Count > 0;
             _cancelButton.Visible = exporting;
             _sourceList.Enabled = !exporting;
-            _statusLabel.Text = status;
+            if (exporting || _statusLabel.Links.Count == 0) SetStatusText(status);
+            else _statusLabel.Text = status;
             UseWaitCursor = exporting;
             if (!exporting && _exportCancellation != null)
             {
@@ -630,6 +687,64 @@ namespace LocalImageToPdf
             _jpegQuality.Visible = jpeg;
         }
 
+        private void UpdateNamingUi()
+        {
+            if (_customNameBox == null || _customNameLabel == null || _namingModeCombo == null) return;
+            bool custom = _namingModeCombo.SelectedIndex == 1;
+            _customNameLabel.Enabled = custom;
+            _customNameBox.Enabled = custom;
+            if (custom) _customNameBox.Focus();
+        }
+
+        private string GetCustomBaseName()
+        {
+            if (_namingModeCombo == null || _namingModeCombo.SelectedIndex != 1 || _customNameBox == null) return null;
+            return _customNameBox.Text.Trim();
+        }
+
+        private void SetStatusText(string text)
+        {
+            if (_statusLabel == null) return;
+            _statusLabel.Links.Clear();
+            _statusLabel.LinkArea = new LinkArea(0, 0);
+            _statusLabel.Text = text ?? String.Empty;
+            _statusLabel.ForeColor = UiTheme.Muted;
+            _statusLabel.Cursor = Cursors.Default;
+        }
+
+        private void SetSuccessfulStatus(PdfImageExportResult result, string outputRoot)
+        {
+            List<string> directories = result.OutputFiles
+                .Select(delegate (string path) { return Path.GetDirectoryName(path); })
+                .Where(delegate (string path) { return !String.IsNullOrWhiteSpace(path); })
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+            string target = directories.Count == 1 ? directories[0] : outputRoot;
+            string prefix = "已导出 " + result.OutputFiles.Count.ToString() + " 张图片";
+            string separator = " · ";
+            string linkText = "打开结果文件夹";
+            _statusLabel.Links.Clear();
+            _statusLabel.Text = prefix + separator + linkText;
+            _statusLabel.Links.Add(prefix.Length + separator.Length, linkText.Length, target);
+            _statusLabel.ForeColor = UiTheme.Muted;
+            _statusLabel.Cursor = Cursors.Hand;
+        }
+
+        private void OpenOutputFolderLink(object sender, LinkLabelLinkClickedEventArgs args)
+        {
+            string directory = args.Link.LinkData as string;
+            if (String.IsNullOrWhiteSpace(directory)) return;
+            try
+            {
+                if (!Directory.Exists(directory)) throw new DirectoryNotFoundException("结果文件夹已不存在：" + directory);
+                Process.Start(new ProcessStartInfo(directory) { UseShellExecute = true });
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(this, error.Message, "无法打开结果文件夹", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void UpdateCount()
         {
             if (_countLabel == null) return;
@@ -637,7 +752,7 @@ namespace LocalImageToPdf
             bool pending = _sources.Any(delegate (PdfSourceItem item) { return !item.PageCount.HasValue && String.IsNullOrWhiteSpace(item.Error); });
             _countLabel.Text = "共 " + _sources.Count.ToString() + " 个 PDF" + (knownPages > 0 ? " · " + knownPages.ToString() + " 页" : String.Empty) + (pending ? "…" : String.Empty);
             if (_statusLabel != null && _exportCancellation == null)
-                _statusLabel.Text = _sources.Count == 0 ? "拖入 PDF 开始转换" : "已添加 " + _sources.Count.ToString() + " 个 PDF";
+                SetStatusText(_sources.Count == 0 ? "拖入 PDF 开始转换" : "已添加 " + _sources.Count.ToString() + " 个 PDF");
             if (_exportButton != null && _exportCancellation == null) _exportButton.Enabled = _sources.Count > 0;
         }
 
@@ -697,6 +812,21 @@ namespace LocalImageToPdf
         private static Panel SectionPanel(int width, int height)
         {
             return new Panel { Width = width, Height = height, BackColor = UiTheme.Surface, Margin = new Padding(0, 0, 0, 8) };
+        }
+
+        private static Panel AutoHeightSectionPanel(int width)
+        {
+            return new Panel
+            {
+                Width = width,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                MinimumSize = new Size(width, 0),
+                MaximumSize = new Size(width, 0),
+                Padding = new Padding(0, 0, 0, 18),
+                BackColor = UiTheme.Surface,
+                Margin = new Padding(0, 0, 0, 8)
+            };
         }
 
         private static Label SectionTitle(string text, int top)

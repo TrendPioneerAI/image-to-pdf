@@ -40,11 +40,11 @@ try {
         $queue.Enqueue($_)
         while ($queue.Count -gt 0) {
             $control = $queue.Dequeue()
-            if ($control -is [System.Windows.Forms.LinkLabel]) { $control }
+            if ($control -is [System.Windows.Forms.LinkLabel] -and $control.Links.Count -gt 0) { $control }
             foreach ($child in $control.Controls) { $queue.Enqueue($child) }
         }
     })
-    if ($returnLinks.Count -ne 1) { throw 'The embedded PDF page must expose one return link.' }
+    if ($returnLinks.Count -ne 1) { throw ('The embedded PDF page must expose one return link; found ' + $returnLinks.Count + '.') }
 
     $openArguments = New-Object object[] 1
     $openArguments[0] = [string[]]@()

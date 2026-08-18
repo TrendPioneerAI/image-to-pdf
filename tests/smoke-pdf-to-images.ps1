@@ -22,6 +22,12 @@ try {
     $formatCombo = [Windows.Forms.ComboBox]$formType.GetField('_formatCombo', $flags).GetValue($formatProbe)
     if ($formatCombo.Items.Count -ne 4) { throw "Expected 4 PDF image output formats, found $($formatCombo.Items.Count)." }
     if ($formatCombo.SelectedIndex -ne 0) { throw 'PNG is not the default PDF image output format.' }
+    $namingModeCombo = [Windows.Forms.ComboBox]$formType.GetField('_namingModeCombo', $flags).GetValue($formatProbe)
+    $customNameBox = [Windows.Forms.TextBox]$formType.GetField('_customNameBox', $flags).GetValue($formatProbe)
+    if ($namingModeCombo.Items.Count -ne 2 -or $namingModeCombo.SelectedIndex -ne 0) { throw 'Default/custom naming selector is missing or has the wrong default.' }
+    if ($customNameBox.Enabled) { throw 'Custom name box should be disabled in default naming mode.' }
+    $namingModeCombo.SelectedIndex = 1
+    if (-not $customNameBox.Enabled) { throw 'Custom name box was not enabled in custom naming mode.' }
 }
 finally {
     $formatProbe.Dispose()
@@ -34,8 +40,9 @@ $jpgOutput = Join-Path $outputRoot 'jpg'
 $bmpOutput = Join-Path $outputRoot 'bmp'
 $tiffOutput = Join-Path $outputRoot 'tiff'
 $multiOutput = Join-Path $outputRoot 'multi'
+$customOutput = Join-Path $outputRoot 'custom'
 $invalidOutput = Join-Path $outputRoot 'invalid'
-New-Item -ItemType Directory -Force -Path $pngOutput, $pngRepeatOutput, $jpgOutput, $bmpOutput, $tiffOutput, $multiOutput, $invalidOutput | Out-Null
+New-Item -ItemType Directory -Force -Path $pngOutput, $pngRepeatOutput, $jpgOutput, $bmpOutput, $tiffOutput, $multiOutput, $customOutput, $invalidOutput | Out-Null
 $inputBaseName = [System.IO.Path]::GetFileNameWithoutExtension($inputPdf)
 $convertedSuffix = '-' + ([char]0x8f6c).ToString() + ([char]0x6362).ToString() + ([char]0x540e).ToString()
 $expectedFolderName = $inputBaseName + $convertedSuffix
@@ -44,7 +51,7 @@ function Quote-Argument([string]$value) {
     return '"' + $value.Replace('"', '\"') + '"'
 }
 
-function Run-Converter([string]$source, [string]$output, [string]$format, [int]$dpi, [string]$pages) {
+function Run-Converter([string]$source, [string]$output, [string]$format, [int]$dpi, [string]$pages, [string]$customName = '') {
     $arguments = @(
         '--pdf-to-images',
         (Quote-Argument $source),
@@ -53,6 +60,7 @@ function Run-Converter([string]$source, [string]$output, [string]$format, [int]$
         $dpi.ToString(),
         (Quote-Argument $pages)
     )
+    if (-not [String]::IsNullOrWhiteSpace($customName)) { $arguments += (Quote-Argument $customName) }
     return Start-Process -FilePath $exe -ArgumentList $arguments -Wait -PassThru -WindowStyle Hidden
 }
 
@@ -130,6 +138,37 @@ $multiFolders = @(Get-ChildItem -LiteralPath $multiOutput -Directory)
 if ($multiFolders.Count -ne 2) { throw "Expected 2 independent PDF output folders, found $($multiFolders.Count)." }
 if (-not ($multiFolders.Name -contains $expectedFolderName) -or -not ($multiFolders.Name -contains ($secondBaseName + $convertedSuffix))) { throw 'Multiple PDFs were not routed to folders named after each source PDF.' }
 
+$customName = ([char]0x9879).ToString() + ([char]0x76ee).ToString() + 'A:' + ([char]0x56fe).ToString() + ([char]0x7247).ToString()
+$sanitizedCustomName = $customName.Replace(':', '_')
+$customProcess = Run-Converter $inputPdf $customOutput 'png' 150 '1' $customName
+if ($customProcess.ExitCode -ne 0) { throw "Custom-name conversion failed with exit code $($customProcess.ExitCode)." }
+$customFolder = Join-Path $customOutput ($sanitizedCustomName + $convertedSuffix)
+if (-not (Test-Path -LiteralPath $customFolder -PathType Container)) { throw 'Custom name was not applied to the result folder.' }
+$customFiles = @(Get-ChildItem -LiteralPath $customFolder -Filter '*.png' -File)
+if ($customFiles.Count -ne 1 -or $customFiles[0].Name -notlike ($sanitizedCustomName + '_*001*.png')) { throw 'Custom name was not applied to the exported image or invalid characters were not replaced.' }
+
+$linkProbeArguments = New-Object object[] 3
+$linkProbeArguments[0] = [string[]]@()
+$linkProbeArguments[1] = $null
+$linkProbeArguments[2] = $true
+$linkProbe = [Windows.Forms.Form]$constructor.Invoke($linkProbeArguments)
+try {
+    $resultType = $assembly.GetType('LocalImageToPdf.PdfImageExportResult', $true)
+    $result = [Activator]::CreateInstance($resultType, $true)
+    $resultFiles = [Collections.Generic.List[string]]$resultType.GetProperty('OutputFiles', $flags).GetValue($result, $null)
+    $resultFiles.Add($customFiles[0].FullName)
+    $statusArguments = New-Object object[] 2
+    $statusArguments[0] = $result
+    $statusArguments[1] = [string]$customOutput
+    $formType.GetMethod('SetSuccessfulStatus', $flags).Invoke($linkProbe, $statusArguments) | Out-Null
+    $statusLink = [Windows.Forms.LinkLabel]$formType.GetField('_statusLabel', $flags).GetValue($linkProbe)
+    if ($statusLink.Links.Count -ne 1) { throw 'Successful export does not expose the result-folder link in the footer.' }
+    if ([string]$statusLink.Links[0].LinkData -ne $customFolder) { throw 'The result-folder link does not point to the actual per-PDF output folder.' }
+}
+finally {
+    $linkProbe.Dispose()
+}
+
 $invalidProcess = Run-Converter $inputPdf $invalidOutput 'png' 150 '99'
 if ($invalidProcess.ExitCode -eq 0) { throw 'Out-of-range page selection should fail.' }
 if (@(Get-ChildItem -LiteralPath $invalidOutput -Force).Count -ne 0) { throw 'Invalid page selection left an unexpected output folder or file.' }
@@ -145,5 +184,7 @@ if ($temporaryFiles.Count -ne 0) { throw 'Temporary render files were not cleane
     BmpPages = $bmpFiles.Count
     TiffPages = $tiffFiles.Count
     PdfFolders = $multiFolders.Count
+    CustomNaming = $customFiles[0].Name
+    ResultFolderLink = 'PASS'
     OutputRoot = $outputRoot
 } | Format-List

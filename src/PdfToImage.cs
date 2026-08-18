@@ -30,6 +30,7 @@ namespace LocalImageToPdf
         public PdfRasterFormat Format { get; set; }
         public int Dpi { get; set; }
         public int JpegQuality { get; set; }
+        public string CustomBaseName { get; set; }
     }
 
     internal sealed class PdfImageProgress
@@ -118,7 +119,10 @@ namespace LocalImageToPdf
                 {
                     PdfDocument document = plan.Document;
                     if (document == null) throw new InvalidOperationException("PDF 文档尚未准备完成。");
-                    string baseName = SanitizeFileName(System.IO.Path.GetFileNameWithoutExtension(plan.Path));
+                    string sourceBaseName = SanitizeFileName(System.IO.Path.GetFileNameWithoutExtension(plan.Path));
+                    string baseName = String.IsNullOrWhiteSpace(options.CustomBaseName)
+                        ? sourceBaseName
+                        : SanitizeFileName(options.CustomBaseName);
                     planOutputDirectory = CreateUniqueDirectory(options.OutputDirectory, baseName + "-转换后");
                     int digits = Math.Max(3, plan.PageCount.ToString(CultureInfo.InvariantCulture).Length);
 
@@ -303,6 +307,8 @@ namespace LocalImageToPdf
                 throw new InvalidOperationException("分辨率仅支持 150、220 或 300 DPI。");
             if (options.JpegQuality < 50 || options.JpegQuality > 100)
                 throw new InvalidOperationException("JPEG 质量应在 50～100 之间。");
+            if (!String.IsNullOrWhiteSpace(options.CustomBaseName) && options.CustomBaseName.Trim().Length > 64)
+                throw new InvalidOperationException("自定义名称不能超过 64 个字符。");
         }
 
         private static int ParsePositivePage(string value, string token)
@@ -518,14 +524,14 @@ namespace LocalImageToPdf
             if (args == null || args.Length == 0 || !String.Equals(args[0], "--pdf-to-images", StringComparison.OrdinalIgnoreCase)) return false;
             try
             {
-                if (args.Length < 3) throw new ArgumentException("用法：--pdf-to-images input.pdf outputFolder [png|jpg|bmp|tif] [150|220|300] [pages]");
+                if (args.Length < 3) throw new ArgumentException("用法：--pdf-to-images input.pdf outputFolder [png|jpg|bmp|tif] [150|220|300] [pages] [customName]");
                 PdfRasterFormat format = ParseFormat(args.Length > 3 ? args[3] : "png");
                 int dpi = 150;
                 if (args.Length > 4 && !Int32.TryParse(args[4], NumberStyles.None, CultureInfo.InvariantCulture, out dpi)) throw new ArgumentException("DPI 必须是 150、220 或 300。");
                 string range = args.Length > 5 ? args[5] : "全部";
                 PdfImageExportResult result = PdfToImageExporter.Export(
                     new[] { args[1] },
-                    new PdfImageExportOptions { OutputDirectory = args[2], PageRange = range, Format = format, Dpi = dpi, JpegQuality = 92 },
+                    new PdfImageExportOptions { OutputDirectory = args[2], PageRange = range, Format = format, Dpi = dpi, JpegQuality = 92, CustomBaseName = args.Length > 6 ? args[6] : null },
                     null,
                     CancellationToken.None);
                 if (result.Failures.Count > 0) throw new InvalidOperationException(result.Failures[0].Message);

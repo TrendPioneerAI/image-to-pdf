@@ -60,6 +60,16 @@ function Assert-ChildrenInside([Windows.Forms.Control]$parent, [string]$context)
         if ($child.Left -lt -1 -or $child.Top -lt -1 -or $child.Right -gt $parent.ClientSize.Width + 1 -or $child.Bottom -gt $parent.ClientSize.Height + 1) {
             throw "$context contains an out-of-bounds control '$($child.Text)': child=$($child.Bounds), parent=$($parent.ClientRectangle)"
         }
+        if ($child -is [Windows.Forms.Label] -and $child.Text.Contains("`n") -and $child.Height + 1 -lt $child.PreferredHeight) {
+            throw "$context clips multiline text '$($child.Text)': height=$($child.Height), preferred=$($child.PreferredHeight)"
+        }
+        if ($child -is [Windows.Forms.Label] -and $child.Text.Contains("`n")) {
+            $requiredClearance = [Math]::Max(8, [int][Math]::Ceiling($child.Font.Height * 0.75))
+            $actualClearance = $parent.ClientSize.Height - $child.Bottom
+            if ($actualClearance -lt $requiredClearance) {
+                throw "$context leaves insufficient space below multiline text '$($child.Text)': clearance=$actualClearance, required=$requiredClearance"
+            }
+        }
     }
 }
 
@@ -91,7 +101,7 @@ function Assert-ContentLayout([Windows.Forms.TableLayoutPanel]$content, [string]
     }
 }
 
-function Test-ScaledLayout([Windows.Forms.Form]$form, [int]$dpi, [int]$logicalWidth, [int]$logicalHeight, [int]$physicalWidth = 0, [int]$physicalHeight = 0) {
+function Test-ScaledLayout([Windows.Forms.Form]$form, [int]$dpi, [int]$logicalWidth, [int]$logicalHeight, [int]$physicalWidth = 0, [int]$physicalHeight = 0, [bool]$enlargeSidebarText = $false) {
     $form.ShowInTaskbar = $false
     $form.Opacity = 0
     $form.Show()
@@ -104,6 +114,17 @@ function Test-ScaledLayout([Windows.Forms.Form]$form, [int]$dpi, [int]$logicalWi
     $targetWidth = if ($physicalWidth -gt 0) { $physicalWidth } else { [int][Math]::Round($logicalWidth * $dpi / 96.0) }
     $targetHeight = if ($physicalHeight -gt 0) { $physicalHeight } else { [int][Math]::Round($logicalHeight * $dpi / 96.0) }
     $form.ClientSize = New-Object Drawing.Size($targetWidth, $targetHeight)
+    if ($enlargeSidebarText) {
+        $rootForText = Get-RootLayout $form
+        $contentForText = [Windows.Forms.TableLayoutPanel]$rootForText.GetControlFromPosition(0, 1)
+        $sidebarForText = $contentForText.GetControlFromPosition(1, 0)
+        $scrollForText = $sidebarForText.Controls | Where-Object { $_ -is [Windows.Forms.FlowLayoutPanel] -and $_.AutoScroll } | Select-Object -First 1
+        foreach ($section in @($scrollForText.Controls)) {
+            foreach ($label in @($section.Controls | Where-Object { $_ -is [Windows.Forms.Label] -and $_.Text.Contains("`n") })) {
+                $label.Font = New-Object Drawing.Font($label.Font.FontFamily, [single]($label.Font.SizeInPoints * 1.25), $label.Font.Style)
+            }
+        }
+    }
     $form.PerformLayout()
     [Windows.Forms.Application]::DoEvents()
 
@@ -157,6 +178,10 @@ foreach ($workArea in $compactWorkAreas) {
     finally { $pdf.Close(); $pdf.Dispose() }
 }
 
+$largeTextPdf = New-PdfForm
+try { Test-ScaledLayout $largeTextPdf 192 940 640 1880 1000 $true }
+finally { $largeTextPdf.Close(); $largeTextPdf.Dispose() }
+
 [pscustomobject]@{
     Result = 'PASS'
     DpiPercentages = ($dpis | ForEach-Object { [int]($_ * 100 / 96) }) -join ', '
@@ -164,4 +189,5 @@ foreach ($workArea in $compactWorkAreas) {
     CompactWorkAreas = ($compactWorkAreas | ForEach-Object { "$($_.Width)x$($_.Height)@$([int]($_.Dpi * 100 / 96))%" }) -join ', '
     Layout = 'v1.2.0 left/right structure preserved'
     DialogsUnchanged = $dialogNames.Count
+    LargeTextMetricsChecks = 1
 }
