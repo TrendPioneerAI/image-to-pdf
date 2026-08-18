@@ -541,7 +541,7 @@ namespace LocalImageToPdf
                 Top = 311,
                 Width = 500,
                 Height = 72,
-                Text = "图片与PDF转换  v1.2.0\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
+                Text = "图片与PDF转换  v1.2.1\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
                 ForeColor = UiTheme.Muted
             };
             LinkLabel projectLink = new LinkLabel
@@ -641,7 +641,7 @@ namespace LocalImageToPdf
         }
     }
 
-    internal sealed class MainForm : Form, IImageCardOwner
+    internal sealed class MainForm : DisplayAwareMainForm, IImageCardOwner
     {
         private readonly string[] _startupArgs;
         private readonly List<ImageItem> _items = new List<ImageItem>();
@@ -691,6 +691,11 @@ namespace LocalImageToPdf
         private PdfToImageForm _pdfConverter;
         private int _previewGeneration;
         private bool _buildingUi;
+
+        protected override Size MinimumLogicalWindowSize
+        {
+            get { return new Size(1080, 700); }
+        }
 
         public MainForm(string[] startupArgs)
         {
@@ -768,6 +773,7 @@ namespace LocalImageToPdf
                 BackColor = UiTheme.Background,
                 Padding = new Padding(16, 10, 16, 12)
             };
+            root.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
             root.RowStyles.Add(new RowStyle(SizeType.Absolute, 78f));
             root.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
             root.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
@@ -799,7 +805,7 @@ namespace LocalImageToPdf
                 ForeColor = UiTheme.Text
             };
 
-            DropHintPanel dropHint = new DropHintPanel { Left = 135, Top = 7, Width = 350, Height = 60, Anchor = AnchorStyles.Left | AnchorStyles.Top };
+            DropHintPanel dropHint = new DropHintPanel { Left = 143, Top = 7, Width = 350, Height = 60, Anchor = AnchorStyles.Left | AnchorStyles.Top };
             Label dropTitle = new Label { Left = 22, Top = 9, Width = 305, Height = 23, Text = "拖入文件或文件夹", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Text, Font = UiTheme.Font(10f, FontStyle.Regular) };
             Label dropSub = new Label { Left = 18, Top = 32, Width = 315, Height = 20, Text = "支持图片文件、文件夹，或直接拖入", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.7f, FontStyle.Regular) };
             dropHint.Controls.Add(dropTitle);
@@ -868,8 +874,8 @@ namespace LocalImageToPdf
             header.Controls.Add(actions);
             header.Resize += delegate
             {
-                actions.Left = Math.Max(135, header.ClientSize.Width - actions.Width);
-                dropHint.Visible = actions.Left - dropHint.Right > 15;
+                actions.Left = Math.Max(ScaleLogical(143), header.ClientSize.Width - actions.Width);
+                dropHint.Visible = actions.Left - dropHint.Right > ScaleLogical(15);
             };
             return header;
         }
@@ -879,6 +885,7 @@ namespace LocalImageToPdf
             TableLayoutPanel content = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1, Margin = new Padding(0) };
             content.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
             content.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 460f));
+            content.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
             _cards = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -986,10 +993,10 @@ namespace LocalImageToPdf
             panel.Controls.Add(FieldLabel("输出到", 132));
             _targetFileButton = UiTheme.Button("文件", 120, 38);
             _targetFileButton.Left = 136;
-            _targetFileButton.Top = 120;
+            _targetFileButton.Top = 124;
             _targetFolderButton = UiTheme.Button("文件夹", 120, 38);
             _targetFolderButton.Left = 266;
-            _targetFolderButton.Top = 120;
+            _targetFolderButton.Top = 124;
             _targetFileButton.Click += delegate { SetTargetMode(OutputTargetMode.File); };
             _targetFolderButton.Click += delegate { SetTargetMode(OutputTargetMode.Folder); };
             panel.Controls.Add(_targetFileButton);
@@ -1053,7 +1060,8 @@ namespace LocalImageToPdf
                 Height = 28,
                 Text = "▣  本地处理 · 不上传文件 · 免费开源 · 由 ZenthZhang 开发",
                 ForeColor = UiTheme.Muted,
-                Font = UiTheme.Font(9f, FontStyle.Regular)
+                Font = UiTheme.Font(9f, FontStyle.Regular),
+                AutoEllipsis = true
             };
             _statusLabel = new Label { Top = 21, Width = 300, Height = 28, TextAlign = ContentAlignment.MiddleRight, ForeColor = UiTheme.Muted };
             _cancelButton = UiTheme.Button("取消", 90, 44);
@@ -1073,10 +1081,10 @@ namespace LocalImageToPdf
             footer.Controls.Add(_exportButton);
             footer.Resize += delegate
             {
-                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - 12;
-                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - 10;
-                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - 12;
-                privacy.Width = Math.Max(220, _statusLabel.Left - privacy.Left - 10);
+                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - ScaleLogical(12);
+                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - ScaleLogical(10);
+                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - ScaleLogical(12);
+                privacy.Width = Math.Max(0, _statusLabel.Left - privacy.Left - ScaleLogical(10));
             };
             return footer;
         }
@@ -1321,6 +1329,7 @@ namespace LocalImageToPdf
             _pdfConverter = new PdfToImageForm(new string[0], Icon, true)
             {
                 TopLevel = false,
+                AutoScaleMode = AutoScaleMode.Inherit,
                 FormBorderStyle = FormBorderStyle.None,
                 Dock = DockStyle.Fill,
                 ShowInTaskbar = false,
