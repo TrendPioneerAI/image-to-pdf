@@ -63,21 +63,21 @@ def page_one():
     page = load_background("guide-bg-01.png")
     draw = ImageDraw.Draw(page)
     page_label(draw, 1, WHITE)
-    put(draw, (170, 370), "图片转 PDF", 184, WHITE, True)
-    put(draw, (178, 635), "本地处理，\n清晰输出。", 96, WHITE, True, spacing=18)
-    put(draw, (180, 930), "一套不需要解释的\n三步操作路径", 54, "#D9E4FF", False, spacing=14)
+    put(draw, (170, 370), "图片与 PDF\n双向转换。", 142, WHITE, True, spacing=18)
+    put(draw, (180, 790), "完全离线，\n打开就能用。", 78, "#D9E4FF", True, spacing=16)
+    put(draw, (180, 1050), "一份工具，两条清晰路径", 48, "#D9E4FF")
     put(draw, (180, 1250), "01", 54, ORANGE, True)
-    put(draw, (350, 1250), "加入图片", 58, WHITE, True)
-    put(draw, (350, 1325), "添加文件、添加文件夹，或从资源管理器直接拖入。", 38, "#D9E4FF")
+    put(draw, (350, 1250), "直接运行", 58, WHITE, True)
+    put(draw, (350, 1325), "双击“图片转PDF.exe”；无需安装，也不需要联网。", 38, "#D9E4FF")
     put(draw, (180, 1515), "02", 54, ORANGE, True)
-    put(draw, (350, 1515), "调整页面", 58, WHITE, True)
-    put(draw, (350, 1590), "默认 A4 竖向；需要时再改纸张、方向、边距。", 38, "#D9E4FF")
+    put(draw, (350, 1515), "选择转换方向", 58, WHITE, True)
+    put(draw, (350, 1590), "主界面处理图片转 PDF；顶部按钮进入 PDF 转图片。", 38, "#D9E4FF")
     put(draw, (180, 1780), "03", 54, ORANGE, True)
-    put(draw, (350, 1780), "导出文件", 58, WHITE, True)
-    put(draw, (350, 1855), "选择合并 PDF，或一图一个 PDF，然后导出。", 38, "#D9E4FF")
+    put(draw, (350, 1780), "添加并导出", 58, WHITE, True)
+    put(draw, (350, 1855), "可选文件、文件夹，或直接拖入；确认设置后开始转换。", 38, "#D9E4FF")
     rule(draw, 180, 2115, 760, 2115, BLUE, 5)
-    put(draw, (180, 2180), "支持 JPG / JPEG / PNG / BMP。\n不支持 TIFF、HEIC、WebP、GIF。", 38, "#D9E4FF", spacing=14)
-    put(draw, (180, 2490), "原图只读 · 不联网 · 不上传", 42, ORANGE, True)
+    put(draw, (180, 2180), "图片输入：JPG / JPEG / PNG / BMP\nPDF 输入：Windows 10 / 11 可正常打开的 PDF", 38, "#D9E4FF", spacing=14)
+    put(draw, (180, 2490), "本地处理 · 不联网 · 不上传", 42, ORANGE, True)
     return page
 
 
@@ -85,17 +85,17 @@ def page_two():
     page = load_background("guide-bg-02.png")
     draw = ImageDraw.Draw(page)
     page_label(draw, 2, NAVY)
-    put(draw, (170, 370), "先定页面，\n再导出。", 154, NAVY, True, spacing=18)
-    put(draw, (180, 760), "默认设置兼顾速度与清晰度；\n页面和水印的选择都会同步到预览与最终 PDF。", 48, NAVY, spacing=16)
+    put(draw, (170, 370), "图片转 PDF：\n先定页面。", 138, NAVY, True, spacing=18)
+    put(draw, (180, 745), "默认 A4 竖向、无水印；图片完整保留，\n不裁剪、不拉伸。", 48, NAVY, spacing=16)
     rule(draw, 180, 1040, 1030, 1040, BLUE, 7)
-    numbered_note(draw, 180, 1130, "01", "纸张大小", "默认 A4，也可选择 A3、A5、B4、B5、Letter、Legal。")
-    numbered_note(draw, 180, 1380, "02", "纸张方向", "竖向是默认方向；选择横向后，页面和预览同步变为横向。")
-    numbered_note(draw, 180, 1630, "03", "页面边距", "支持 0 / 5 / 10 mm；图片始终完整保留，不裁剪、不拉伸。")
+    numbered_note(draw, 180, 1130, "01", "加入图片", "点击“添加图片”选择文件或文件夹，也可从资源管理器直接拖入。")
+    numbered_note(draw, 180, 1380, "02", "设置页面", "按需选择纸张、横竖方向和 0 / 5 / 10 mm 边距；单图可旋转、放大预览。")
+    numbered_note(draw, 180, 1630, "03", "选择输出", "先选保存位置，再选择“合并为一个”或“一图一个”，确认名称后导出。")
     rule(draw, 180, 1935, 1030, 1935, GREY, 2)
     put(draw, (180, 2035), "推荐/快速 · 智能处理", 54, ORANGE, True)
-    put(draw, (180, 2135), "JPEG 原图直嵌；PNG / BMP 以 150 DPI 处理。\n需要时再选 220 DPI、300 DPI 或无损。", 42, NAVY, spacing=16)
-    put(draw, (180, 2460), "文字水印", 54, SAGE, True)
-    put(draw, (180, 2560), "默认无水印；也可选择“仅供参考”，\n或自定义文字、透明度、角度和布局。", 42, NAVY, spacing=16)
+    put(draw, (180, 2135), "JPEG 原图直嵌；PNG / BMP\n以 150 DPI 处理。\n打印小字可选 220 / 300 DPI，\n高级需求可选无损。", 38, NAVY, spacing=13)
+    put(draw, (900, 2460), "文字水印", 54, SAGE, True)
+    put(draw, (900, 2560), "默认无水印；也可选择“仅供参考”，\n或自定义文字、透明度、角度和布局。\n预览与最终 PDF 保持一致。", 40, NAVY, spacing=14)
     return page
 
 
@@ -103,30 +103,39 @@ def page_three():
     page = load_background("guide-bg-03.png")
     draw = ImageDraw.Draw(page)
     page_label(draw, 3, NAVY)
-    put(draw, (170, 370), "导出方式决定\n文件形态。", 142, NAVY, True, spacing=18)
-    put(draw, (180, 745), "先选择存放位置，再确认文件形态和名称。", 50, NAVY)
+    put(draw, (170, 370), "PDF 转图片：\n三步完成。", 138, NAVY, True, spacing=18)
+    put(draw, (180, 745), "在主界面顶部点击“PDF 转图片”，\n可一次处理一个或多个 PDF。", 48, NAVY, spacing=16)
     rule(draw, 180, 900, 1050, 900, BLUE, 7)
-    numbered_note(draw, 180, 990, "01", "选择输出位置", "合并模式可选具体 PDF 文件或文件夹；逐图模式使用文件夹。")
-    numbered_note(draw, 180, 1240, "02", "决定文件形态", "合并为一个多页 PDF，或为每张图片分别生成一个 PDF。")
-    numbered_note(draw, 180, 1490, "03", "批量命名后再微调", "输入前缀并点“应用”，再逐张编辑；同名会自动加序号。")
+    numbered_note(draw, 180, 990, "01", "加入 PDF", "点击“添加 PDF”或“添加文件夹”，也可直接拖入；文件夹只读取当前层。")
+    numbered_note(draw, 180, 1240, "02", "选择页面与格式", "默认转换全部页面；也可填 1-3,5。输出可选 PNG 无损或 JPEG。")
+    numbered_note(draw, 180, 1490, "03", "选择目录并转换", "选择 150 / 220 / 300 DPI 和输出文件夹，再点击“导出图片”。")
     rule(draw, 180, 1800, 1050, 1800, GREY, 2)
-    put(draw, (180, 1900), "排序 ▾", 54, ORANGE, True)
-    put(draw, (180, 2005), "文件名、文件大小、修改日期、最近加入，\n每一项都可以选择升序或降序。", 42, NAVY, spacing=16)
-    put(draw, (180, 2305), "设置齿轮", 54, SAGE, True)
-    put(draw, (180, 2410), "可主动添加或移除“发送到”右键入口；\n软件不会自行修改系统菜单。", 42, NAVY, spacing=16)
+    put(draw, (180, 1900), "推荐默认值", 54, ORANGE, True)
+    put(draw, (180, 2005), "PNG（无损、文字清晰）\n150 DPI（推荐/快速）\n需要小文件时选 JPEG（质量 92）。", 40, NAVY, spacing=14)
+    put(draw, (180, 2305), "文件命名与取消", 54, SAGE, True)
+    put(draw, (180, 2410), "自动命名为“PDF名_第001页.png”；\n不会覆盖已有文件。\n可随时取消，已完成图片会保留。", 40, NAVY, spacing=14)
     return page
 
 
 pages = [page_one(), page_two(), page_three()]
-final_names = ["01_快速开始.png", "02_页面设置.png", "03_导出命名排序.png"]
+final_names = ["01_快速开始.png", "02_图片转PDF.png", "03_PDF转图片.png"]
 for index, page in enumerate(pages, 1):
     target = WORK / f"{index:02d}_master.png"
-    page.save(target, "PNG", optimize=True)
+    page.save(target, "PNG", compress_level=6)
     print(target)
     final_target = FINAL / final_names[index - 1]
-    page.save(final_target, "PNG", optimize=True)
+    page.save(final_target, "PNG", compress_level=6)
     print(final_target)
 
 pdf_target = ROOT / "dist" / "快速使用指南.pdf"
-pages[0].save(pdf_target, "PDF", resolution=300.0, save_all=True, append_images=pages[1:], quality=92)
+pages[0].save(
+    pdf_target,
+    "PDF",
+    resolution=300.0,
+    save_all=True,
+    append_images=pages[1:],
+    quality=84,
+    subsampling=1,
+    optimize=True,
+)
 print(pdf_target)

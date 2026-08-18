@@ -23,6 +23,27 @@ $references = @(
     'System.Core.dll',
     'Microsoft.CSharp.dll'
 )
+$windowsMetadataRoot = Join-Path ${env:ProgramFiles(x86)} 'Windows Kits\10\UnionMetadata'
+$windowsMetadata = $null
+if (Test-Path -LiteralPath $windowsMetadataRoot) {
+    $windowsMetadata = Get-ChildItem -LiteralPath $windowsMetadataRoot -Directory -ErrorAction SilentlyContinue |
+        Where-Object { $_.Name -match '^\d+\.\d+\.\d+\.\d+$' } |
+        Sort-Object { [Version]$_.Name } -Descending |
+        ForEach-Object { Join-Path $_.FullName 'Windows.winmd' } |
+        Where-Object { Test-Path -LiteralPath $_ } |
+        Select-Object -First 1
+}
+if (-not $windowsMetadata) { throw 'Windows 10/11 SDK metadata Windows.winmd was not found.' }
+$frameworkDirectory = Split-Path -Parent $compiler
+$windowsRuntime = Join-Path $frameworkDirectory 'System.Runtime.WindowsRuntime.dll'
+if (-not (Test-Path -LiteralPath $windowsRuntime)) { throw 'System.Runtime.WindowsRuntime.dll was not found.' }
+$systemRuntimeRoot = Join-Path $env:WINDIR 'Microsoft.NET\assembly\GAC_MSIL\System.Runtime'
+$systemRuntime = Get-ChildItem -LiteralPath $systemRuntimeRoot -Recurse -Filter 'System.Runtime.dll' -File -ErrorAction SilentlyContinue |
+    Select-Object -First 1 -ExpandProperty FullName
+if (-not $systemRuntime) { throw 'System.Runtime.dll was not found.' }
+$references += $windowsMetadata
+$references += $windowsRuntime
+$references += $systemRuntime
 $arguments = @('/nologo', '/target:winexe', '/platform:anycpu', '/optimize+', '/debug-', '/langversion:5', "/win32icon:$iconPath", "/win32manifest:$manifestPath", "/out:$compiledOutput")
 foreach ($reference in $references) { $arguments += "/reference:$reference" }
 $arguments += $sources

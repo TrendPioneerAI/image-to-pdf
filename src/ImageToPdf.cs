@@ -811,7 +811,7 @@ namespace LocalImageToPdf
                 Type shortcutType = shortcut.GetType();
                 shortcutType.InvokeMember("TargetPath", System.Reflection.BindingFlags.SetProperty, null, shortcut, new object[] { Application.ExecutablePath });
                 shortcutType.InvokeMember("WorkingDirectory", System.Reflection.BindingFlags.SetProperty, null, shortcut, new object[] { System.IO.Path.GetDirectoryName(Application.ExecutablePath) });
-                shortcutType.InvokeMember("Description", System.Reflection.BindingFlags.SetProperty, null, shortcut, new object[] { "图片转 PDF" });
+                shortcutType.InvokeMember("Description", System.Reflection.BindingFlags.SetProperty, null, shortcut, new object[] { "图片与 PDF 本地转换" });
                 shortcutType.InvokeMember("Save", System.Reflection.BindingFlags.InvokeMethod, null, shortcut, null);
             }
             finally
@@ -1808,6 +1808,7 @@ namespace LocalImageToPdf
         [STAThread]
         private static void Main(string[] args)
         {
+            if (PdfToImageCommandLine.TryRun(args)) return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm(args));
