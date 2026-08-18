@@ -903,10 +903,15 @@ namespace LocalImageToPdf
         }
     }
 
-    internal sealed class LargePreviewForm : Form
+    internal sealed class LargePreviewForm : AdaptiveForm
     {
         private readonly Bitmap _image;
         private readonly SharpPreviewBox _preview;
+
+        protected override Size MinimumLogicalSize
+        {
+            get { return new Size(600, 420); }
+        }
 
         public LargePreviewForm(string fileName, Bitmap image, Icon applicationIcon)
         {
@@ -943,6 +948,11 @@ namespace LocalImageToPdf
                 _preview.Image = null;
                 _image.Dispose();
             };
+        }
+
+        protected override void ApplyAdaptiveLayout()
+        {
+            if (_preview != null) _preview.Padding = new Padding(ScaleLogical(28));
         }
     }
 
@@ -1076,7 +1086,7 @@ namespace LocalImageToPdf
         }
     }
 
-    internal sealed class LegacyMainForm : Form, IImageCardOwner
+    internal sealed class LegacyMainForm : AdaptiveForm, IImageCardOwner
     {
         private const int PreviewPortraitWidth = 360;
         private const int PreviewPortraitHeight = 510;

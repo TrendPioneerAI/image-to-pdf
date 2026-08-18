@@ -112,7 +112,8 @@ namespace LocalImageToPdf
             e.Graphics.Clear(BackColor);
             if (_preview != null)
             {
-                Rectangle area = new Rectangle(12, 12, Math.Max(1, Width - 24), Math.Max(1, Height - 24));
+                int inset = Math.Max(8, (int)Math.Round(12f * e.Graphics.DpiX / 96f));
+                Rectangle area = new Rectangle(inset, inset, Math.Max(1, Width - inset * 2), Math.Max(1, Height - inset * 2));
                 float scale = Math.Min((float)area.Width / _preview.Width, (float)area.Height / _preview.Height);
                 int width = Math.Max(1, (int)Math.Round(_preview.Width * scale));
                 int height = Math.Max(1, (int)Math.Round(_preview.Height * scale));
@@ -142,20 +143,24 @@ namespace LocalImageToPdf
         private readonly Label _fileName;
         private Point _dragStart;
 
-        public ModernImageCard(IImageCardOwner owner, ImageItem item, int cardWidth, int previewHeight)
+        public ModernImageCard(IImageCardOwner owner, ImageItem item, int cardWidth, int previewHeight, int dpi)
         {
+            Func<int, int> scale = delegate (int value)
+            {
+                return Math.Max(1, (int)Math.Round(value * Math.Max(96, dpi) / 96f));
+            };
             _owner = owner;
             _item = item;
-            Width = cardWidth;
-            Height = previewHeight + 185;
-            Margin = new Padding(10);
+            Width = scale(cardWidth);
+            Height = scale(previewHeight + 185);
+            Margin = new Padding(scale(10));
             BackColor = UiTheme.Surface;
             BorderStyle = BorderStyle.FixedSingle;
 
             _preview = new PreviewSurface
             {
                 Dock = DockStyle.Top,
-                Height = previewHeight
+                Height = scale(previewHeight)
             };
             _preview.SetPreview(item.Preview, item.PreviewError);
             _preview.Click += delegate { _owner.ShowPreview(_item); };
@@ -163,20 +168,20 @@ namespace LocalImageToPdf
             _fileName = new Label
             {
                 Dock = DockStyle.Top,
-                Height = 34,
+                Height = scale(34),
                 Text = item.FileName,
                 AutoEllipsis = true,
                 TextAlign = ContentAlignment.MiddleLeft,
-                Padding = new Padding(12, 0, 12, 0),
+                Padding = new Padding(scale(12), 0, scale(12), 0),
                 ForeColor = UiTheme.Text,
                 Font = UiTheme.Font(9.5f, FontStyle.Regular)
             };
 
-            Panel naming = new Panel { Dock = DockStyle.Top, Height = 68, Padding = new Padding(12, 0, 12, 8) };
+            Panel naming = new Panel { Dock = DockStyle.Top, Height = scale(68), Padding = new Padding(scale(12), 0, scale(12), scale(8)) };
             Label nameLabel = new Label
             {
                 Dock = DockStyle.Top,
-                Height = 24,
+                Height = scale(24),
                 Text = "PDF 文件名",
                 ForeColor = UiTheme.Muted,
                 Font = UiTheme.Font(8.5f, FontStyle.Regular),
@@ -205,14 +210,14 @@ namespace LocalImageToPdf
                 Dock = DockStyle.Fill,
                 ColumnCount = 3,
                 RowCount = 1,
-                Padding = new Padding(7, 4, 7, 8)
+                Padding = new Padding(scale(7), scale(4), scale(7), scale(8))
             };
             actions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33f));
             actions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33f));
             actions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.34f));
-            Button left = UiTheme.Button("↶  左旋转", 92, 38);
-            Button right = UiTheme.Button("↷  右旋转", 92, 38);
-            Button remove = UiTheme.Button("删除", 92, 38);
+            Button left = UiTheme.Button("↶  左旋转", scale(92), scale(38));
+            Button right = UiTheme.Button("↷  右旋转", scale(92), scale(38));
+            Button remove = UiTheme.Button("删除", scale(92), scale(38));
             left.Dock = right.Dock = remove.Dock = DockStyle.Fill;
             left.Click += delegate { _owner.RotateItem(_item, -90); };
             right.Click += delegate { _owner.RotateItem(_item, 90); };
@@ -265,12 +270,17 @@ namespace LocalImageToPdf
         }
     }
 
-    internal sealed class WatermarkDialog : Form
+    internal sealed class WatermarkDialog : AdaptiveForm
     {
         private readonly TextBox _text;
         private readonly NumericUpDown _opacity;
         private readonly ComboBox _angle;
         private readonly ComboBox _layout;
+
+        protected override Size MinimumLogicalSize
+        {
+            get { return new Size(420, 300); }
+        }
 
         public WatermarkDialog(WatermarkOptions current, Icon icon)
         {
@@ -283,9 +293,10 @@ namespace LocalImageToPdf
             ClientSize = new Size(480, 330);
             BackColor = UiTheme.Surface;
             Font = UiTheme.Font(9.5f, FontStyle.Regular);
+            AutoScroll = true;
 
             Label title = new Label { Left = 28, Top = 24, Width = 420, Height = 30, Text = "自定义文字水印", Font = UiTheme.Font(14f, FontStyle.Bold), ForeColor = UiTheme.Text };
-            Label helper = new Label { Left = 28, Top = 55, Width = 420, Height = 38, Text = "水印会显示在缩略图、大图预览和最终 PDF 中。", ForeColor = UiTheme.Muted };
+            Label helper = new Label { Left = 28, Top = 55, Width = 420, Height = 32, Text = "水印会显示在缩略图、大图预览和最终 PDF 中。", ForeColor = UiTheme.Muted };
             AddFieldLabel("文字（1～64 个字符）", 28, 96);
             _text = new TextBox { Left = 180, Top = 92, Width = 260, MaxLength = 64, Text = current == null ? String.Empty : current.Text };
             AddFieldLabel("透明度", 28, 139);
@@ -325,6 +336,11 @@ namespace LocalImageToPdf
             CancelButton = cancel;
         }
 
+        protected override void ApplyAdaptiveLayout()
+        {
+            AutoScrollMinSize = new Size(ScaleLogical(480), ScaleLogical(330));
+        }
+
         public WatermarkOptions Result { get; private set; }
 
         private void ConfirmClicked(object sender, EventArgs e)
@@ -361,9 +377,14 @@ namespace LocalImageToPdf
         }
     }
 
-    internal sealed class SendToOnboardingForm : Form
+    internal sealed class SendToOnboardingForm : AdaptiveForm
     {
         private bool _decisionSaved;
+
+        protected override Size MinimumLogicalSize
+        {
+            get { return new Size(520, 360); }
+        }
 
         public SendToOnboardingForm(Icon icon)
         {
@@ -376,6 +397,7 @@ namespace LocalImageToPdf
             ClientSize = new Size(640, 440);
             BackColor = UiTheme.Surface;
             Font = UiTheme.Font(9.5f, FontStyle.Regular);
+            AutoScroll = true;
 
             Label title = new Label
             {
@@ -468,6 +490,11 @@ namespace LocalImageToPdf
             CancelButton = defer;
         }
 
+        protected override void ApplyAdaptiveLayout()
+        {
+            AutoScrollMinSize = new Size(ScaleLogical(640), ScaleLogical(440));
+        }
+
         private void EnableClicked(object sender, EventArgs e)
         {
             try
@@ -503,10 +530,15 @@ namespace LocalImageToPdf
         }
     }
 
-    internal sealed class SettingsForm : Form
+    internal sealed class SettingsForm : AdaptiveForm
     {
         private const string ProjectUrl = "https://github.com/TrendPioneerAI/image-to-pdf";
         private readonly Label _sendToState;
+
+        protected override Size MinimumLogicalSize
+        {
+            get { return new Size(480, 380); }
+        }
 
         public SettingsForm(Icon icon)
         {
@@ -519,6 +551,7 @@ namespace LocalImageToPdf
             ClientSize = new Size(560, 490);
             BackColor = UiTheme.Surface;
             Font = UiTheme.Font(9.5f, FontStyle.Regular);
+            AutoScroll = true;
 
             Label title = new Label { Left = 30, Top = 24, Width = 470, Height = 32, Text = "设置", Font = UiTheme.Font(15f, FontStyle.Bold), ForeColor = UiTheme.Text };
             Label sendTitle = new Label { Left = 30, Top = 79, Width = 470, Height = 28, Text = "当前用户“发送到”右键入口", Font = UiTheme.Font(11f, FontStyle.Bold), ForeColor = UiTheme.Text };
@@ -541,7 +574,7 @@ namespace LocalImageToPdf
                 Top = 311,
                 Width = 500,
                 Height = 72,
-                Text = "图片与PDF转换  v1.2.0\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
+                Text = "图片与PDF转换  v1.2.1\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
                 ForeColor = UiTheme.Muted
             };
             LinkLabel projectLink = new LinkLabel
@@ -570,7 +603,6 @@ namespace LocalImageToPdf
             Button close = UiTheme.Button("关闭", 96, 38);
             close.Left = 434;
             close.Top = 438;
-            close.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
             close.DialogResult = DialogResult.OK;
 
             Controls.Add(title);
@@ -586,6 +618,11 @@ namespace LocalImageToPdf
             Controls.Add(close);
             AcceptButton = close;
             UpdateSendToState();
+        }
+
+        protected override void ApplyAdaptiveLayout()
+        {
+            AutoScrollMinSize = new Size(ScaleLogical(560), ScaleLogical(490));
         }
 
         private void ChangeSendTo(bool add)
@@ -641,7 +678,7 @@ namespace LocalImageToPdf
         }
     }
 
-    internal sealed class MainForm : Form, IImageCardOwner
+    internal sealed class MainForm : AdaptiveForm, IImageCardOwner
     {
         private readonly string[] _startupArgs;
         private readonly List<ImageItem> _items = new List<ImageItem>();
@@ -691,6 +728,21 @@ namespace LocalImageToPdf
         private PdfToImageForm _pdfConverter;
         private int _previewGeneration;
         private bool _buildingUi;
+        private TableLayoutPanel _rootLayout;
+        private TableLayoutPanel _contentLayout;
+        private Panel _headerPanel;
+        private Panel _settingsSidebar;
+        private Panel _footerPanel;
+        private DropHintPanel _dropHint;
+        private FlowLayoutPanel _headerActions;
+        private Label _privacyLabel;
+        private bool _contentStacked;
+        private int _cardDpi;
+
+        protected override Size MinimumLogicalSize
+        {
+            get { return new Size(720, 520); }
+        }
 
         public MainForm(string[] startupArgs)
         {
@@ -760,7 +812,7 @@ namespace LocalImageToPdf
         private void BuildUi()
         {
             _buildingUi = true;
-            TableLayoutPanel root = new TableLayoutPanel
+            _rootLayout = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
                 RowCount = 3,
@@ -768,15 +820,16 @@ namespace LocalImageToPdf
                 BackColor = UiTheme.Background,
                 Padding = new Padding(16, 10, 16, 12)
             };
-            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 78f));
-            root.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
-            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
-            root.Controls.Add(BuildHeader(), 0, 0);
-            root.Controls.Add(BuildContent(), 0, 1);
-            root.Controls.Add(BuildFooter(), 0, 2);
-            _imageToPdfView = root;
+            _rootLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+            _rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 78f));
+            _rootLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
+            _rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
+            _rootLayout.Controls.Add(BuildHeader(), 0, 0);
+            _rootLayout.Controls.Add(BuildContent(), 0, 1);
+            _rootLayout.Controls.Add(BuildFooter(), 0, 2);
+            _imageToPdfView = _rootLayout;
             Controls.Add(_imageToPdfView);
-            EnableDropRecursive(root);
+            EnableDropRecursive(_rootLayout);
             _buildingUi = false;
             UpdatePageButtons();
             UpdateWatermarkUi();
@@ -787,7 +840,7 @@ namespace LocalImageToPdf
 
         private Control BuildHeader()
         {
-            Panel header = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Background };
+            _headerPanel = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Background };
             _countLabel = new Label
             {
                 Left = 10,
@@ -799,16 +852,16 @@ namespace LocalImageToPdf
                 ForeColor = UiTheme.Text
             };
 
-            DropHintPanel dropHint = new DropHintPanel { Left = 135, Top = 7, Width = 350, Height = 60, Anchor = AnchorStyles.Left | AnchorStyles.Top };
+            _dropHint = new DropHintPanel { Left = 135, Top = 7, Width = 350, Height = 60, Anchor = AnchorStyles.Left | AnchorStyles.Top };
             Label dropTitle = new Label { Left = 22, Top = 9, Width = 305, Height = 23, Text = "拖入文件或文件夹", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Text, Font = UiTheme.Font(10f, FontStyle.Regular) };
             Label dropSub = new Label { Left = 18, Top = 32, Width = 315, Height = 20, Text = "支持图片文件、文件夹，或直接拖入", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.7f, FontStyle.Regular) };
-            dropHint.Controls.Add(dropTitle);
-            dropHint.Controls.Add(dropSub);
-            dropHint.Click += delegate { ChooseFiles(); };
+            _dropHint.Controls.Add(dropTitle);
+            _dropHint.Controls.Add(dropSub);
+            _dropHint.Click += delegate { ChooseFiles(); };
             dropTitle.Click += delegate { ChooseFiles(); };
             dropSub.Click += delegate { ChooseFiles(); };
 
-            FlowLayoutPanel actions = new FlowLayoutPanel
+            _headerActions = new FlowLayoutPanel
             {
                 Width = 650,
                 Height = 56,
@@ -858,27 +911,22 @@ namespace LocalImageToPdf
                     ClearItems();
             };
             settings.Click += delegate { using (SettingsForm dialog = new SettingsForm(Icon)) dialog.ShowDialog(this); };
-            actions.Controls.Add(pdfToImages);
-            actions.Controls.Add(sort);
-            actions.Controls.Add(clear);
-            actions.Controls.Add(add);
-            actions.Controls.Add(settings);
-            header.Controls.Add(_countLabel);
-            header.Controls.Add(dropHint);
-            header.Controls.Add(actions);
-            header.Resize += delegate
-            {
-                actions.Left = Math.Max(135, header.ClientSize.Width - actions.Width);
-                dropHint.Visible = actions.Left - dropHint.Right > 15;
-            };
-            return header;
+            _headerActions.Controls.Add(pdfToImages);
+            _headerActions.Controls.Add(sort);
+            _headerActions.Controls.Add(clear);
+            _headerActions.Controls.Add(add);
+            _headerActions.Controls.Add(settings);
+            _headerPanel.Controls.Add(_countLabel);
+            _headerPanel.Controls.Add(_dropHint);
+            _headerPanel.Controls.Add(_headerActions);
+            return _headerPanel;
         }
 
         private Control BuildContent()
         {
-            TableLayoutPanel content = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1, Margin = new Padding(0) };
-            content.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
-            content.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 460f));
+            _contentLayout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1, Margin = new Padding(0) };
+            _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+            _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 460f));
             _cards = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -890,9 +938,10 @@ namespace LocalImageToPdf
             _cards.DragEnter += HandleDragEnter;
             _cards.DragOver += HandleDragOver;
             _cards.DragDrop += CardsDragDrop;
-            content.Controls.Add(_cards, 0, 0);
-            content.Controls.Add(BuildSettingsSidebar(), 1, 0);
-            return content;
+            _settingsSidebar = (Panel)BuildSettingsSidebar();
+            _contentLayout.Controls.Add(_cards, 0, 0);
+            _contentLayout.Controls.Add(_settingsSidebar, 1, 0);
+            return _contentLayout;
         }
 
         private Control BuildSettingsSidebar()
@@ -1044,8 +1093,8 @@ namespace LocalImageToPdf
 
         private Control BuildFooter()
         {
-            Panel footer = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Surface, Margin = new Padding(0, 10, 0, 0), BorderStyle = BorderStyle.FixedSingle };
-            Label privacy = new Label
+            _footerPanel = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Surface, Margin = new Padding(0, 10, 0, 0), BorderStyle = BorderStyle.FixedSingle };
+            _privacyLabel = new Label
             {
                 Left = 20,
                 Top = 21,
@@ -1067,18 +1116,137 @@ namespace LocalImageToPdf
             _exportButton.FlatAppearance.BorderColor = UiTheme.Primary;
             _exportButton.Font = UiTheme.Font(11f, FontStyle.Bold);
             _exportButton.Click += ExportClicked;
-            footer.Controls.Add(privacy);
-            footer.Controls.Add(_statusLabel);
-            footer.Controls.Add(_cancelButton);
-            footer.Controls.Add(_exportButton);
-            footer.Resize += delegate
+            _footerPanel.Controls.Add(_privacyLabel);
+            _footerPanel.Controls.Add(_statusLabel);
+            _footerPanel.Controls.Add(_cancelButton);
+            _footerPanel.Controls.Add(_exportButton);
+            return _footerPanel;
+        }
+
+        protected override void ApplyAdaptiveLayout()
+        {
+            if (_rootLayout == null || _headerPanel == null || _contentLayout == null || _footerPanel == null) return;
+
+            int logicalWidth = LogicalClientWidth;
+            bool compactHeader = logicalWidth < 840;
+            bool compactFooter = logicalWidth < 1120;
+            int headerHeight = compactHeader ? 118 : 78;
+            int footerHeight = compactFooter ? 118 : 70;
+
+            _rootLayout.Padding = new Padding(ScaleLogical(16), ScaleLogical(10), ScaleLogical(16), ScaleLogical(12));
+            _rootLayout.RowStyles[0].SizeType = SizeType.Absolute;
+            _rootLayout.RowStyles[0].Height = ScaleLogical(headerHeight);
+            _rootLayout.RowStyles[2].SizeType = SizeType.Absolute;
+            _rootLayout.RowStyles[2].Height = ScaleLogical(footerHeight);
+
+            LayoutHeader(compactHeader);
+            LayoutContent(logicalWidth < 960);
+            LayoutFooter(compactFooter);
+
+            int dpi = CurrentDpi;
+            if (_cardDpi != dpi)
             {
-                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - 12;
-                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - 10;
-                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - 12;
-                privacy.Width = Math.Max(220, _statusLabel.Left - privacy.Left - 10);
-            };
-            return footer;
+                _cardDpi = dpi;
+                if (_items.Count > 0 && !_buildingUi) RebuildCardControls();
+            }
+        }
+
+        private void LayoutHeader(bool compact)
+        {
+            int left = ScaleLogical(10);
+            _countLabel.SetBounds(left, ScaleLogical(compact ? 7 : 22), ScaleLogical(125), ScaleLogical(36));
+            _dropHint.SetBounds(ScaleLogical(140), ScaleLogical(7), ScaleLogical(350), ScaleLogical(60));
+
+            if (compact)
+            {
+                _dropHint.Visible = false;
+                _headerActions.WrapContents = true;
+                _headerActions.SetBounds(
+                    left,
+                    ScaleLogical(48),
+                    Math.Max(ScaleLogical(300), _headerPanel.ClientSize.Width - left * 2),
+                    Math.Max(ScaleLogical(56), _headerPanel.ClientSize.Height - ScaleLogical(48)));
+            }
+            else
+            {
+                _headerActions.WrapContents = false;
+                _headerActions.Size = new Size(ScaleLogical(650), ScaleLogical(56));
+                _headerActions.Location = new Point(
+                    Math.Max(ScaleLogical(135), _headerPanel.ClientSize.Width - _headerActions.Width),
+                    ScaleLogical(10));
+                _dropHint.Visible = _headerActions.Left - _dropHint.Right > ScaleLogical(15);
+            }
+        }
+
+        private void LayoutContent(bool stacked)
+        {
+            if (_contentStacked != stacked)
+            {
+                _contentLayout.SuspendLayout();
+                try
+                {
+                    _contentLayout.Controls.Remove(_cards);
+                    _contentLayout.Controls.Remove(_settingsSidebar);
+                    _contentLayout.ColumnStyles.Clear();
+                    _contentLayout.RowStyles.Clear();
+
+                    if (stacked)
+                    {
+                        _contentLayout.ColumnCount = 1;
+                        _contentLayout.RowCount = 2;
+                        _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+                        _contentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 45f));
+                        _contentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 55f));
+                        _settingsSidebar.Margin = new Padding(0, ScaleLogical(6), 0, 0);
+                        _contentLayout.Controls.Add(_cards, 0, 0);
+                        _contentLayout.Controls.Add(_settingsSidebar, 0, 1);
+                    }
+                    else
+                    {
+                        _contentLayout.ColumnCount = 2;
+                        _contentLayout.RowCount = 1;
+                        _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+                        _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, ScaleLogical(460)));
+                        _contentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
+                        _settingsSidebar.Margin = new Padding(ScaleLogical(6), 0, 0, 0);
+                        _contentLayout.Controls.Add(_cards, 0, 0);
+                        _contentLayout.Controls.Add(_settingsSidebar, 1, 0);
+                    }
+                    _contentStacked = stacked;
+                }
+                finally
+                {
+                    _contentLayout.ResumeLayout(true);
+                }
+            }
+            else if (!stacked && _contentLayout.ColumnStyles.Count > 1)
+            {
+                _contentLayout.ColumnStyles[1].SizeType = SizeType.Absolute;
+                _contentLayout.ColumnStyles[1].Width = ScaleLogical(460);
+            }
+        }
+
+        private void LayoutFooter(bool compact)
+        {
+            int width = _footerPanel.ClientSize.Width;
+            if (compact)
+            {
+                int inset = ScaleLogical(12);
+                _privacyLabel.SetBounds(inset, ScaleLogical(6), Math.Max(1, width - inset * 2), ScaleLogical(22));
+                _statusLabel.SetBounds(inset, ScaleLogical(30), Math.Max(1, width - inset * 2), ScaleLogical(22));
+                _statusLabel.TextAlign = ContentAlignment.MiddleLeft;
+                _cancelButton.SetBounds(inset, ScaleLogical(57), ScaleLogical(90), ScaleLogical(44));
+                int exportLeft = _cancelButton.Visible ? _cancelButton.Right + ScaleLogical(10) : inset;
+                _exportButton.SetBounds(exportLeft, ScaleLogical(56), Math.Max(ScaleLogical(180), width - exportLeft - inset), ScaleLogical(46));
+            }
+            else
+            {
+                _exportButton.SetBounds(width - ScaleLogical(342), ScaleLogical(9), ScaleLogical(330), ScaleLogical(46));
+                _cancelButton.SetBounds(_exportButton.Left - ScaleLogical(100), ScaleLogical(10), ScaleLogical(90), ScaleLogical(44));
+                _statusLabel.SetBounds(_cancelButton.Left - ScaleLogical(312), ScaleLogical(21), ScaleLogical(300), ScaleLogical(28));
+                _statusLabel.TextAlign = ContentAlignment.MiddleRight;
+                _privacyLabel.SetBounds(ScaleLogical(20), ScaleLogical(21), Math.Max(ScaleLogical(220), _statusLabel.Left - ScaleLogical(30)), ScaleLogical(28));
+            }
         }
 
         private static Panel SectionPanel(int width, int height)
@@ -1322,6 +1490,7 @@ namespace LocalImageToPdf
             {
                 TopLevel = false,
                 FormBorderStyle = FormBorderStyle.None,
+                AutoScaleMode = AutoScaleMode.Inherit,
                 Dock = DockStyle.Fill,
                 ShowInTaskbar = false,
                 Visible = false
@@ -1461,7 +1630,7 @@ namespace LocalImageToPdf
                     int cardWidth;
                     int previewHeight;
                     GetCardMetrics(_items.Count, out cardWidth, out previewHeight);
-                    ModernImageCard card = new ModernImageCard(this, item, cardWidth, previewHeight);
+                    ModernImageCard card = new ModernImageCard(this, item, cardWidth, previewHeight, CurrentDpi);
                     _cardMap[item] = card;
                     EnableDropRecursive(card);
                     _cards.Controls.Add(card);
