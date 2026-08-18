@@ -399,7 +399,7 @@ namespace LocalImageToPdf
                 Top = 311,
                 Width = 500,
                 Height = 72,
-                Text = "图片转PDF  v1.0\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
+                Text = "图片与PDF转换  v1.1\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
                 ForeColor = UiTheme.Muted
             };
             LinkLabel projectLink = new LinkLabel
@@ -563,7 +563,7 @@ namespace LocalImageToPdf
             BuildUi();
             DragEnter += HandleDragEnter;
             DragDrop += HandleDragDrop;
-            Shown += delegate { if (_startupArgs.Length > 0) AddInputs(_startupArgs); };
+            Shown += delegate { HandleStartupInputs(); };
         }
 
         public void RotateItem(ImageItem item, int delta)
@@ -640,14 +640,14 @@ namespace LocalImageToPdf
             {
                 Left = 10,
                 Top = 22,
-                Width = 115,
+                Width = 125,
                 Height = 36,
                 Text = "共 0 页",
                 Font = UiTheme.Font(16f, FontStyle.Bold),
                 ForeColor = UiTheme.Text
             };
 
-            DropHintPanel dropHint = new DropHintPanel { Left = 125, Top = 7, Width = 350, Height = 60, Anchor = AnchorStyles.Left | AnchorStyles.Top };
+            DropHintPanel dropHint = new DropHintPanel { Left = 135, Top = 7, Width = 350, Height = 60, Anchor = AnchorStyles.Left | AnchorStyles.Top };
             Label dropTitle = new Label { Left = 22, Top = 9, Width = 305, Height = 23, Text = "拖入文件或文件夹", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Text, Font = UiTheme.Font(10f, FontStyle.Regular) };
             Label dropSub = new Label { Left = 18, Top = 32, Width = 315, Height = 20, Text = "支持图片文件、文件夹，或直接拖入", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.7f, FontStyle.Regular) };
             dropHint.Controls.Add(dropTitle);
@@ -658,13 +658,14 @@ namespace LocalImageToPdf
 
             FlowLayoutPanel actions = new FlowLayoutPanel
             {
-                Width = 560,
+                Width = 650,
                 Height = 56,
                 Top = 10,
                 FlowDirection = FlowDirection.LeftToRight,
                 WrapContents = false,
                 Anchor = AnchorStyles.Top | AnchorStyles.Right
             };
+            Button pdfToImages = UiTheme.Button("PDF 转图片", 148, 44);
             Button sort = UiTheme.Button("⇅  排序  ▾", 118, 44);
             Button clear = UiTheme.Button("清空", 92, 44);
             Button add = UiTheme.Button("＋  添加图片  ▾", 142, 44);
@@ -673,6 +674,7 @@ namespace LocalImageToPdf
             add.BackColor = UiTheme.PrimarySoft;
             add.ForeColor = UiTheme.Primary;
             add.FlatAppearance.BorderColor = UiTheme.Primary;
+            pdfToImages.Click += delegate { OpenPdfConverter(new string[0]); };
 
             ContextMenuStrip sortMenu = new ContextMenuStrip();
             AddSortItem(sortMenu, "按名称升序", SortMode.NameAscending);
@@ -704,6 +706,7 @@ namespace LocalImageToPdf
                     ClearItems();
             };
             settings.Click += delegate { using (SettingsForm dialog = new SettingsForm(Icon)) dialog.ShowDialog(this); };
+            actions.Controls.Add(pdfToImages);
             actions.Controls.Add(sort);
             actions.Controls.Add(clear);
             actions.Controls.Add(add);
@@ -713,7 +716,7 @@ namespace LocalImageToPdf
             header.Controls.Add(actions);
             header.Resize += delegate
             {
-                actions.Left = Math.Max(490, header.ClientSize.Width - actions.Width);
+                actions.Left = Math.Max(135, header.ClientSize.Width - actions.Width);
                 dropHint.Visible = actions.Left - dropHint.Right > 15;
             };
             return header;
@@ -896,7 +899,7 @@ namespace LocalImageToPdf
                 Top = 21,
                 Width = 520,
                 Height = 28,
-                Text = "▣  本地处理 · 不上传图片 · 免费开源 · 由 ZenthZhang 开发",
+                Text = "▣  本地处理 · 不上传文件 · 免费开源 · 由 ZenthZhang 开发",
                 ForeColor = UiTheme.Muted,
                 Font = UiTheme.Font(9f, FontStyle.Regular)
             };
@@ -1130,6 +1133,43 @@ namespace LocalImageToPdf
                 dialog.Filter = "支持的图片|*.jpg;*.jpeg;*.png;*.bmp|JPEG|*.jpg;*.jpeg|PNG|*.png|BMP|*.bmp";
                 if (dialog.ShowDialog(this) == DialogResult.OK) AddInputs(dialog.FileNames);
             }
+        }
+
+        private void HandleStartupInputs()
+        {
+            if (_startupArgs.Length == 0) return;
+            List<string> pdfFiles = _startupArgs.Where(delegate (string path)
+            {
+                return File.Exists(path) && PdfToImageExporter.IsSupportedPath(path);
+            }).ToList();
+            List<string> imageInputs = _startupArgs.Where(delegate (string path)
+            {
+                return !pdfFiles.Contains(path, StringComparer.OrdinalIgnoreCase);
+            }).ToList();
+            if (imageInputs.Count > 0) AddInputs(imageInputs);
+            if (pdfFiles.Count > 0) OpenPdfConverter(pdfFiles);
+        }
+
+        private void OpenPdfConverter(IEnumerable<string> initialPaths)
+        {
+            if (_exportCancellation != null) return;
+            using (PdfToImageForm dialog = new PdfToImageForm(initialPaths, Icon))
+                dialog.ShowDialog(this);
+            AppSettings latest = AppSettingsStore.Load();
+            _settings.LastOutputDirectory = latest.LastOutputDirectory;
+            if (_targetMode == OutputTargetMode.Folder && _outputPathBox != null)
+                _outputPathBox.Text = latest.LastOutputDirectory;
+        }
+
+        private void HandleDroppedPaths(string[] paths)
+        {
+            if (paths == null || paths.Length == 0) return;
+            bool allPdfFiles = paths.All(delegate (string path)
+            {
+                return File.Exists(path) && PdfToImageExporter.IsSupportedPath(path);
+            });
+            if (allPdfFiles) OpenPdfConverter(paths);
+            else AddInputs(paths);
         }
 
         private void ChooseFolder()
@@ -1680,7 +1720,7 @@ namespace LocalImageToPdf
         private void HandleDragDrop(object sender, DragEventArgs e)
         {
             string[] paths = e.Data.GetData(DataFormats.FileDrop) as string[];
-            if (paths != null) AddInputs(paths);
+            if (paths != null) HandleDroppedPaths(paths);
             else if (e.Data.GetDataPresent(typeof(ImageItem))) CardsDragDrop(_cards, e);
         }
 
@@ -1689,7 +1729,7 @@ namespace LocalImageToPdf
             string[] paths = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (paths != null)
             {
-                AddInputs(paths);
+                HandleDroppedPaths(paths);
                 return;
             }
             ImageItem item = e.Data.GetData(typeof(ImageItem)) as ImageItem;
