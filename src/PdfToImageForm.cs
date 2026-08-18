@@ -19,7 +19,7 @@ namespace LocalImageToPdf
         public ListViewItem Row { get; set; }
     }
 
-    internal sealed class PdfToImageForm : AdaptiveForm
+    internal sealed class PdfToImageForm : Form
     {
         private readonly IEnumerable<string> _initialPaths;
         private readonly List<PdfSourceItem> _sources = new List<PdfSourceItem>();
@@ -41,23 +41,6 @@ namespace LocalImageToPdf
         private Button _cancelButton;
         private CancellationTokenSource _exportCancellation;
         private readonly bool _showReturnToImages;
-        private TableLayoutPanel _rootLayout;
-        private TableLayoutPanel _contentLayout;
-        private Panel _headerPanel;
-        private Panel _listShell;
-        private Panel _settingsSidebar;
-        private Panel _footerPanel;
-        private Label _titleLabel;
-        private LinkLabel _returnToImages;
-        private DropHintPanel _dropHint;
-        private FlowLayoutPanel _headerActions;
-        private Label _privacyLabel;
-        private bool _contentStacked;
-
-        protected override Size MinimumLogicalSize
-        {
-            get { return new Size(700, 500); }
-        }
 
         internal event EventHandler ReturnToImagesRequested;
 
@@ -92,7 +75,7 @@ namespace LocalImageToPdf
 
         private void BuildUi()
         {
-            _rootLayout = new TableLayoutPanel
+            TableLayoutPanel root = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
                 RowCount = 3,
@@ -100,23 +83,22 @@ namespace LocalImageToPdf
                 BackColor = UiTheme.Background,
                 Padding = new Padding(16, 10, 16, 12)
             };
-            _rootLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
-            _rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 122f));
-            _rootLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
-            _rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
-            _rootLayout.Controls.Add(BuildHeader(), 0, 0);
-            _rootLayout.Controls.Add(BuildContent(), 0, 1);
-            _rootLayout.Controls.Add(BuildFooter(), 0, 2);
-            Controls.Add(_rootLayout);
-            EnableDropRecursive(_rootLayout);
+            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 122f));
+            root.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
+            root.RowStyles.Add(new RowStyle(SizeType.Absolute, 70f));
+            root.Controls.Add(BuildHeader(), 0, 0);
+            root.Controls.Add(BuildContent(), 0, 1);
+            root.Controls.Add(BuildFooter(), 0, 2);
+            Controls.Add(root);
+            EnableDropRecursive(root);
             UpdateCount();
             UpdateFormatUi();
         }
 
         private Control BuildHeader()
         {
-            _headerPanel = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Background };
-            _titleLabel = new Label
+            Panel header = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Background };
+            Label title = new Label
             {
                 Left = 10,
                 Top = 10,
@@ -135,9 +117,10 @@ namespace LocalImageToPdf
                 Text = "共 0 个 PDF",
                 ForeColor = UiTheme.Muted
             };
+            LinkLabel returnToImages = null;
             if (_showReturnToImages)
             {
-                _returnToImages = new LinkLabel
+                returnToImages = new LinkLabel
                 {
                     Left = 12,
                     Top = 82,
@@ -148,23 +131,23 @@ namespace LocalImageToPdf
                     VisitedLinkColor = UiTheme.Primary,
                     Font = UiTheme.Font(9.2f, FontStyle.Regular)
                 };
-                _returnToImages.LinkClicked += delegate
+                returnToImages.LinkClicked += delegate
                 {
                     EventHandler handler = ReturnToImagesRequested;
                     if (handler != null) handler(this, EventArgs.Empty); else Close();
                 };
             }
 
-            _dropHint = new DropHintPanel { Left = 225, Top = 13, Width = 350, Height = 64, Anchor = AnchorStyles.Left | AnchorStyles.Top };
+            DropHintPanel dropHint = new DropHintPanel { Left = 225, Top = 13, Width = 350, Height = 64, Anchor = AnchorStyles.Left | AnchorStyles.Top };
             Label dropTitle = new Label { Left = 22, Top = 9, Width = 305, Height = 23, Text = "拖入 PDF 文件或文件夹", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Text, Font = UiTheme.Font(10f, FontStyle.Regular) };
             Label dropSub = new Label { Left = 18, Top = 32, Width = 315, Height = 20, Text = "文件夹只读取当前层，不递归子文件夹", TextAlign = ContentAlignment.MiddleCenter, ForeColor = UiTheme.Muted, Font = UiTheme.Font(8.7f, FontStyle.Regular) };
-            _dropHint.Controls.Add(dropTitle);
-            _dropHint.Controls.Add(dropSub);
-            _dropHint.Click += delegate { ChooseFiles(); };
+            dropHint.Controls.Add(dropTitle);
+            dropHint.Controls.Add(dropSub);
+            dropHint.Click += delegate { ChooseFiles(); };
             dropTitle.Click += delegate { ChooseFiles(); };
             dropSub.Click += delegate { ChooseFiles(); };
 
-            _headerActions = new FlowLayoutPanel
+            FlowLayoutPanel actions = new FlowLayoutPanel
             {
                 Width = 500,
                 Height = 56,
@@ -184,26 +167,31 @@ namespace LocalImageToPdf
             addFolder.Click += delegate { ChooseFolder(); };
             remove.Click += delegate { RemoveSelected(); };
             clear.Click += delegate { ClearSources(); };
-            _headerActions.Controls.Add(addFiles);
-            _headerActions.Controls.Add(addFolder);
-            _headerActions.Controls.Add(remove);
-            _headerActions.Controls.Add(clear);
+            actions.Controls.Add(addFiles);
+            actions.Controls.Add(addFolder);
+            actions.Controls.Add(remove);
+            actions.Controls.Add(clear);
 
-            _headerPanel.Controls.Add(_titleLabel);
-            _headerPanel.Controls.Add(_countLabel);
-            if (_returnToImages != null) _headerPanel.Controls.Add(_returnToImages);
-            _headerPanel.Controls.Add(_dropHint);
-            _headerPanel.Controls.Add(_headerActions);
-            return _headerPanel;
+            header.Controls.Add(title);
+            header.Controls.Add(_countLabel);
+            if (returnToImages != null) header.Controls.Add(returnToImages);
+            header.Controls.Add(dropHint);
+            header.Controls.Add(actions);
+            header.Resize += delegate
+            {
+                actions.Left = Math.Max(590, header.ClientSize.Width - actions.Width);
+                dropHint.Visible = actions.Left - dropHint.Right > 15;
+            };
+            return header;
         }
 
         private Control BuildContent()
         {
-            _contentLayout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1, Margin = new Padding(0) };
-            _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
-            _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430f));
+            TableLayoutPanel content = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1, Margin = new Padding(0) };
+            content.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+            content.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430f));
 
-            _listShell = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Surface, Padding = new Padding(10), Margin = new Padding(0, 0, 6, 0), BorderStyle = BorderStyle.FixedSingle };
+            Panel listShell = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Surface, Padding = new Padding(10), Margin = new Padding(0, 0, 6, 0), BorderStyle = BorderStyle.FixedSingle };
             _sourceList = new ListView
             {
                 Dock = DockStyle.Fill,
@@ -227,12 +215,15 @@ namespace LocalImageToPdf
                 if (args.KeyCode == Keys.Delete) { RemoveSelected(); args.Handled = true; }
             };
             _sourceList.DoubleClick += delegate { OpenSelectedSource(); };
-            _sourceList.Resize += delegate { LayoutSourceColumns(); };
-            _listShell.Controls.Add(_sourceList);
-            _settingsSidebar = (Panel)BuildSettingsSidebar();
-            _contentLayout.Controls.Add(_listShell, 0, 0);
-            _contentLayout.Controls.Add(_settingsSidebar, 1, 0);
-            return _contentLayout;
+            _sourceList.Resize += delegate
+            {
+                if (_sourceList.Columns.Count == 4)
+                    _sourceList.Columns[3].Width = Math.Max(180, _sourceList.ClientSize.Width - 470);
+            };
+            listShell.Controls.Add(_sourceList);
+            content.Controls.Add(listShell, 0, 0);
+            content.Controls.Add(BuildSettingsSidebar(), 1, 0);
+            return content;
         }
 
         private Control BuildSettingsSidebar()
@@ -320,8 +311,8 @@ namespace LocalImageToPdf
 
         private Control BuildFooter()
         {
-            _footerPanel = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Surface, Margin = new Padding(0, 10, 0, 0), BorderStyle = BorderStyle.FixedSingle };
-            _privacyLabel = new Label
+            Panel footer = new Panel { Dock = DockStyle.Fill, BackColor = UiTheme.Surface, Margin = new Padding(0, 10, 0, 0), BorderStyle = BorderStyle.FixedSingle };
+            Label privacy = new Label
             {
                 Left = 20,
                 Top = 21,
@@ -343,141 +334,18 @@ namespace LocalImageToPdf
             _exportButton.FlatAppearance.BorderColor = UiTheme.Primary;
             _exportButton.Font = UiTheme.Font(11f, FontStyle.Bold);
             _exportButton.Click += ExportClicked;
-            _footerPanel.Controls.Add(_privacyLabel);
-            _footerPanel.Controls.Add(_statusLabel);
-            _footerPanel.Controls.Add(_cancelButton);
-            _footerPanel.Controls.Add(_exportButton);
-            return _footerPanel;
-        }
-
-        protected override void ApplyAdaptiveLayout()
-        {
-            if (_rootLayout == null || _headerPanel == null || _contentLayout == null || _footerPanel == null) return;
-
-            int logicalWidth = LogicalClientWidth;
-            bool compactHeader = logicalWidth < 760;
-            bool compactFooter = logicalWidth < 1120;
-            _rootLayout.Padding = new Padding(ScaleLogical(16), ScaleLogical(10), ScaleLogical(16), ScaleLogical(12));
-            _rootLayout.RowStyles[0].Height = ScaleLogical(compactHeader ? 166 : 122);
-            _rootLayout.RowStyles[2].Height = ScaleLogical(compactFooter ? 118 : 70);
-
-            LayoutHeader(compactHeader);
-            LayoutContent(logicalWidth < 1100);
-            LayoutFooter(compactFooter);
-            LayoutSourceColumns();
-        }
-
-        private void LayoutHeader(bool compact)
-        {
-            _titleLabel.Location = new Point(ScaleLogical(10), ScaleLogical(10));
-            _titleLabel.MaximumSize = new Size(ScaleLogical(210), 0);
-            _countLabel.Location = new Point(ScaleLogical(12), ScaleLogical(52));
-            _countLabel.MaximumSize = new Size(ScaleLogical(210), 0);
-            if (_returnToImages != null) _returnToImages.Location = new Point(ScaleLogical(12), ScaleLogical(82));
-            _dropHint.SetBounds(ScaleLogical(225), ScaleLogical(13), ScaleLogical(350), ScaleLogical(64));
-
-            if (compact)
+            footer.Controls.Add(privacy);
+            footer.Controls.Add(_statusLabel);
+            footer.Controls.Add(_cancelButton);
+            footer.Controls.Add(_exportButton);
+            footer.Resize += delegate
             {
-                _dropHint.Visible = false;
-                _headerActions.WrapContents = true;
-                _headerActions.SetBounds(
-                    ScaleLogical(10),
-                    ScaleLogical(108),
-                    Math.Max(ScaleLogical(300), _headerPanel.ClientSize.Width - ScaleLogical(20)),
-                    Math.Max(ScaleLogical(50), _headerPanel.ClientSize.Height - ScaleLogical(108)));
-            }
-            else
-            {
-                _headerActions.WrapContents = false;
-                _headerActions.Size = new Size(ScaleLogical(500), ScaleLogical(56));
-                _headerActions.Location = new Point(
-                    Math.Max(ScaleLogical(225), _headerPanel.ClientSize.Width - _headerActions.Width),
-                    ScaleLogical(16));
-                _dropHint.Visible = _headerActions.Left - _dropHint.Right > ScaleLogical(15);
-            }
-        }
-
-        private void LayoutContent(bool stacked)
-        {
-            if (_contentStacked != stacked)
-            {
-                _contentLayout.SuspendLayout();
-                try
-                {
-                    _contentLayout.Controls.Remove(_listShell);
-                    _contentLayout.Controls.Remove(_settingsSidebar);
-                    _contentLayout.ColumnStyles.Clear();
-                    _contentLayout.RowStyles.Clear();
-                    if (stacked)
-                    {
-                        _contentLayout.ColumnCount = 1;
-                        _contentLayout.RowCount = 2;
-                        _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
-                        _contentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 45f));
-                        _contentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 55f));
-                        _listShell.Margin = new Padding(0, 0, 0, ScaleLogical(3));
-                        _settingsSidebar.Margin = new Padding(0, ScaleLogical(3), 0, 0);
-                        _contentLayout.Controls.Add(_listShell, 0, 0);
-                        _contentLayout.Controls.Add(_settingsSidebar, 0, 1);
-                    }
-                    else
-                    {
-                        _contentLayout.ColumnCount = 2;
-                        _contentLayout.RowCount = 1;
-                        _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
-                        _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, ScaleLogical(430)));
-                        _contentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
-                        _listShell.Margin = new Padding(0, 0, ScaleLogical(6), 0);
-                        _settingsSidebar.Margin = new Padding(ScaleLogical(6), 0, 0, 0);
-                        _contentLayout.Controls.Add(_listShell, 0, 0);
-                        _contentLayout.Controls.Add(_settingsSidebar, 1, 0);
-                    }
-                    _contentStacked = stacked;
-                }
-                finally
-                {
-                    _contentLayout.ResumeLayout(true);
-                }
-            }
-            else if (!stacked && _contentLayout.ColumnStyles.Count > 1)
-            {
-                _contentLayout.ColumnStyles[1].Width = ScaleLogical(430);
-            }
-        }
-
-        private void LayoutFooter(bool compact)
-        {
-            int width = _footerPanel.ClientSize.Width;
-            if (compact)
-            {
-                int inset = ScaleLogical(12);
-                _privacyLabel.SetBounds(inset, ScaleLogical(6), Math.Max(1, width - inset * 2), ScaleLogical(22));
-                _statusLabel.SetBounds(inset, ScaleLogical(30), Math.Max(1, width - inset * 2), ScaleLogical(22));
-                _statusLabel.TextAlign = ContentAlignment.MiddleLeft;
-                _cancelButton.SetBounds(inset, ScaleLogical(57), ScaleLogical(90), ScaleLogical(44));
-                int exportLeft = _cancelButton.Visible ? _cancelButton.Right + ScaleLogical(10) : inset;
-                _exportButton.SetBounds(exportLeft, ScaleLogical(56), Math.Max(ScaleLogical(180), width - exportLeft - inset), ScaleLogical(46));
-            }
-            else
-            {
-                _exportButton.SetBounds(width - ScaleLogical(262), ScaleLogical(9), ScaleLogical(250), ScaleLogical(46));
-                _cancelButton.SetBounds(_exportButton.Left - ScaleLogical(100), ScaleLogical(10), ScaleLogical(90), ScaleLogical(44));
-                _statusLabel.SetBounds(_cancelButton.Left - ScaleLogical(302), ScaleLogical(21), ScaleLogical(290), ScaleLogical(28));
-                _statusLabel.TextAlign = ContentAlignment.MiddleRight;
-                _privacyLabel.SetBounds(ScaleLogical(20), ScaleLogical(21), Math.Max(ScaleLogical(220), _statusLabel.Left - ScaleLogical(30)), ScaleLogical(28));
-            }
-        }
-
-        private void LayoutSourceColumns()
-        {
-            if (_sourceList == null || _sourceList.Columns.Count != 4) return;
-            int fileWidth = ScaleLogical(260);
-            int pagesWidth = ScaleLogical(90);
-            int sizeWidth = ScaleLogical(100);
-            _sourceList.Columns[0].Width = fileWidth;
-            _sourceList.Columns[1].Width = pagesWidth;
-            _sourceList.Columns[2].Width = sizeWidth;
-            _sourceList.Columns[3].Width = Math.Max(ScaleLogical(180), _sourceList.ClientSize.Width - fileWidth - pagesWidth - sizeWidth - ScaleLogical(20));
+                _exportButton.Left = footer.ClientSize.Width - _exportButton.Width - 12;
+                _cancelButton.Left = _exportButton.Left - _cancelButton.Width - 10;
+                _statusLabel.Left = _cancelButton.Left - _statusLabel.Width - 12;
+                privacy.Width = Math.Max(220, _statusLabel.Left - privacy.Left - 10);
+            };
+            return footer;
         }
 
         private void ChooseFiles()
