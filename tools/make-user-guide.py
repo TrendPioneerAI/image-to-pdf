@@ -128,13 +128,13 @@ def page_four():
     put(draw, (180, 745), "在主界面顶部点击“PDF 转图片”，\n可一次处理一个或多个 PDF。", 48, NAVY, spacing=16)
     rule(draw, 180, 900, 1050, 900, BLUE, 7)
     numbered_note(draw, 180, 990, "01", "加入 PDF", "点击“添加 PDF”或“添加文件夹”，也可直接拖入；文件夹只读取当前层。")
-    numbered_note(draw, 180, 1240, "02", "选择页面与格式", "默认转换全部页面；也可填 1-3,5。输出可选 PNG 无损或 JPEG。")
-    numbered_note(draw, 180, 1490, "03", "选择目录并转换", "选择 150 / 220 / 300 DPI 和输出文件夹，再点击“导出图片”。")
+    numbered_note(draw, 180, 1240, "02", "选择页面与格式", "默认转换全部页面；也可填 1-3,5。默认 PNG，也可选 JPEG、BMP、TIFF。")
+    numbered_note(draw, 180, 1490, "03", "选择目录并转换", "选择 150 / 220 / 300 DPI 和保存位置，再点击“导出图片”。")
     rule(draw, 180, 1800, 1050, 1800, GREY, 2)
     put(draw, (180, 1900), "推荐默认值", 54, ORANGE, True)
-    put(draw, (180, 2005), "PNG（无损、文字清晰）\n150 DPI（推荐/快速）\n需要小文件时选 JPEG（质量 92）。", 40, NAVY, spacing=14)
+    put(draw, (180, 2005), "PNG（默认、无损、文字清晰）\n150 DPI（推荐/快速）\n小文件选 JPEG。\nBMP / TIFF 用于兼容，文件较大。", 36, NAVY, spacing=12)
     put(draw, (180, 2305), "文件命名与取消", 54, SAGE, True)
-    put(draw, (180, 2410), "自动命名为“PDF名_第001页.png”；\n不会覆盖已有文件。\n可随时取消，已完成图片会保留。", 40, NAVY, spacing=14)
+    put(draw, (180, 2410), "每个 PDF 建立独立文件夹：\n“PDF名-转换后”。\n图片名为“PDF名_第001页.png”。\n重名自动编号；已完成图片会保留。", 36, NAVY, spacing=12)
     return page
 
 

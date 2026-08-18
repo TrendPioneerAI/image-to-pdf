@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
+using System.Threading.Tasks;
 using Windows.Data.Pdf;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -17,7 +18,9 @@ namespace LocalImageToPdf
     internal enum PdfRasterFormat
     {
         Png,
-        Jpeg
+        Jpeg,
+        Bmp,
+        Tiff
     }
 
     internal sealed class PdfImageExportOptions
@@ -64,6 +67,14 @@ namespace LocalImageToPdf
             public string Path { get; set; }
             public uint PageCount { get; set; }
             public List<int> PageIndexes { get; set; }
+            public PdfDocument Document { get; set; }
+        }
+
+        private sealed class PageWork
+        {
+            public int PageIndex { get; set; }
+            public string TargetPath { get; set; }
+            public Task RenderTask { get; set; }
         }
 
         public static bool IsSupportedPath(string path)
@@ -102,47 +113,102 @@ namespace LocalImageToPdf
             foreach (RenderPlan plan in plans)
             {
                 token.ThrowIfCancellationRequested();
+                string planOutputDirectory = null;
                 try
                 {
-                    StorageFile sourceFile = StorageFile.GetFileFromPathAsync(plan.Path).AsTask(token).GetAwaiter().GetResult();
-                    PdfDocument document = PdfDocument.LoadFromFileAsync(sourceFile).AsTask(token).GetAwaiter().GetResult();
+                    PdfDocument document = plan.Document;
+                    if (document == null) throw new InvalidOperationException("PDF 文档尚未准备完成。");
                     string baseName = SanitizeFileName(System.IO.Path.GetFileNameWithoutExtension(plan.Path));
+                    planOutputDirectory = CreateUniqueDirectory(options.OutputDirectory, baseName + "-转换后");
                     int digits = Math.Max(3, plan.PageCount.ToString(CultureInfo.InvariantCulture).Length);
 
-                    foreach (int pageIndex in plan.PageIndexes)
+                    int workerCount = Environment.ProcessorCount >= 4 ? 2 : 1;
+                    for (int batchStart = 0; batchStart < plan.PageIndexes.Count; batchStart += workerCount)
                     {
                         token.ThrowIfCancellationRequested();
-                        using (PdfPage page = document.GetPage((uint)pageIndex))
+                        List<PageWork> batch = new List<PageWork>();
+                        int batchEnd = Math.Min(plan.PageIndexes.Count, batchStart + workerCount);
+                        for (int batchIndex = batchStart; batchIndex < batchEnd; batchIndex++)
                         {
+                            int pageIndex = plan.PageIndexes[batchIndex];
+                            PdfPage page = document.GetPage((uint)pageIndex);
                             uint width;
                             uint height;
-                            GetRenderDimensions(page, options.Dpi, out width, out height);
-                            string extension = options.Format == PdfRasterFormat.Png ? ".png" : ".jpg";
-                            string pageName = baseName + "_第" + (pageIndex + 1).ToString("D" + digits.ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture) + "页" + extension;
-                            string targetPath = GetUniquePath(options.OutputDirectory, pageName);
-                            RenderPage(page, targetPath, width, height, options, token);
-                            result.OutputFiles.Add(targetPath);
+                            try
+                            {
+                                GetRenderDimensions(page, options.Dpi, out width, out height);
+                                string extension = GetFileExtension(options.Format);
+                                string pageName = baseName + "_第" + (pageIndex + 1).ToString("D" + digits.ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture) + "页" + extension;
+                                string targetPath = GetUniquePath(planOutputDirectory, pageName);
+                                PdfPage pageForTask = page;
+                                PageWork work = new PageWork { PageIndex = pageIndex, TargetPath = targetPath };
+                                work.RenderTask = Task.Run(delegate
+                                {
+                                    try { RenderPage(pageForTask, targetPath, width, height, options, token); }
+                                    finally { pageForTask.Dispose(); }
+                                });
+                                batch.Add(work);
+                            }
+                            catch
+                            {
+                                page.Dispose();
+                                throw;
+                            }
                         }
 
-                        completed++;
-                        if (progress != null)
+                        try { Task.WaitAll(batch.Select(delegate (PageWork item) { return item.RenderTask; }).ToArray()); }
+                        catch (AggregateException) { }
+
+                        Exception batchFailure = null;
+                        bool batchCanceled = token.IsCancellationRequested;
+                        foreach (PageWork work in batch)
                         {
-                            progress(new PdfImageProgress
+                            if (work.RenderTask.Status == TaskStatus.RanToCompletion)
                             {
-                                CompletedPages = completed,
-                                TotalPages = totalPages,
-                                SourceName = System.IO.Path.GetFileName(plan.Path),
-                                PageNumber = pageIndex + 1
-                            });
+                                result.OutputFiles.Add(work.TargetPath);
+                                completed++;
+                                if (progress != null)
+                                {
+                                    progress(new PdfImageProgress
+                                    {
+                                        CompletedPages = completed,
+                                        TotalPages = totalPages,
+                                        SourceName = System.IO.Path.GetFileName(plan.Path),
+                                        PageNumber = work.PageIndex + 1
+                                    });
+                                }
+                                continue;
+                            }
+                            if (work.RenderTask.IsCanceled)
+                            {
+                                batchCanceled = true;
+                                continue;
+                            }
+                            if (work.RenderTask.Exception != null && batchFailure == null)
+                            {
+                                AggregateException flattened = work.RenderTask.Exception.Flatten();
+                                foreach (Exception failure in flattened.InnerExceptions)
+                                {
+                                    if (failure is OperationCanceledException) batchCanceled = true;
+                                    else if (batchFailure == null) batchFailure = failure;
+                                }
+                            }
                         }
+                        if (batchCanceled) throw new OperationCanceledException(token);
+                        if (batchFailure != null) throw batchFailure;
                     }
+                    plan.Document = null;
                 }
                 catch (OperationCanceledException)
                 {
+                    plan.Document = null;
+                    TryDeleteEmptyDirectory(planOutputDirectory);
                     throw;
                 }
                 catch (Exception error)
                 {
+                    plan.Document = null;
+                    TryDeleteEmptyDirectory(planOutputDirectory);
                     result.Failures.Add(new PdfImageFailure { SourcePath = plan.Path, Message = FriendlyError(error) });
                 }
             }
@@ -205,12 +271,16 @@ namespace LocalImageToPdf
                     path = System.IO.Path.GetFullPath(rawPath);
                     if (!File.Exists(path)) throw new FileNotFoundException("PDF 文件不存在。", path);
                     if (!IsSupportedPath(path)) throw new InvalidOperationException("仅支持 PDF 文件。");
-                    int pageCount = GetPageCount(path, token);
+                    StorageFile sourceFile = StorageFile.GetFileFromPathAsync(path).AsTask(token).GetAwaiter().GetResult();
+                    PdfDocument document = PdfDocument.LoadFromFileAsync(sourceFile).AsTask(token).GetAwaiter().GetResult();
+                    if (document.PageCount > Int32.MaxValue) throw new InvalidOperationException("PDF 页数超过支持范围。");
+                    int pageCount = (int)document.PageCount;
                     plans.Add(new RenderPlan
                     {
                         Path = path,
                         PageCount = (uint)pageCount,
-                        PageIndexes = ParsePageRange(pageRange, pageCount)
+                        PageIndexes = ParsePageRange(pageRange, pageCount),
+                        Document = document
                     });
                 }
                 catch (OperationCanceledException)
@@ -256,23 +326,47 @@ namespace LocalImageToPdf
         private static void RenderPage(PdfPage page, string targetPath, uint width, uint height, PdfImageExportOptions options, CancellationToken token)
         {
             string directory = System.IO.Path.GetDirectoryName(targetPath);
-            string pngTemporary = System.IO.Path.Combine(directory, ".pdf-render-" + Guid.NewGuid().ToString("N") + ".png");
-            string outputTemporary = options.Format == PdfRasterFormat.Png
-                ? pngTemporary
-                : System.IO.Path.Combine(directory, ".pdf-render-" + Guid.NewGuid().ToString("N") + ".jpg");
+            string outputTemporary = System.IO.Path.Combine(directory, ".pdf-render-" + Guid.NewGuid().ToString("N") + GetFileExtension(options.Format));
             try
             {
-                RenderPngToFile(page, pngTemporary, width, height, token);
-                token.ThrowIfCancellationRequested();
-                if (options.Format == PdfRasterFormat.Jpeg)
-                    EncodeJpeg(pngTemporary, outputTemporary, options.JpegQuality, options.Dpi, token);
+                if (options.Format == PdfRasterFormat.Png)
+                    RenderPngToFile(page, outputTemporary, width, height, token);
+                else
+                {
+                    using (InMemoryRandomAccessStream renderedPng = RenderPngToMemory(page, width, height, token))
+                    using (Stream renderedStream = renderedPng.AsStreamForRead())
+                    {
+                        if (options.Format == PdfRasterFormat.Jpeg)
+                            EncodeJpeg(renderedStream, outputTemporary, options.JpegQuality, options.Dpi, token);
+                        else if (options.Format == PdfRasterFormat.Bmp)
+                            EncodeLosslessRaster(renderedStream, outputTemporary, ImageFormat.Bmp, options.Dpi, token);
+                        else if (options.Format == PdfRasterFormat.Tiff)
+                            EncodeLosslessRaster(renderedStream, outputTemporary, ImageFormat.Tiff, options.Dpi, token);
+                    }
+                }
                 token.ThrowIfCancellationRequested();
                 File.Move(outputTemporary, targetPath);
             }
             finally
             {
-                TryDelete(pngTemporary);
-                if (!String.Equals(outputTemporary, pngTemporary, StringComparison.OrdinalIgnoreCase)) TryDelete(outputTemporary);
+                TryDelete(outputTemporary);
+            }
+        }
+
+        private static InMemoryRandomAccessStream RenderPngToMemory(PdfPage page, uint width, uint height, CancellationToken token)
+        {
+            InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream();
+            try
+            {
+                PdfPageRenderOptions renderOptions = CreateRenderOptions(width, height);
+                page.RenderToStreamAsync(stream, renderOptions).AsTask(token).GetAwaiter().GetResult();
+                stream.Seek(0);
+                return stream;
+            }
+            catch
+            {
+                stream.Dispose();
+                throw;
             }
         }
 
@@ -284,22 +378,27 @@ namespace LocalImageToPdf
             {
                 stream.Size = 0;
                 stream.Seek(0);
-                PdfPageRenderOptions renderOptions = new PdfPageRenderOptions
-                {
-                    DestinationWidth = width,
-                    DestinationHeight = height,
-                    BackgroundColor = Windows.UI.Colors.White,
-                    IsIgnoringHighContrast = true
-                };
+                PdfPageRenderOptions renderOptions = CreateRenderOptions(width, height);
                 page.RenderToStreamAsync(stream, renderOptions).AsTask(token).GetAwaiter().GetResult();
                 stream.FlushAsync().AsTask(token).GetAwaiter().GetResult();
             }
         }
 
-        private static void EncodeJpeg(string pngPath, string jpegPath, int quality, int dpi, CancellationToken token)
+        private static PdfPageRenderOptions CreateRenderOptions(uint width, uint height)
+        {
+            return new PdfPageRenderOptions
+            {
+                DestinationWidth = width,
+                DestinationHeight = height,
+                BackgroundColor = Windows.UI.Colors.White,
+                IsIgnoringHighContrast = true
+            };
+        }
+
+        private static void EncodeJpeg(Stream pngStream, string jpegPath, int quality, int dpi, CancellationToken token)
         {
             token.ThrowIfCancellationRequested();
-            using (Image source = Image.FromFile(pngPath))
+            using (Image source = Image.FromStream(pngStream, true, true))
             using (Bitmap flattened = new Bitmap(source.Width, source.Height, PixelFormat.Format24bppRgb))
             {
                 flattened.SetResolution(dpi, dpi);
@@ -318,6 +417,33 @@ namespace LocalImageToPdf
             }
         }
 
+        private static void EncodeLosslessRaster(Stream pngStream, string outputPath, ImageFormat format, int dpi, CancellationToken token)
+        {
+            token.ThrowIfCancellationRequested();
+            using (Image source = Image.FromStream(pngStream, true, true))
+            using (Bitmap flattened = new Bitmap(source.Width, source.Height, PixelFormat.Format24bppRgb))
+            {
+                flattened.SetResolution(dpi, dpi);
+                using (Graphics graphics = Graphics.FromImage(flattened))
+                {
+                    graphics.Clear(Color.White);
+                    graphics.CompositingMode = CompositingMode.SourceCopy;
+                    graphics.DrawImageUnscaled(source, 0, 0);
+                }
+                token.ThrowIfCancellationRequested();
+                flattened.Save(outputPath, format);
+            }
+        }
+
+        private static string GetFileExtension(PdfRasterFormat format)
+        {
+            if (format == PdfRasterFormat.Png) return ".png";
+            if (format == PdfRasterFormat.Jpeg) return ".jpg";
+            if (format == PdfRasterFormat.Bmp) return ".bmp";
+            if (format == PdfRasterFormat.Tiff) return ".tif";
+            throw new InvalidOperationException("不支持所选图片格式。");
+        }
+
         private static string GetUniquePath(string directory, string fileName)
         {
             string first = System.IO.Path.Combine(directory, fileName);
@@ -330,6 +456,25 @@ namespace LocalImageToPdf
                 if (!File.Exists(candidate)) return candidate;
             }
             throw new IOException("无法生成不重复的输出文件名。");
+        }
+
+        private static string CreateUniqueDirectory(string parentDirectory, string folderName)
+        {
+            string first = System.IO.Path.Combine(parentDirectory, folderName);
+            if (!Directory.Exists(first) && !File.Exists(first))
+            {
+                Directory.CreateDirectory(first);
+                return first;
+            }
+
+            for (int index = 2; index < Int32.MaxValue; index++)
+            {
+                string candidate = System.IO.Path.Combine(parentDirectory, folderName + "(" + index.ToString(CultureInfo.InvariantCulture) + ")");
+                if (Directory.Exists(candidate) || File.Exists(candidate)) continue;
+                Directory.CreateDirectory(candidate);
+                return candidate;
+            }
+            throw new IOException("无法生成不重复的输出文件夹名称。");
         }
 
         private static string SanitizeFileName(string value)
@@ -354,6 +499,16 @@ namespace LocalImageToPdf
             try { if (!String.IsNullOrWhiteSpace(path) && File.Exists(path)) File.Delete(path); }
             catch { }
         }
+
+        private static void TryDeleteEmptyDirectory(string path)
+        {
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(path) && Directory.Exists(path) && !Directory.EnumerateFileSystemEntries(path).Any())
+                    Directory.Delete(path, false);
+            }
+            catch { }
+        }
     }
 
     internal static class PdfToImageCommandLine
@@ -363,8 +518,8 @@ namespace LocalImageToPdf
             if (args == null || args.Length == 0 || !String.Equals(args[0], "--pdf-to-images", StringComparison.OrdinalIgnoreCase)) return false;
             try
             {
-                if (args.Length < 3) throw new ArgumentException("用法：--pdf-to-images input.pdf outputFolder [png|jpg] [150|220|300] [pages]");
-                PdfRasterFormat format = args.Length > 3 && String.Equals(args[3], "jpg", StringComparison.OrdinalIgnoreCase) ? PdfRasterFormat.Jpeg : PdfRasterFormat.Png;
+                if (args.Length < 3) throw new ArgumentException("用法：--pdf-to-images input.pdf outputFolder [png|jpg|bmp|tif] [150|220|300] [pages]");
+                PdfRasterFormat format = ParseFormat(args.Length > 3 ? args[3] : "png");
                 int dpi = 150;
                 if (args.Length > 4 && !Int32.TryParse(args[4], NumberStyles.None, CultureInfo.InvariantCulture, out dpi)) throw new ArgumentException("DPI 必须是 150、220 或 300。");
                 string range = args.Length > 5 ? args[5] : "全部";
@@ -381,6 +536,15 @@ namespace LocalImageToPdf
                 Environment.ExitCode = 1;
             }
             return true;
+        }
+
+        private static PdfRasterFormat ParseFormat(string value)
+        {
+            if (String.Equals(value, "png", StringComparison.OrdinalIgnoreCase)) return PdfRasterFormat.Png;
+            if (String.Equals(value, "jpg", StringComparison.OrdinalIgnoreCase) || String.Equals(value, "jpeg", StringComparison.OrdinalIgnoreCase)) return PdfRasterFormat.Jpeg;
+            if (String.Equals(value, "bmp", StringComparison.OrdinalIgnoreCase)) return PdfRasterFormat.Bmp;
+            if (String.Equals(value, "tif", StringComparison.OrdinalIgnoreCase) || String.Equals(value, "tiff", StringComparison.OrdinalIgnoreCase)) return PdfRasterFormat.Tiff;
+            throw new ArgumentException("图片格式必须是 PNG、JPEG、BMP 或 TIFF。");
         }
     }
 }
