@@ -32,7 +32,7 @@ function Run-Converter([string]$output, [string]$format, [int]$dpi, [string]$pag
 $pngProcess = Run-Converter $pngOutput 'png' 150 'all'
 if ($pngProcess.ExitCode -ne 0) { throw "PNG conversion failed with exit code $($pngProcess.ExitCode)." }
 $pngFiles = @(Get-ChildItem -LiteralPath $pngOutput -Filter '*.png' -File | Sort-Object Name)
-if ($pngFiles.Count -ne 3) { throw "Expected 3 PNG files, found $($pngFiles.Count)." }
+if ($pngFiles.Count -ne 4) { throw "Expected 4 PNG files, found $($pngFiles.Count)." }
 
 $jpgProcess = Run-Converter $jpgOutput 'jpg' 220 '2'
 if ($jpgProcess.ExitCode -ne 0) { throw "JPEG conversion failed with exit code $($jpgProcess.ExitCode)." }

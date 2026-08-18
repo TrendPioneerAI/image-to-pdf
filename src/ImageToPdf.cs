@@ -1805,12 +1805,59 @@ namespace LocalImageToPdf
 
     internal static class Program
     {
+        internal static bool ShouldLaunchPdfToImages(string[] args)
+        {
+            if (args == null || args.Length == 0) return false;
+            bool hasPdf = false;
+            foreach (string rawPath in args)
+            {
+                if (String.IsNullOrWhiteSpace(rawPath)) return false;
+                string path;
+                try { path = Path.GetFullPath(rawPath); }
+                catch { return false; }
+                if (!File.Exists(path) || !PdfToImageExporter.IsSupportedPath(path)) return false;
+                hasPdf = true;
+            }
+            return hasPdf;
+        }
+
+        internal static bool ShouldShowSendToOnboarding(AppSettings settings, bool shortcutExists)
+        {
+            return settings != null && !settings.SendToOnboardingCompleted && !shortcutExists;
+        }
+
         [STAThread]
         private static void Main(string[] args)
         {
             if (PdfToImageCommandLine.TryRun(args)) return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Icon startupIcon = null;
+            try { startupIcon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
+            try
+            {
+                AppSettings settings = AppSettingsStore.Load();
+                if (ShouldShowSendToOnboarding(settings, SendToManager.Exists()))
+                {
+                    using (SendToOnboardingForm onboarding = new SendToOnboardingForm(startupIcon))
+                        onboarding.ShowDialog();
+                }
+
+                if (ShouldLaunchPdfToImages(args))
+                {
+                    using (PdfToImageForm form = new PdfToImageForm(args, startupIcon))
+                    {
+                        form.StartPosition = FormStartPosition.CenterScreen;
+                        Application.Run(form);
+                    }
+                    return;
+                }
+            }
+            finally
+            {
+                if (startupIcon != null) startupIcon.Dispose();
+            }
+
             Application.Run(new MainForm(args));
         }
     }

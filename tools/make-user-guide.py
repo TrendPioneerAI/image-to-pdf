@@ -47,7 +47,7 @@ def load_background(name):
 
 
 def page_label(draw, page, fill):
-    put(draw, (170, 150), f"FIELD NOTE  {page:02d} / 03", 42, fill, True)
+    put(draw, (170, 150), f"FIELD NOTE  {page:02d} / 04", 42, fill, True)
     rule(draw, 170, 230, 520, 230, ORANGE, 7)
 
 
@@ -63,28 +63,49 @@ def page_one():
     page = load_background("guide-bg-01.png")
     draw = ImageDraw.Draw(page)
     page_label(draw, 1, WHITE)
-    put(draw, (170, 370), "图片与 PDF\n双向转换。", 142, WHITE, True, spacing=18)
-    put(draw, (180, 790), "完全离线，\n打开就能用。", 78, "#D9E4FF", True, spacing=16)
-    put(draw, (180, 1050), "一份工具，两条清晰路径", 48, "#D9E4FF")
-    put(draw, (180, 1250), "01", 54, ORANGE, True)
-    put(draw, (350, 1250), "直接运行", 58, WHITE, True)
-    put(draw, (350, 1325), "双击“图片转PDF.exe”；无需安装，也不需要联网。", 38, "#D9E4FF")
-    put(draw, (180, 1515), "02", 54, ORANGE, True)
-    put(draw, (350, 1515), "选择转换方向", 58, WHITE, True)
-    put(draw, (350, 1590), "主界面处理图片转 PDF；顶部按钮进入 PDF 转图片。", 38, "#D9E4FF")
-    put(draw, (180, 1780), "03", 54, ORANGE, True)
-    put(draw, (350, 1780), "添加并导出", 58, WHITE, True)
-    put(draw, (350, 1855), "可选文件、文件夹，或直接拖入；确认设置后开始转换。", 38, "#D9E4FF")
-    rule(draw, 180, 2115, 760, 2115, BLUE, 5)
-    put(draw, (180, 2180), "图片输入：JPG / JPEG / PNG / BMP\nPDF 输入：Windows 10 / 11 可正常打开的 PDF", 38, "#D9E4FF", spacing=14)
-    put(draw, (180, 2490), "本地处理 · 不联网 · 不上传", 42, ORANGE, True)
+    put(draw, (170, 370), "图片与 PDF，\n右键自动分流。", 132, WHITE, True, spacing=18)
+    put(draw, (180, 760), "一个本地工具，两个转换方向。", 58, "#D9E4FF", True)
+    rule(draw, 180, 920, 760, 920, BLUE, 6)
+    put(draw, (180, 1010), "01", 54, ORANGE, True)
+    put(draw, (350, 1010), "同一个“发送到”入口", 58, WHITE, True)
+    put(draw, (350, 1090), "图片发送 → 图片转 PDF\nPDF 发送 → PDF 转图片", 42, "#D9E4FF", spacing=13)
+    put(draw, (180, 1370), "02", 54, ORANGE, True)
+    put(draw, (350, 1370), "批量处理，也能快速完成", 58, WHITE, True)
+    put(draw, (350, 1450), "支持多文件、文件夹和拖入；\nJPEG 快速档优先原图直嵌。", 42, "#D9E4FF", spacing=13)
+    put(draw, (180, 1730), "03", 54, ORANGE, True)
+    put(draw, (350, 1730), "完全离线，拿来就用", 58, WHITE, True)
+    put(draw, (350, 1810), "单 EXE、无需安装、无需网络；\n文件留在本机，不上传。", 42, "#D9E4FF", spacing=13)
+    put(draw, (180, 2200), "图片完整保留 · 不裁剪 · 不拉伸", 46, ORANGE, True)
+    put(draw, (180, 2310), "同一窗口即时换页；PDF 页左上角可随时返回。", 42, "#D9E4FF")
     return page
 
 
 def page_two():
+    page = load_background("guide-bg-01.png")
+    draw = ImageDraw.Draw(page)
+    page_label(draw, 2, WHITE)
+    put(draw, (170, 370), "选中文件，\n右键就转。", 142, WHITE, True, spacing=18)
+    put(draw, (180, 790), "“发送到”入口，\n是最快的使用方式。", 72, "#D9E4FF", True, spacing=16)
+    put(draw, (180, 1050), "首次只点一下，之后无需先打开软件", 48, "#D9E4FF")
+    put(draw, (180, 1250), "01", 54, ORANGE, True)
+    put(draw, (350, 1250), "首次点“一键开启”", 58, WHITE, True)
+    put(draw, (350, 1325), "双击“图片转PDF.exe”，在首次引导中点一次即可。", 38, "#D9E4FF")
+    put(draw, (180, 1515), "02", 54, ORANGE, True)
+    put(draw, (350, 1515), "以后右键就转", 58, WHITE, True)
+    put(draw, (350, 1590), "选择图片或 PDF，右击 →“发送到”→“图片转PDF”。", 38, "#D9E4FF")
+    put(draw, (180, 1780), "03", 54, ORANGE, True)
+    put(draw, (350, 1780), "随时可以移除", 58, WHITE, True)
+    put(draw, (350, 1855), "右上角齿轮 →“设置与关于”→“移除右键入口”。\n设置页也可随时重新添加。", 38, "#D9E4FF", spacing=12)
+    rule(draw, 180, 2115, 760, 2115, BLUE, 5)
+    put(draw, (180, 2180), "图片 → 图片转 PDF\nPDF → PDF 转图片\nWindows 11 若看不到入口，请先点“显示更多选项”", 38, "#D9E4FF", spacing=14)
+    put(draw, (180, 2560), "仅当前用户 · 随时可移除 · 本地处理", 42, ORANGE, True)
+    return page
+
+
+def page_three():
     page = load_background("guide-bg-02.png")
     draw = ImageDraw.Draw(page)
-    page_label(draw, 2, NAVY)
+    page_label(draw, 3, NAVY)
     put(draw, (170, 370), "图片转 PDF：\n先定页面。", 138, NAVY, True, spacing=18)
     put(draw, (180, 745), "默认 A4 竖向、无水印；图片完整保留，\n不裁剪、不拉伸。", 48, NAVY, spacing=16)
     rule(draw, 180, 1040, 1030, 1040, BLUE, 7)
@@ -99,10 +120,10 @@ def page_two():
     return page
 
 
-def page_three():
+def page_four():
     page = load_background("guide-bg-03.png")
     draw = ImageDraw.Draw(page)
-    page_label(draw, 3, NAVY)
+    page_label(draw, 4, NAVY)
     put(draw, (170, 370), "PDF 转图片：\n三步完成。", 138, NAVY, True, spacing=18)
     put(draw, (180, 745), "在主界面顶部点击“PDF 转图片”，\n可一次处理一个或多个 PDF。", 48, NAVY, spacing=16)
     rule(draw, 180, 900, 1050, 900, BLUE, 7)
@@ -117,8 +138,8 @@ def page_three():
     return page
 
 
-pages = [page_one(), page_two(), page_three()]
-final_names = ["01_快速开始.png", "02_图片转PDF.png", "03_PDF转图片.png"]
+pages = [page_one(), page_two(), page_three(), page_four()]
+final_names = ["01_核心亮点.png", "02_右键快速开始.png", "03_图片转PDF.png", "04_PDF转图片.png"]
 for index, page in enumerate(pages, 1):
     target = WORK / f"{index:02d}_master.png"
     page.save(target, "PNG", compress_level=6)

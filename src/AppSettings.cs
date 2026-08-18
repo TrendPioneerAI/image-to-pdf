@@ -9,6 +9,7 @@ namespace LocalImageToPdf
     {
         public string LastOutputDirectory { get; set; }
         public OutputTargetMode LastTargetMode { get; set; }
+        public bool SendToOnboardingCompleted { get; set; }
 
         public static AppSettings CreateDefault()
         {
@@ -18,7 +19,8 @@ namespace LocalImageToPdf
             return new AppSettings
             {
                 LastOutputDirectory = documents,
-                LastTargetMode = OutputTargetMode.Folder
+                LastTargetMode = OutputTargetMode.Folder,
+                SendToOnboardingCompleted = false
             };
         }
     }
@@ -30,6 +32,9 @@ namespace LocalImageToPdf
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
         private static readonly Regex ModePattern = new Regex(
             "\\\"lastTargetMode\\\"\\s*:\\s*\\\"(?<value>File|Folder)\\\"",
+            RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        private static readonly Regex SendToOnboardingPattern = new Regex(
+            "\\\"sendToOnboardingCompleted\\\"\\s*:\\s*(?<value>true|false)",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         public static string SettingsPath
@@ -65,6 +70,13 @@ namespace LocalImageToPdf
                     if (Enum.TryParse<OutputTargetMode>(modeMatch.Groups["value"].Value, true, out mode))
                         settings.LastTargetMode = mode;
                 }
+                Match onboardingMatch = SendToOnboardingPattern.Match(json);
+                if (onboardingMatch.Success)
+                {
+                    bool completed;
+                    if (Boolean.TryParse(onboardingMatch.Groups["value"].Value, out completed))
+                        settings.SendToOnboardingCompleted = completed;
+                }
             }
             catch
             {
@@ -81,7 +93,8 @@ namespace LocalImageToPdf
             string temporaryPath = SettingsPath + ".tmp-" + Guid.NewGuid().ToString("N");
             string json = "{\r\n" +
                 "  \"lastOutputDirectory\": \"" + JsonEscape(settings.LastOutputDirectory ?? String.Empty) + "\",\r\n" +
-                "  \"lastTargetMode\": \"" + settings.LastTargetMode.ToString() + "\"\r\n" +
+                "  \"lastTargetMode\": \"" + settings.LastTargetMode.ToString() + "\",\r\n" +
+                "  \"sendToOnboardingCompleted\": " + (settings.SendToOnboardingCompleted ? "true" : "false") + "\r\n" +
                 "}\r\n";
             try
             {
@@ -96,6 +109,13 @@ namespace LocalImageToPdf
                 try { if (File.Exists(temporaryPath)) File.Delete(temporaryPath); }
                 catch { }
             }
+        }
+
+        public static void MarkSendToOnboardingCompleted()
+        {
+            AppSettings settings = Load();
+            settings.SendToOnboardingCompleted = true;
+            Save(settings);
         }
 
         private static string JsonEscape(string value)

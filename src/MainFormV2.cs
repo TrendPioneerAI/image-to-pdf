@@ -361,6 +361,148 @@ namespace LocalImageToPdf
         }
     }
 
+    internal sealed class SendToOnboardingForm : Form
+    {
+        private bool _decisionSaved;
+
+        public SendToOnboardingForm(Icon icon)
+        {
+            Text = "开启右键快速转换";
+            Icon = icon;
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            ClientSize = new Size(640, 440);
+            BackColor = UiTheme.Surface;
+            Font = UiTheme.Font(9.5f, FontStyle.Regular);
+
+            Label title = new Label
+            {
+                Left = 30,
+                Top = 24,
+                Width = 560,
+                Height = 38,
+                Text = "开启右键快速转换",
+                Font = UiTheme.Font(16f, FontStyle.Bold),
+                ForeColor = UiTheme.Text
+            };
+            Label helper = new Label
+            {
+                Left = 30,
+                Top = 66,
+                Width = 560,
+                Height = 30,
+                Text = "只需设置一次，以后选中文件后右键发送即可。",
+                ForeColor = UiTheme.Muted,
+                Font = UiTheme.Font(10f, FontStyle.Regular)
+            };
+            Panel routes = new Panel
+            {
+                Left = 30,
+                Top = 108,
+                Width = 580,
+                Height = 132,
+                BackColor = UiTheme.PrimarySoft,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            routes.Controls.Add(new Label
+            {
+                Left = 24,
+                Top = 22,
+                Width = 520,
+                Height = 34,
+                Text = "图片发送  →  图片转 PDF",
+                ForeColor = UiTheme.Text,
+                Font = UiTheme.Font(12f, FontStyle.Bold)
+            });
+            routes.Controls.Add(new Label
+            {
+                Left = 24,
+                Top = 72,
+                Width = 520,
+                Height = 34,
+                Text = "PDF 发送  →  PDF 转图片",
+                ForeColor = UiTheme.Text,
+                Font = UiTheme.Font(12f, FontStyle.Bold)
+            });
+            Label privacy = new Label
+            {
+                Left = 30,
+                Top = 260,
+                Width = 580,
+                Height = 28,
+                Text = "仅添加当前用户的“发送到”快捷入口 · 不联网 · 不改变文件关联",
+                ForeColor = UiTheme.Muted
+            };
+            Label removal = new Label
+            {
+                Left = 30,
+                Top = 298,
+                Width = 580,
+                Height = 48,
+                Text = "以后需要清除：主界面右上角齿轮 → 设置与关于 → 移除右键入口。",
+                ForeColor = UiTheme.Text
+            };
+            Button defer = UiTheme.Button("暂不设置", 130, 44);
+            defer.Left = 300;
+            defer.Top = 365;
+            defer.Click += delegate { CompleteAndClose(); };
+            Button enable = UiTheme.Button("一键开启", 170, 44);
+            enable.Left = 440;
+            enable.Top = 365;
+            enable.BackColor = UiTheme.Primary;
+            enable.ForeColor = Color.White;
+            enable.FlatAppearance.BorderColor = UiTheme.Primary;
+            enable.Font = UiTheme.Font(10.5f, FontStyle.Bold);
+            enable.Click += EnableClicked;
+
+            Controls.Add(title);
+            Controls.Add(helper);
+            Controls.Add(routes);
+            Controls.Add(privacy);
+            Controls.Add(removal);
+            Controls.Add(defer);
+            Controls.Add(enable);
+            AcceptButton = enable;
+            CancelButton = defer;
+        }
+
+        private void EnableClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                SendToManager.Add();
+                CompleteAndClose();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(this, error.Message, "开启失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CompleteAndClose()
+        {
+            SaveDecision();
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void SaveDecision()
+        {
+            if (_decisionSaved) return;
+            try { AppSettingsStore.MarkSendToOnboardingCompleted(); }
+            catch { }
+            _decisionSaved = true;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            SaveDecision();
+            base.OnFormClosing(e);
+        }
+    }
+
     internal sealed class SettingsForm : Form
     {
         private const string ProjectUrl = "https://github.com/TrendPioneerAI/image-to-pdf";
@@ -380,7 +522,7 @@ namespace LocalImageToPdf
 
             Label title = new Label { Left = 30, Top = 24, Width = 470, Height = 32, Text = "设置", Font = UiTheme.Font(15f, FontStyle.Bold), ForeColor = UiTheme.Text };
             Label sendTitle = new Label { Left = 30, Top = 79, Width = 470, Height = 28, Text = "当前用户“发送到”右键入口", Font = UiTheme.Font(11f, FontStyle.Bold), ForeColor = UiTheme.Text };
-            Label sendHelper = new Label { Left = 30, Top = 110, Width = 470, Height = 42, Text = "软件不会自动修改系统菜单。只有点击下方按钮时才会添加或移除入口。", ForeColor = UiTheme.Muted };
+            Label sendHelper = new Label { Left = 30, Top = 110, Width = 470, Height = 42, Text = "首次启动引导可一键开启；这里始终保留添加和移除入口。", ForeColor = UiTheme.Muted };
             _sendToState = new Label { Left = 30, Top = 156, Width = 470, Height = 25, ForeColor = UiTheme.Muted };
             Button add = UiTheme.Button("添加到“发送到”", 160, 40);
             add.Left = 30;
@@ -399,7 +541,7 @@ namespace LocalImageToPdf
                 Top = 311,
                 Width = 500,
                 Height = 72,
-                Text = "图片与PDF转换  v1.1\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
+                Text = "图片与PDF转换  v1.2.0\r\n由 ZenthZhang 开发\r\nMIT License · 免费开源",
                 ForeColor = UiTheme.Muted
             };
             LinkLabel projectLink = new LinkLabel
@@ -451,6 +593,8 @@ namespace LocalImageToPdf
             try
             {
                 if (add) SendToManager.Add(); else SendToManager.Remove();
+                try { AppSettingsStore.MarkSendToOnboardingCompleted(); }
+                catch { }
                 UpdateSendToState();
                 MessageBox.Show(this, add ? "已添加到当前用户的“发送到”菜单。" : "已移除右键入口。", "右键入口", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -543,6 +687,8 @@ namespace LocalImageToPdf
         };
         private CancellationTokenSource _previewCancellation;
         private CancellationTokenSource _exportCancellation;
+        private Control _imageToPdfView;
+        private PdfToImageForm _pdfConverter;
         private int _previewGeneration;
         private bool _buildingUi;
 
@@ -561,9 +707,14 @@ namespace LocalImageToPdf
             try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
             AllowDrop = true;
             BuildUi();
+            PreparePdfConverter();
             DragEnter += HandleDragEnter;
             DragDrop += HandleDragDrop;
-            Shown += delegate { HandleStartupInputs(); };
+            Shown += delegate
+            {
+                HandleStartupInputs();
+                if (_imageToPdfView.Visible && _pdfConverter != null) _pdfConverter.Hide();
+            };
         }
 
         public void RotateItem(ImageItem item, int delta)
@@ -623,7 +774,8 @@ namespace LocalImageToPdf
             root.Controls.Add(BuildHeader(), 0, 0);
             root.Controls.Add(BuildContent(), 0, 1);
             root.Controls.Add(BuildFooter(), 0, 2);
-            Controls.Add(root);
+            _imageToPdfView = root;
+            Controls.Add(_imageToPdfView);
             EnableDropRecursive(root);
             _buildingUi = false;
             UpdatePageButtons();
@@ -1153,8 +1305,44 @@ namespace LocalImageToPdf
         private void OpenPdfConverter(IEnumerable<string> initialPaths)
         {
             if (_exportCancellation != null) return;
-            using (PdfToImageForm dialog = new PdfToImageForm(initialPaths, Icon))
-                dialog.ShowDialog(this);
+            PreparePdfConverter();
+            _pdfConverter.AddExternalInputs(initialPaths);
+            SuspendLayout();
+            _pdfConverter.Show();
+            _pdfConverter.BringToFront();
+            _imageToPdfView.Hide();
+            Text = "PDF转图片";
+            ResumeLayout(true);
+        }
+
+        private void PreparePdfConverter()
+        {
+            if (_pdfConverter != null && !_pdfConverter.IsDisposed) return;
+            _pdfConverter = new PdfToImageForm(new string[0], Icon, true)
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill,
+                ShowInTaskbar = false,
+                Visible = false
+            };
+            _pdfConverter.ReturnToImagesRequested += ReturnToImageConverter;
+            Controls.Add(_pdfConverter);
+            _pdfConverter.CreateControl();
+            _pdfConverter.PerformLayout();
+            _pdfConverter.Show();
+            _pdfConverter.SendToBack();
+            _imageToPdfView.BringToFront();
+        }
+
+        private void ReturnToImageConverter(object sender, EventArgs e)
+        {
+            SuspendLayout();
+            _pdfConverter.Hide();
+            _imageToPdfView.Show();
+            _imageToPdfView.BringToFront();
+            Text = "图片转PDF";
+            ResumeLayout(true);
             AppSettings latest = AppSettingsStore.Load();
             _settings.LastOutputDirectory = latest.LastOutputDirectory;
             if (_targetMode == OutputTargetMode.Folder && _outputPathBox != null)
@@ -1752,6 +1940,11 @@ namespace LocalImageToPdf
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (_exportCancellation != null) _exportCancellation.Cancel();
+            if (_pdfConverter != null && !_pdfConverter.IsDisposed)
+            {
+                _pdfConverter.ReturnToImagesRequested -= ReturnToImageConverter;
+                _pdfConverter.Close();
+            }
             CancelPreviewQueue();
             foreach (ModernImageCard card in _cardMap.Values) card.ReleasePreviewReference();
             foreach (ImageItem item in _items) item.DisposePreview();
